@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import signupImg from "../../../Assets/signup.svg";
 import "./signup.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -8,6 +10,15 @@ const Signup = () => {
   const [username, setUsername] = useState("");
   const [fullname, setFullname] = useState("");
   const [cPassword, setCPassword] = useState("");
+  const [show, setShow] = useState(false);
+  const [show2, setShow2] = useState(false);
+
+  const handleShowHide = () => {
+    setShow(!show);
+  };
+  const handleShowHide2 = () => {
+    setShow2(!show2);
+  };
 
   return (
     <>
@@ -64,7 +75,7 @@ const Signup = () => {
                 Password
               </label>{" "}
               <input
-                type="password"
+                type={show ? "text" : "password"}
                 className="input-field"
                 id="password"
                 name="password"
@@ -72,13 +83,26 @@ const Signup = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+              {show ? (
+                <FontAwesomeIcon
+                  icon={faEye}
+                  className="eyeimg"
+                  onClick={handleShowHide}
+                />
+              ) : (
+                <FontAwesomeIcon
+                  icon={faEyeSlash}
+                  onClick={handleShowHide}
+                  className="eyeimg"
+                />
+              )}
             </div>
             <div className="form-group">
               <label htmlFor="email" className="form-label">
                 Confirm Password
               </label>{" "}
               <input
-                type="password"
+                type={show ? "text" : "password"}
                 className="input-field"
                 name="password"
                 required
@@ -86,6 +110,19 @@ const Signup = () => {
                 onChange={(e) => setCPassword(e.target.value)}
               />
             </div>
+            {show ? (
+              <FontAwesomeIcon
+                icon={faEye}
+                className="eyeimg"
+                onClick={handleShowHide}
+              />
+            ) : (
+              <FontAwesomeIcon
+                icon={faEyeSlash}
+                onClick={handleShowHide}
+                className="eyeimg"
+              />
+            )}
             <button type="submit" className="signup-btn">
               Signup
             </button>{" "}

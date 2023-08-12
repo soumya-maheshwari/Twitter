@@ -71,3 +71,150 @@ button[type="submit"]:hover {
   cursor: pointer;
   margin-top: 14px;
 }
+@media (max-width: 670px) {
+  .container-signup {
+    max-width: 600px;
+    margin-top: 4%;
+    /* height: 90vh; */
+  }
+  .left {
+    display: none;
+  }
+  .form-signup {
+    /* width: 100%; */
+    padding-left: 13vw;
+  }
+  .input-field {
+    width: 70vw;
+  }
+  .signup-head {
+    margin-left: 10vw;
+  }
+  .eyeimg {
+    margin-left: 21vw;
+  }
+  .signup-btn {
+    width: 70vw;
+    /* margin-top: -10px; */
+  }
+}
+
+@media (max-width: 600px) {
+  .container-signup {
+    max-width: 500px;
+    /* margin-top: 7%; */
+    /* height: 90vh; */
+  }
+  .signup-head {
+    margin-left: 14vw;
+  }
+}
+
+@media (max-width: 530px) {
+  .container-signup {
+    max-width: 460px;
+    margin-top: 7%;
+    height: 90vh;
+  }
+  .signup-head {
+    margin-left: 14vw;
+  }
+}
+
+@media (max-width: 466px) {
+  .container-signup {
+    max-width: 400px;
+  }
+  .signup-head {
+    margin-left: 14vw;
+  }
+  .eyeimg {
+    margin-left: 60vw;
+  }
+}
+
+@media (max-width: 419px) {
+  .container-signup {
+    max-width: 340px;
+  }
+  .signup-head {
+    margin-left: 10vw;
+  }
+  .input-field {
+    /* margin-top: -10px; */
+    /* width: 53vw; */
+  }
+  .eyeimg {
+    margin-left: 53vw;
+  }
+}
+
+@media (max-width: 372px) {
+  .container-signup {
+    max-width: 340px;
+    margin-top: 7%;
+    height: 90vh;
+  }
+  .eyeimg {
+    margin-left: 52vw;
+  }
+}
+
+@media (max-width: 363px) {
+  .container-signup {
+    max-width: 340px;
+    margin-top: 7%;
+    height: 90vh;
+  }
+  .eyeimg {
+    margin-left: 52vw;
+  }
+}
+@media (max-width: 357px) {
+  .container-signup {
+    max-width: 290px;
+    margin-top: 7%;
+    height: 90vh;
+  }
+  .eyeimg {
+    margin-left: 50vw;
+  }
+}
+
+@media (max-width: 302px) {
+  .container-signup {
+    max-width: 250px;
+    margin-top: 7%;
+    height: 90vh;
+  }
+  .eyeimg {
+    margin-left: 50vw;
+  }
+  .heading {
+    margin-left: 5vw;
+  }
+}
+@media (max-width: 280px) {
+  .signup-head {
+    margin-left: 1vw;
+  }
+  .container-signup {
+    max-width: 217px;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1024px) {
+  .heading {
+    margin-top: 70px;
+  }
+  .form-class {
+    margin-top: 25px;
+  }
+
+  .container-signup {
+    max-width: 940px;
+  }
+  .eyeimg {
+    margin-left: 28vw;
+  }
+}

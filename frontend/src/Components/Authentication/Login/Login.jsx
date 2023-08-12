@@ -1,10 +1,18 @@
 import React, { useState } from "react";
 import "./login.css";
 import loginImg from "../../../Assets/login.svg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [show, setShow] = useState(false);
+
+  const handleShowHide = () => {
+    setShow(!show);
+  };
+
   return (
     <>
       <div className="container-login">
@@ -34,7 +42,7 @@ const Login = () => {
                 Password
               </label>{" "}
               <input
-                type="password"
+                type={show ? "text" : "password"}
                 className="input-field"
                 id="password"
                 name="password"
@@ -42,6 +50,19 @@ const Login = () => {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+              {show ? (
+                <FontAwesomeIcon
+                  icon={faEye}
+                  className="eyeimg"
+                  onClick={handleShowHide}
+                />
+              ) : (
+                <FontAwesomeIcon
+                  icon={faEyeSlash}
+                  onClick={handleShowHide}
+                  className="eyeimg"
+                />
+              )}
             </div>
             <button type="submit" className="login-btn">
               Login
