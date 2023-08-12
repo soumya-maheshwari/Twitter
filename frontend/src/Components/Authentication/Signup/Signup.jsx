@@ -3,7 +3,7 @@ import signupImg from "../../../Assets/signup.svg";
 import "./signup.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import { registerUserThunk } from "../../../Redux/authSlice";
@@ -181,9 +181,16 @@ const Signup = () => {
             <button type="submit" className="signup-btn">
               Signup
             </button>{" "}
+            <p className="texttt">
+              Already have an account?
+              <span className="linkk">
+                <Link to="/">LOGIN</Link>
+              </span>
+            </p>
           </form>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 };

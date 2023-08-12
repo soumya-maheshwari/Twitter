@@ -3,7 +3,7 @@ import "./login.css";
 import loginImg from "../../../Assets/login.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { loginUserThunk } from "../../../Redux/authSlice";
 import { ToastContainer, toast } from "react-toastify";
@@ -122,6 +122,12 @@ const Login = () => {
             <button type="submit" className="login-btn">
               Login
             </button>{" "}
+            <p className="textt">
+              Don't have an account?
+              <span className="link">
+                <Link to="/signup">SIGNUP</Link>
+              </span>
+            </p>
           </form>
         </div>
       </div>

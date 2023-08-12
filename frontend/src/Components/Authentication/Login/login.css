@@ -26,6 +26,7 @@ body {
   font-size: 60px;
   font-weight: bolder;
   padding-right: 40px;
+  align-items: center;
   z-index: -1;
 }
 
@@ -82,6 +83,19 @@ button[type="submit"]:hover {
   top: -30px;
 }
 
+.textt {
+  /* display: flex; */
+  margin-top: 25px;
+  font-size: 19px;
+  color: black;
+  display: block;
+}
+
+.link a {
+  text-decoration: none;
+  font-weight: bolder;
+  padding-left: 10px;
+}
 @media (max-width: 970px) {
   .container-login {
     max-width: 880px;
@@ -106,8 +120,6 @@ button[type="submit"]:hover {
 @media (max-width: 760px) {
   .container-login {
     max-width: 640px;
-    /* margin-top: 7%; */
-    /* height: 90vh; */
   }
   .eyeimg {
     margin-left: 30vw;
@@ -115,6 +127,7 @@ button[type="submit"]:hover {
 
   .login-head {
     font-size: 48px;
+    text-align: center;
   }
 
   .textt {
@@ -154,9 +167,7 @@ button[type="submit"]:hover {
   .input-field {
     width: 70vw;
   }
-  .login-head {
-    margin-left: 10vw;
-  }
+
   .eyeimg {
     margin-left: 21vw;
   }
@@ -168,12 +179,7 @@ button[type="submit"]:hover {
 
 @media (max-width: 600px) {
   .container-login {
-    max-width: 500px;
-    /* margin-top: 7%; */
-    /* height: 90vh; */
-  }
-  .login-head {
-    margin-left: 14vw;
+    max-width: 540px;
   }
 }
 
@@ -183,18 +189,13 @@ button[type="submit"]:hover {
     margin-top: 7%;
     height: 90vh;
   }
-  .login-head {
-    margin-left: 14vw;
-  }
 }
 
-@media (max-width: 466px) {
+@media (max-width: 468px) {
   .container-login {
-    max-width: 400px;
+    max-width: 390px;
   }
-  .login-head {
-    margin-left: 14vw;
-  }
+
   .eyeimg {
     margin-left: 60vw;
   }
@@ -204,9 +205,7 @@ button[type="submit"]:hover {
   .container-login {
     max-width: 340px;
   }
-  .login-head {
-    margin-left: 10vw;
-  }
+
   .input-field {
     /* margin-top: -10px; */
     /* width: 53vw; */
@@ -257,23 +256,14 @@ button[type="submit"]:hover {
   .eyeimg {
     margin-left: 50vw;
   }
-  .heading {
-    margin-left: 5vw;
-  }
 }
 @media (max-width: 280px) {
-  .login-head {
-    margin-left: 1vw;
-  }
   .container-login {
     max-width: 217px;
   }
 }
 
 @media (min-width: 1024px) and (max-width: 1024px) {
-  .heading {
-    margin-top: 70px;
-  }
   .form-class {
     margin-top: 25px;
   }

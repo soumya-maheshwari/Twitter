@@ -22,10 +22,12 @@ body {
   margin: 16vh 0vw 23vw 3vh;
 }
 .signup-head {
-  margin-top: 2vh;
-  font-size: 60px;
+  margin-top: 1vh;
+  font-size: 49px;
   font-weight: bolder;
-  padding-right: 40px;
+  /* padding-right: 40px;
+   */
+  text-align: center;
   z-index: -1;
 }
 
@@ -69,8 +71,22 @@ button[type="submit"]:hover {
   border-radius: 5px;
   font-weight: 600;
   cursor: pointer;
-  margin-top: 14px;
+  margin-top: 1px;
 }
+
+.texttt {
+  margin-top: 5px;
+  font-size: 16px;
+  color: black;
+  display: block;
+}
+
+.linkk a {
+  text-decoration: none;
+  font-weight: bolder;
+  padding-left: 10px;
+}
+
 @media (max-width: 670px) {
   .container-signup {
     max-width: 600px;
@@ -85,13 +101,11 @@ button[type="submit"]:hover {
     padding-left: 13vw;
   }
   .input-field {
-    width: 70vw;
+    width: 60vw;
   }
-  .signup-head {
-    margin-left: 10vw;
-  }
+
   .eyeimg {
-    margin-left: 21vw;
+    margin-left: 61vw;
   }
   .signup-btn {
     width: 70vw;
@@ -105,9 +119,6 @@ button[type="submit"]:hover {
     /* margin-top: 7%; */
     /* height: 90vh; */
   }
-  .signup-head {
-    margin-left: 14vw;
-  }
 }
 
 @media (max-width: 530px) {
@@ -116,18 +127,13 @@ button[type="submit"]:hover {
     margin-top: 7%;
     height: 90vh;
   }
-  .signup-head {
-    margin-left: 14vw;
-  }
 }
 
 @media (max-width: 466px) {
   .container-signup {
     max-width: 400px;
   }
-  .signup-head {
-    margin-left: 14vw;
-  }
+
   .eyeimg {
     margin-left: 60vw;
   }
@@ -137,12 +143,10 @@ button[type="submit"]:hover {
   .container-signup {
     max-width: 340px;
   }
-  .signup-head {
-    margin-left: 10vw;
-  }
+
   .input-field {
     /* margin-top: -10px; */
-    /* width: 53vw; */
+    width: 53vw;
   }
   .eyeimg {
     margin-left: 53vw;
@@ -190,9 +194,6 @@ button[type="submit"]:hover {
   .eyeimg {
     margin-left: 50vw;
   }
-  .heading {
-    margin-left: 5vw;
-  }
 }
 @media (max-width: 280px) {
   .signup-head {
@@ -204,9 +205,6 @@ button[type="submit"]:hover {
 }
 
 @media (min-width: 1024px) and (max-width: 1024px) {
-  .heading {
-    margin-top: 70px;
-  }
   .form-class {
     margin-top: 25px;
   }
