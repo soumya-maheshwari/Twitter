@@ -1,0 +1,36 @@
+.sidebar {
+  box-sizing: border-box;
+  position: fixed;
+  width: 24.5vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(15, 15, 15);
+}
+
+.sidebar-head {
+  margin-left: 3.5vw;
+  margin-top: 60px;
+  font-weight: 500;
+  font-size: 39px;
+  color: rgb(174, 113, 215);
+}
+.lists-item {
+  list-style: none;
+  margin-top: 30px;
+  font-weight: 400;
+  font-size: 24px;
+  color: rgba(224, 216, 216, 0.9);
+}
+.list-item {
+  margin-bottom: 35px;
+  cursor: pointer;
+}
+.list-icon {
+  padding-right: 1vw;
+  opacity: 0.8;
+  width: 20px;
+}
+#list-name {
+  opacity: 0.9;
+}

@@ -1,0 +1,13 @@
+.home-page {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 70vw;
+  top: 90px;
+  padding: 10px 4px 20px 8px;
+  background: #1a1c1e;
+  border-radius: 8px;
+  position: fixed;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
