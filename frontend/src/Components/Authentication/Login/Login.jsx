@@ -1,16 +1,71 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./login.css";
 import loginImg from "../../../Assets/login.svg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { loginUserThunk } from "../../../Redux/authSlice";
+import { ToastContainer, toast } from "react-toastify";
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const sm = useSelector((state) => state.auth);
+  console.log(sm);
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [show, setShow] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleShowHide = () => {
     setShow(!show);
+  };
+
+  const userData = {
+    email,
+    password,
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    dispatch(loginUserThunk(userData))
+      .then((res) => {
+        console.log(res);
+        if (res.payload.data.success) {
+          toast.success(`${res.payload.data.msg}`, {
+            position: "top-right",
+            // theme: "dark",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          });
+
+          // setTimeout(() => {
+          //   navigate("/");
+          // }, 3000);
+
+          localStorage.setItem("userInfo", JSON.stringify(sm.profile));
+        } else {
+          toast.error(`${res.payload.data.msg}`, {
+            position: "top-right",
+            // theme: "DARK",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          });
+        }
+        return res;
+      })
+      .catch((err) => {
+        console.log(err);
+        return err.reponse;
+      });
   };
 
   return (
@@ -22,7 +77,7 @@ const Login = () => {
 
         <div className="form-login">
           <h1 className="login-head">Welcome back</h1>
-          <form action="" className="form-class">
+          <form action="" className="form-class" onSubmit={handleLogin}>
             <div className="form-group">
               <label htmlFor="email" className="form-label">
                 Email
@@ -70,6 +125,7 @@ const Login = () => {
           </form>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 };

@@ -75,7 +75,7 @@ const login = async (req, res, next) => {
     return res.status(200).json({
       id: user._id,
       success: true,
-      msg: `WELCOME !! login successful`,
+      msg: `WELCOME ${user.name} !! login successful`,
       user,
       accessToken,
       // refreshToken,
@@ -90,10 +90,6 @@ const signup = async (req, res, next) => {
   try {
     const { name, username, email, password } = req.body;
 
-    // let user = req.user;
-    // if (user.verify == true) {
-    //   return next(new ErrorHandler(400, "user by this email already exists"));
-    // }
     const isUserExists = await User.findOne({ email: email.toLowerCase() });
 
     if (isUserExists) {
@@ -122,9 +118,7 @@ const signup = async (req, res, next) => {
     const user = new User({
       name,
       email,
-      // hashPassword,
       password: hashPassword,
-      // password,
       username,
     });
 
