@@ -6,7 +6,11 @@ const Homepage = () => {
   return (
     <>
       <Sidebar />
-      {/* <div className="home-page"></div> */}
+      <div className="home-page">
+        <div className="home-center">
+          <div className="home-head">home</div>
+        </div>
+      </div>
     </>
   );
 };

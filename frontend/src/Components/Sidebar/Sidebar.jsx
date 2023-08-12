@@ -10,31 +10,32 @@ import bell2Img from "../../Assets/bell2.svg";
 import bookmark2Img from "../../Assets/bookmark2.svg";
 import profile2Img from "../../Assets/profile2.svg";
 import message2Img from "../../Assets/message2.svg";
+import searchImg from "../../Assets/search.svg";
 
 const Sidebar = () => {
   const handleHome = () => {
     document.getElementById("home-icon").src = homeImg2;
-    document.getElementById("list-name").style.color = "rgb(174, 113, 215)";
+    // document.getElementById("list-name").style.color = "rgb(174, 113, 215)";
   };
   const handleBell = () => {
     document.getElementById("bell-icon").src = bell2Img;
-    document.getElementById("bell-name").style.color = "rgb(174, 113, 215)";
+    // document.getElementById("bell-name").style.color = "rgb(174, 113, 215)";
   };
 
   const handleBookmark = () => {
-    document.getElementById("bookmarks-icon").src = bookmark2Img;
-    document.getElementById("bookmarks-name").style.color =
-      "rgb(174, 113, 215)";
+    document.getElementById("bookmark-icon").src = bookmark2Img;
+    // document.getElementById("bookmarks-name").style.color =
+    //   "rgb(174, 113, 215)";
   };
 
   const handleProfile = () => {
     document.getElementById("profile-icon").src = profile2Img;
-    document.getElementById("profile-name").style.color = "rgb(174, 113, 215)";
+    // document.getElementById("profile-name").style.color = "rgb(174, 113, 215)";
   };
 
   const handleMessage = () => {
     document.getElementById("message-icon").src = bookmark2Img;
-    document.getElementById("message-name").style.color = "rgb(174, 113, 215)";
+    // document.getElementById("message-name").style.color = "rgb(174, 113, 215)";
   };
   return (
     <>
