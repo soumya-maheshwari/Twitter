@@ -2,8 +2,8 @@ import "./App.css";
 import Login from "./Components/Authentication/Login/Login";
 import Signup from "./Components/Authentication/Signup/Signup";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Sidebar from "./Components/Sidebar/Sidebar";
 import Homepage from "./Components/Homepage/Homepage";
+import Profilepage from "./Components/Profilepage/Profilepage";
 function App() {
   return (
     <>
@@ -12,6 +12,7 @@ function App() {
           <Route path="/" exact element={<Login />} />
           <Route path="/signup" exact element={<Signup />} />
           <Route path="/homePage" exact element={<Homepage />} />
+          <Route path="/profile" exact element={<Profilepage />} />
         </Routes>
       </BrowserRouter>
     </>
