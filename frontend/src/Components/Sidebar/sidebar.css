@@ -1,3 +1,18 @@
+.navbar {
+  box-sizing: border-box;
+  position: fixed;
+  width: 100vw;
+  height: 64px;
+  background-color: black;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  z-index: 100;
+  color: white;
+}
+.navbar1 {
+  display: flex;
+  margin-left: 23vw;
+  margin-top: 14px;
+}
 .sidebar {
   box-sizing: border-box;
   position: fixed;

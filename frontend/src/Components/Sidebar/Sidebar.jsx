@@ -39,6 +39,12 @@ const Sidebar = () => {
   };
   return (
     <>
+      {/* <div className="navbar">
+        <p className="navbar-head">twitter</p>
+        <div className="navbar1">
+          <p className="navbar1-head">HOME</p>
+        </div>
+      </div> */}
       <div className="sidebar">
         <p className="sidebar-head"></p>
         <ul className="lists-item">
