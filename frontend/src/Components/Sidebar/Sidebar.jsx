@@ -11,6 +11,7 @@ import bookmark2Img from "../../Assets/bookmark2.svg";
 import profile2Img from "../../Assets/profile2.svg";
 import message2Img from "../../Assets/message2.svg";
 import searchImg from "../../Assets/search.svg";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   const handleHome = () => {
@@ -48,10 +49,13 @@ const Sidebar = () => {
       <div className="sidebar">
         <p className="sidebar-head"></p>
         <ul className="lists-item">
-          <li className="list-item" onClick={handleHome}>
-            <img src={homeImg} alt="" className="list-icon" id="home-icon" />
-            <span id="home-name">Home</span>
-          </li>
+          <Link to="/homePage">
+            {" "}
+            <li className="list-item" onClick={handleHome}>
+              <img src={homeImg} alt="" className="list-icon" id="home-icon" />
+              <span id="home-name">Home</span>
+            </li>
+          </Link>
           <li className="list-item" onClick={handleBell}>
             <img src={bellImg} alt="" className="list-icon" id="bell-icon" />
 
@@ -66,16 +70,18 @@ const Sidebar = () => {
             />
             <span className="bookmarks-name">Bookmarks</span>
           </li>{" "}
-          <li className="list-item" onClick={handleProfile}>
-            <img
-              src={profileImg}
-              alt=""
-              className="list-icon"
-              id="profile-icon"
-            />
+          <Link to="/profile">
+            <li className="list-item" onClick={handleProfile}>
+              <img
+                src={profileImg}
+                alt=""
+                className="list-icon"
+                id="profile-icon"
+              />
 
-            <span className="profile-name">Profile</span>
-          </li>{" "}
+              <span className="profile-name">Profile</span>
+            </li>{" "}
+          </Link>
           <li className="list-item" onClick={handleMessage}>
             <img
               src={messageImg}

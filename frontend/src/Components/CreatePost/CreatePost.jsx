@@ -11,6 +11,9 @@ const CreatePost = () => {
   const [uploadImg, setUploadImg] = useState(null);
   const [uploadVdeo, setUploadVdeo] = useState(null);
 
+  const user = JSON.parse(localStorage.getItem("userInfo"));
+  console.log(user);
+
   const userData = {
     content,
     uploadImg,
@@ -42,8 +45,8 @@ const CreatePost = () => {
       <div className="create-post">
         <div className="create-post-div1">
           <div className="create-post-div">
-            <p className="user-name">name</p>
-            <p className="username">@username</p>
+            <p className="user-name">{user.user.name}</p>
+            <p className="username">@{user.user.username}</p>
           </div>
         </div>
 

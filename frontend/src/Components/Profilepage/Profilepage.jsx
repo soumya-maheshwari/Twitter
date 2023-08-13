@@ -4,6 +4,9 @@ import Sidebar from "../Sidebar/Sidebar";
 import avatarImg from "../../Assets/avatar.svg";
 
 const Profilepage = () => {
+  const user = JSON.parse(localStorage.getItem("userInfo"));
+  console.log(user);
+
   return (
     <>
       <Sidebar />
@@ -28,9 +31,9 @@ const Profilepage = () => {
         </div>
 
         <div className="profile3">
-          <p className="profile-info1">name</p>
-          <p className="profile-info2">email</p>
-          <p className="profile-info3">@username</p>
+          <p className="profile-info1">{user.user.name}</p>
+          <p className="profile-info2">{user.user.email}</p>
+          <p className="profile-info3">@{user.user.username}</p>
           <p className="profile-info4">bio</p>
         </div>
       </div>
