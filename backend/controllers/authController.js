@@ -149,6 +149,27 @@ const signup = async (req, res, next) => {
     });
   } catch (error) {
     next(error);
+    console.log(error);
+  }
+};
+
+const searchUser = async (req, res, next) => {
+  try {
+    const { search } = req.query;
+    const user = await User.find({
+      $or: [
+        { username: { $regex: search, $options: "i" } }, // Case-insensitive username search
+        { name: { $regex: search, $options: "i" } }, // Case-insensitive email search
+      ],
+    });
+
+    res.status(200).json({
+      user,
+      success: true,
+    });
+  } catch (error) {
+    next(error);
+    console.log(error);
   }
 };
 
@@ -158,4 +179,5 @@ module.exports = {
   signup,
   // accessToken,
   refreshToken,
+  searchUser,
 };

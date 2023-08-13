@@ -4,6 +4,7 @@ require("dotenv").config();
 const cors = require("cors");
 const app = express();
 const authRoutes = require("./routes/authRoutes");
+const postRoutes = require("./routes/postRoutes");
 
 const { errorMiddleware } = require("./middleware/ErrorHandler");
 app.use(express.json());
@@ -25,4 +26,5 @@ console.log(`Connected to port ${process.env.PORT}`);
 app.use(errorMiddleware);
 
 //Routes
-app.use("/auth", authRoutes, errorMiddleware);
+app.use("/auth", errorMiddleware, authRoutes);
+app.use("/post", errorMiddleware, postRoutes);
