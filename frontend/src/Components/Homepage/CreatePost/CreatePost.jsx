@@ -92,7 +92,7 @@ const CreatePost = () => {
             <p className="post-text">Share something with your followers</p>
 
             <div className="input-post">
-              <input
+              <textarea
                 type="text"
                 className="write-post-text"
                 // required

@@ -1,13 +1,19 @@
+.profile-head {
+  width: 100vw;
+  height: 100vh;
+  /* background-color: #260535; */
+}
+
 .profile-page {
   width: 60vw;
   height: fit-content;
-  margin-left: 33vw;
+  margin-left: 30vw;
   position: absolute;
   top: 100px;
-  padding-bottom: 5vh;
+  padding-bottom: 1vh;
   background: #121212;
-  border-radius: 8px;
-  padding-bottom: 15vh;
+  border-radius: 20px;
+  padding-bottom: 10vh;
   color: white;
 }
 .profile-body {
@@ -23,6 +29,7 @@
 .user-img {
   margin-left: 3vw;
   width: 190px;
+  cursor: pointer;
   height: 190px;
   border-radius: 50%;
 }
@@ -64,29 +71,30 @@
 
 .profile-info1 {
   font-weight: 500;
-  font-size: 1.2rem;
+  font-size: 1.7rem;
   line-height: 27px;
-  margin-bottom: 0.2vh;
+  margin-bottom: 0.7vh;
   color: white;
 }
 
 .profile-info3 {
   font-weight: 400;
-  margin-bottom: 0.6vh;
+  margin-bottom: 0.8vh;
   color: rgba(255, 255, 255, 0.6);
+  font-size: 21px;
 }
 
 .profile-info2 {
   font-weight: 400;
   width: 20vw;
   height: auto;
-  font-size: 16px;
-  margin-bottom: 0.3vh;
+  font-size: 18px;
+  margin-bottom: 0.8vh;
   color: rgba(255, 255, 255, 0.9);
 }
 .profile-info4 {
   font-weight: 400;
-  font-size: 14px;
+  font-size: 19px;
   line-height: 20px;
   margin-bottom: 3vh;
   color: rgba(255, 255, 255, 0.9);
