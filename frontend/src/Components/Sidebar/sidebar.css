@@ -16,7 +16,7 @@
 .sidebar {
   box-sizing: border-box;
   position: fixed;
-  width: 24.5vw;
+  width: 21.1vw;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -41,11 +41,65 @@
   margin-bottom: 35px;
   cursor: pointer;
 }
-.list-icon {
-  padding-right: 1vw;
-  opacity: 0.8;
-  width: 20px;
-}
+
 #list-name {
   opacity: 0.9;
+}
+
+.home-icon {
+  padding-right: 1vw;
+  opacity: 0.8;
+  width: 30px;
+  align-items: center;
+  text-align: center;
+}
+
+#home-name {
+  font-size: 27px;
+}
+
+.bell-icon {
+  padding-right: 1vw;
+  opacity: 0.8;
+  width: 24px;
+  align-items: center;
+  text-align: center;
+}
+
+.bell-name {
+  font-size: 25px;
+}
+
+.bookmark-icon {
+  padding-right: 1.5vw;
+  opacity: 0.8;
+  width: 17px;
+  align-items: center;
+  text-align: center;
+}
+
+.bookmarks-name {
+  font-size: 25px;
+}
+
+.profile-icon {
+  padding-right: 1.2vw;
+  opacity: 0.8;
+  width: 23px;
+  align-items: center;
+  text-align: center;
+}
+.profile-name {
+  font-size: 25px;
+}
+
+.message-icon {
+  padding-right: 1.3vw;
+  opacity: 0.8;
+  width: 22px;
+  align-items: center;
+  text-align: center;
+}
+.message-name {
+  font-size: 25px;
 }

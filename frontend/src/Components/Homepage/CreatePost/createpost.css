@@ -42,6 +42,7 @@
 .create-post-text {
   /* display: flex; */
 }
+
 .post-text {
   margin-top: 15px;
   font-weight: 300;
@@ -56,14 +57,17 @@
   margin-left: 1vw;
 }
 .write-post-text {
-  width: 36.5vw;
+  width: 26.5vw;
   border: none;
+  height: 60px;
   outline: none;
   background: none;
   font-weight: 500;
   font-size: 16px;
   color: rgba(255, 255, 255, 0.8);
   flex-wrap: wrap;
+  padding-left: 20px;
+  background-color: rgb(17, 17, 17);
 }
 .create-btn {
   border: none;
@@ -74,7 +78,8 @@
   cursor: pointer;
   font-weight: 300;
   font-size: 17px;
-  margin-top: 10vh;
+  margin-top: 4vh;
+  margin-left: 1vw;
   color: rgba(255, 255, 255, 0.9);
   background-color: rgb(174, 113, 215, 0.9);
 }
@@ -82,6 +87,7 @@
 .create-post2 {
   display: flex;
   margin-top: 16px;
+  /* align-items: center; */
 }
 
 .create-imgs {
@@ -90,8 +96,9 @@
 }
 .img-icon {
   cursor: pointer;
-  margin-right: 2.9vw;
-  margin-top: 0.2vh;
+  margin-right: 2.1vw;
+  margin-top: 0.7vh;
+  margin-left: 1vw;
 }
 
 #upload-img {
@@ -103,8 +110,8 @@
 .vdeo-icon {
   height: 34px;
   cursor: pointer;
-  margin-right: 0.9vw;
-  margin-top: -0.1vh;
+  margin-right: 2.1vw;
+  /* margin-top: -0.1vh; */
 }
 
 #upload-vdeo {
@@ -118,6 +125,7 @@
   font-size: 12px;
   margin-top: 3px;
   color: rgba(255, 255, 255, 0.6);
+  margin-left: 1vw;
 }
 
 .video-text {
@@ -135,4 +143,19 @@
   width: 30vw;
   height: 30vh;
   margin-top: 2vh;
+}
+
+.emoji-icon {
+  cursor: pointer;
+  margin-right: 2.1vw;
+  margin-top: 0.7vh;
+  height: 27px;
+  cursor: pointer;
+  margin-right: 2.1vw;
+}
+
+.emoji-text {
+  font-size: 12px;
+  margin-top: 4px;
+  color: rgba(255, 255, 255, 0.6);
 }

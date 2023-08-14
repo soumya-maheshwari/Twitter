@@ -5,6 +5,7 @@ import vdeo from "../../../Assets/vdeo.svg";
 import { useDispatch } from "react-redux";
 import { createPostThunk } from "../../../Redux/postSlice";
 import { ToastContainer, toast } from "react-toastify";
+import emojiImg from "../../../Assets/emoji.svg";
 
 const CreatePost = () => {
   const dispatch = useDispatch();
@@ -13,9 +14,18 @@ const CreatePost = () => {
   const [uploadVdeo, setUploadVdeo] = useState(null);
   const [selectedImgURL, setSelectedImgURL] = useState("");
   const [selectedVdeoURL, setSelectedVdeoURL] = useState("");
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
 
   const user = JSON.parse(localStorage.getItem("userInfo"));
   console.log(user);
+
+  const handleEmojiClick = (emoji) => {
+    setContent(content + emoji.native);
+  };
+
+  const toggleEmojiPicker = () => {
+    setShowEmojiPicker(!showEmojiPicker);
+  };
 
   const userData = {
     content,
@@ -136,14 +146,30 @@ const CreatePost = () => {
               </label>
               <p className="video-text">Video</p>
             </div>
+
+            <div className="create-imgs">
+              <label onClick={toggleEmojiPicker}>
+                <img src={emojiImg} alt="" className="emoji-icon" />
+              </label>
+              <p className="emoji-text">Emoji</p>
+            </div>
+            {/* 
             <button
               type="submit"
               className="create-btn"
               // onClick={handleCreatePost}
             >
               Create
-            </button>
+            </button> */}
           </div>
+
+          <button
+            type="submit"
+            className="create-btn"
+            // onClick={handleCreatePost}
+          >
+            Create
+          </button>
         </form>
       </div>
       <ToastContainer />

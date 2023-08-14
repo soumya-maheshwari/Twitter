@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   position: absolute;
-  left: 26vw;
+  left: 21vw;
   /* top: 90px; */
   padding: 10px 4px 20px 8px;
   background: black;
@@ -11,7 +11,7 @@
   overflow-y: scroll;
   scroll-behavior: smooth;
   color: white;
-  width: 40vw;
+  width: 46vw;
   height: 100vh;
 
   scrollbar-width: thin;
@@ -44,16 +44,16 @@
   display: flex;
   flex-direction: column;
   position: absolute;
-  left: 68vw;
+  left: 67.5vw;
   top: -10px;
   padding: 10px 4px 20px 8px;
-  background: black;
+  background: rgb(16, 16, 16);
   border-radius: 8px;
   position: fixed;
   overflow-y: scroll;
   /* scroll-behavior: smooth; */
   color: white;
-  width: 30.4vw;
+  width: 31.9vw;
   height: 100vh;
 }
 .home-right::-webkit-scrollbar {
