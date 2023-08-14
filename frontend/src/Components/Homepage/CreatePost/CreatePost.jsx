@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import "./createpost.css";
-import image from "../../Assets/image.svg";
-import vdeo from "../../Assets/vdeo.svg";
+import image from "../../../Assets/image.svg";
+import vdeo from "../../../Assets/vdeo.svg";
 import { useDispatch } from "react-redux";
-import { createPostThunk } from "../../Redux/postSlice";
+import { createPostThunk } from "../../../Redux/postSlice";
 
 const CreatePost = () => {
   const dispatch = useDispatch();
   const [content, setContent] = useState("");
   const [uploadImg, setUploadImg] = useState(null);
   const [uploadVdeo, setUploadVdeo] = useState(null);
+  const [selectedImgURL, setSelectedImgURL] = useState("");
+  const [selectedVdeoURL, setSelectedVdeoURL] = useState("");
 
   const user = JSON.parse(localStorage.getItem("userInfo"));
   console.log(user);
@@ -33,12 +35,14 @@ const CreatePost = () => {
   };
 
   const handleUploadImage = (e) => {
-    setUploadImg(e.target.files[0]);
-    alert(e.target.files[0]);
+    const selectedFile = e.target.files[0];
+    setUploadImg(selectedFile);
+    setSelectedImgURL(URL.createObjectURL(selectedFile)); // Create a URL for selected image
   };
   const handleUploadVideo = (e) => {
-    setUploadVdeo(e.target.files[0]);
-    alert(e.target.files[0]);
+    const selectedFile = e.target.files[0];
+    setUploadVdeo(selectedFile);
+    setSelectedVdeoURL(URL.createObjectURL(selectedFile)); // Create a URL for selected video
   };
   return (
     <>
@@ -63,6 +67,21 @@ const CreatePost = () => {
                 onChange={(e) => setContent(e.target.value)}
               />
             </div>
+            {selectedImgURL && (
+              <img
+                src={selectedImgURL}
+                alt="Selected Image"
+                className="selected-img"
+              />
+            )}
+
+            {selectedVdeoURL && (
+              <video
+                controls
+                src={selectedVdeoURL}
+                className="selected-video"
+              />
+            )}
           </div>
 
           <div className="create-post2">

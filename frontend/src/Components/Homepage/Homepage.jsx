@@ -1,7 +1,7 @@
 import React from "react";
 import Sidebar from "../Sidebar/Sidebar";
 import "./homepage.css";
-import CreatePost from "../CreatePost/CreatePost";
+import CreatePost from "../Homepage/CreatePost/CreatePost";
 
 const Homepage = () => {
   return (
