@@ -13,6 +13,7 @@ const Login = () => {
   const navigate = useNavigate();
   const sm = useSelector((state) => state.auth);
   console.log(sm);
+  console.log(sm.profile);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -119,6 +120,11 @@ const Login = () => {
                 />
               )}
             </div>
+            <p className="text-forgot">
+              <span className="link">
+                <Link to="/forgotPassword"> Forogt Password ?</Link>
+              </span>
+            </p>
             <button type="submit" className="login-btn">
               Login
             </button>{" "}

@@ -51,7 +51,17 @@ export const loginUserThunk = createAsyncThunk("auth/login", async (data) => {
 export const forgotPasswordThunk = createAsyncThunk(
   "auth/forgotPassword",
   async (data) => {
-    return await Api.post(`forgot`, data)
+    const user = JSON.parse(localStorage.getItem("userInfo"));
+    console.log(user.accessToken);
+
+    const config = {
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${user.accessToken}`,
+      },
+    };
+
+    return await Api.post(`auth/forgot`, data)
       .then((res) => {
         console.log(res);
         return res;
@@ -66,8 +76,43 @@ export const forgotPasswordThunk = createAsyncThunk(
 export const verifyOTPThunk = createAsyncThunk(
   "auth/forgotPassword/verify",
   async (data) => {
-    return await Api.post(`forgot/verify`, data)
+    const user = JSON.parse(localStorage.getItem("userInfo"));
+    console.log(user.accessToken);
+
+    const config = {
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${user.accessToken}`,
+      },
+    };
+    return await Api.post(`auth/forgot/verify`, data)
       .then((res) => {
+        console.log(res);
+        return res;
+      })
+      .catch((err) => {
+        console.log(err);
+        return err.response;
+      });
+  }
+);
+
+export const searchUserThunk = createAsyncThunk(
+  "authUser/search",
+  async (data) => {
+    const user = JSON.parse(localStorage.getItem("userInfo"));
+    console.log(user.accessToken);
+
+    const config = {
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${user.accessToken}`,
+      },
+    };
+
+    return await Api.get(`auth/searchUser?search=${data}`, config)
+      .then((res) => {
+        console.log(data);
         console.log(res);
         return res;
       })
@@ -161,6 +206,24 @@ export const authSlice = createSlice({
         }
       })
       .addCase(verifyOTPThunk.rejected, (state) => {
+        state.isLoading = true;
+        state.isError = true;
+      })
+
+      // SEARCH USERS
+      .addCase(searchUserThunk.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(searchUserThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        console.log(action.payload);
+        if (action.payload.data.success) {
+          state.isSuccess = true;
+        } else {
+          state.isSuccess = false;
+        }
+      })
+      .addCase(searchUserThunk.rejected, (state) => {
         state.isLoading = true;
         state.isError = true;
       });

@@ -14,7 +14,7 @@ const storage = multer.diskStorage({
     cb(null, uuidv4() + "-" + Date.now() + path.extname(file.originalname));
   },
 });
-console.log(storage, "storage");
+// console.log(storage, "storage");
 
 const fileValidations = (req, file, cb) => {
   const allowedFileTypes = [

@@ -1,0 +1,84 @@
+/* .search-user-body {
+  display: block;
+  margin-bottom: 10px;
+
+  padding: 10px;
+  width: 24vw;
+  height: 60px;
+  background: #1a1c1e;
+  display: flex;
+  border-radius: 8px;
+}
+.search-box {
+  background-color: rgb(35, 36, 35, 0.9);
+  margin-top: 2.9vh;
+}
+
+.search-user-input {
+  width: 90%;
+  height: 5vh;
+  background-color: rgb(24, 24, 24);
+  color: white;
+  font-size: 16px;
+  border: none;
+  padding-left: 13px;
+}
+
+.search-icon {
+  width: 23px;
+  align-items: center;
+  margin: 0 auto;
+  cursor: pointer;
+  padding: 3px;
+} */
+
+.search-users {
+}
+.search-user-body {
+  display: flex;
+  /* margin-left: 70vw; */
+  margin-top: 14px;
+}
+.search-user-input {
+  border: none;
+  outline: none;
+  /* position: fixed; */
+  width: 24vw;
+  height: 34px;
+  background: #151515;
+  border-radius: 8px;
+  font-weight: 400;
+  font-size: 18px;
+  /* display: inline-block; */
+  padding-left: 3vw;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.search-icon {
+  z-index: 105;
+  margin-left: 1vw;
+  width: 23px;
+  align-items: center;
+  /* margin: 0 auto; */
+  cursor: pointer;
+}
+.search-result {
+  background-color: rgb(18, 16, 16);
+  margin-top: 2vh;
+  cursor: pointer;
+}
+
+.boxs {
+  padding: 7px;
+}
+
+.search-user-name {
+  font-size: 19px;
+  font-family: sans-serif;
+}
+
+.search-user-username {
+  color: rgb(174, 113, 215, 1);
+  font-weight: 500;
+  font-family: cursive;
+}

@@ -84,7 +84,7 @@ const Signup = () => {
 
         <div className="form-signup">
           <h1 className="signup-head">Register</h1>
-          <form action="" className="form-class" onSubmit={handleSignup}>
+          <form action="" className="form-class2" onSubmit={handleSignup}>
             <div className="form-group">
               <label htmlFor="email" className="form-label">
                 Full Name
@@ -157,7 +157,7 @@ const Signup = () => {
                 Confirm Password
               </label>{" "}
               <input
-                type={show ? "text" : "password"}
+                type={show2 ? "text" : "password"}
                 className="input-field"
                 name="password"
                 required
@@ -165,11 +165,11 @@ const Signup = () => {
                 onChange={(e) => setCPassword(e.target.value)}
               />
             </div>
-            {show ? (
+            {show2 ? (
               <FontAwesomeIcon
                 icon={faEye}
-                className="eyeimg"
-                onClick={handleShowHide}
+                className="eyeimg2"
+                onClick={handleShowHide2}
               />
             ) : (
               <FontAwesomeIcon

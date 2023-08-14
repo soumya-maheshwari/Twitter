@@ -4,6 +4,7 @@ import image from "../../../Assets/image.svg";
 import vdeo from "../../../Assets/vdeo.svg";
 import { useDispatch } from "react-redux";
 import { createPostThunk } from "../../../Redux/postSlice";
+import { ToastContainer, toast } from "react-toastify";
 
 const CreatePost = () => {
   const dispatch = useDispatch();
@@ -23,9 +24,31 @@ const CreatePost = () => {
   };
   const handleCreatePost = (e) => {
     e.preventDefault();
+
     dispatch(createPostThunk(userData))
       .then((res) => {
         console.log(res);
+        if (res.payload.data.success) {
+          toast.success(`${res.payload.data.msg}`, {
+            position: "top-right",
+            theme: "dark",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          });
+        } else {
+          toast.error(`${"Enter text or upload a image or video"}`, {
+            position: "top-right",
+            // theme: "DARK",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          });
+        }
         return res;
       })
       .catch((err) => {
@@ -54,7 +77,7 @@ const CreatePost = () => {
           </div>
         </div>
 
-        <form action="">
+        <form action="" onSubmit={handleCreatePost}>
           <div className="create-post-text">
             <p className="post-text">Share something with your followers</p>
 
@@ -62,7 +85,7 @@ const CreatePost = () => {
               <input
                 type="text"
                 className="write-post-text"
-                required
+                // required
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
               />
@@ -116,13 +139,14 @@ const CreatePost = () => {
             <button
               type="submit"
               className="create-btn"
-              onClick={handleCreatePost}
+              // onClick={handleCreatePost}
             >
               Create
             </button>
           </div>
         </form>
       </div>
+      <ToastContainer />
     </>
   );
 };

@@ -1,9 +1,9 @@
-import React from "react";
-import otpImg from "../../../Assets/login.svg";
+import React, { useState } from "react";
+import otpImg from "../../../Assets/otp.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
-import "./otp.css";
+import "./otpPage.css";
 
 const OtpPage = () => {
   const [otp, setotp] = useState("");
@@ -34,7 +34,7 @@ const OtpPage = () => {
                 id="email"
                 name="email"
                 required
-                onChange={handleOtp}
+                onChange={(e) => setotp(e.target.value)}
               />
             </div>
             <button type="submit" className="otp-btn">

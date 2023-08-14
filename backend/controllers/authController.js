@@ -162,7 +162,7 @@ const searchUser = async (req, res, next) => {
     const user = await User.find({
       $or: [
         { username: { $regex: search, $options: "i" } }, // Case-insensitive username search
-        { name: { $regex: search, $options: "i" } }, // Case-insensitive email search
+        { name: { $regex: search, $options: "i" } }, // Case-insensitive name search
       ],
     });
 

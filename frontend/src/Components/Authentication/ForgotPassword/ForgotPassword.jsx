@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import forgotImg from "../../../Assets/login.svg";
+import forgotImg from "../../../Assets/forgot.svg";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
@@ -27,6 +27,7 @@ const ForgotPassword = () => {
         console.log(err);
         return err.response;
       });
+    navigate("/verifyOTP");
   };
 
   return (
