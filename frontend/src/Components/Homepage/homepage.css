@@ -13,8 +13,8 @@
   color: white;
   width: 46vw;
   height: 100vh;
-
-  scrollbar-width: thin;
+  overflow-x: scroll;
+  /* scrollbar-width: thin; */
   scrollbar-color: transparent transparent;
 }
 

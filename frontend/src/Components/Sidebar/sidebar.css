@@ -57,7 +57,18 @@
 #home-name {
   font-size: 27px;
 }
+.search-icon-list {
+  padding-right: 1vw;
+  opacity: 0.8;
+  width: 34px;
+  align-items: center;
+  padding-top: 1px;
+  text-align: center;
+}
 
+.search-name {
+  font-size: 27px;
+}
 .bell-icon {
   padding-right: 1vw;
   opacity: 0.8;

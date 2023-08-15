@@ -17,7 +17,7 @@ const Homepage = () => {
         <div className="home-right">
           <div className="home-center">
             <div className="home-head">Search Users</div>
-            <SearchUsers />
+            {/* <SearchUsers /> */}
           </div>
         </div>
       </div>

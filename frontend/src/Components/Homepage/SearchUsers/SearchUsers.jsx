@@ -85,6 +85,7 @@ const SearchUsers = () => {
                     name={userr.name}
                     username={userr.username}
                     key={userr._id}
+                    // object={userr}
                   />
                   {/* {console.log(userr)} */}
                 </>

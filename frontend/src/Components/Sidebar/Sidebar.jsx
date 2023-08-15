@@ -11,6 +11,7 @@ import bookmark2Img from "../../Assets/bookmark2.svg";
 import profile2Img from "../../Assets/profile2.svg";
 import message2Img from "../../Assets/message2.svg";
 import searchImg from "../../Assets/search.svg";
+
 import { Link } from "react-router-dom";
 
 const Sidebar = () => {
@@ -55,6 +56,18 @@ const Sidebar = () => {
               <img src={homeImg} alt="" className="home-icon" id="home-icon" />
               <span id="home-name">Home</span>
             </li>
+          </Link>
+          <Link to="/search">
+            <li className="list-item" onClick={handleBell}>
+              <img
+                src={searchImg}
+                alt=""
+                className="search-icon-list"
+                id="search-icon"
+              />
+
+              <span className="search-name">Search</span>
+            </li>{" "}
           </Link>
           <li className="list-item" onClick={handleBell}>
             <img src={bellImg} alt="" className="bell-icon" id="bell-icon" />

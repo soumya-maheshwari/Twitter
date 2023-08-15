@@ -5,6 +5,7 @@ import thunk from "redux-thunk";
 
 import authReducer from "./authSlice";
 import postReducer from "./postSlice";
+import profileReducer from "./profileSlice";
 
 // Redux Persist configuration
 const persistConfig = {
@@ -16,10 +17,13 @@ const persistConfig = {
 // Create persisted reducers
 const persistedAuthReducer = persistReducer(persistConfig, authReducer);
 const persistedPostReducer = persistReducer(persistConfig, postReducer);
+const persistedProfileReducer = persistReducer(persistConfig, profileReducer);
+
 const store = configureStore({
   reducer: {
     auth: persistedAuthReducer,
     post: persistedPostReducer,
+    user: persistedProfileReducer,
   },
 
   middleware: [thunk],

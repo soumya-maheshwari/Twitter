@@ -1,31 +1,36 @@
 .other-profile-page {
-  width: 30vw;
-  height: fit-content;
-  /* margin-left: 33vw; */
+  display: flex;
+  flex-direction: column;
   position: absolute;
-  top: 50vh;
-  padding-bottom: 2vh;
-  background: #1a1a1a;
+  left: 21.5vw;
+  top: -8px;
+  padding: 10px 4px 20px 8px;
+  background: rgb(16, 16, 16);
   border-radius: 8px;
-  padding-bottom: 5vh;
+  position: fixed;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
   color: white;
+  width: 78.9vw;
+  height: 100vh;
 }
 .other-profile-body {
   display: flex;
-  padding-top: 2vh;
+  padding-top: 4vh;
 }
 
 .other-profile-div {
   display: flex;
   flex-direction: column;
-  margin-left: 7.5vw;
+  margin-left: 11.5vw;
 }
 .other-user-img {
-  margin-left: 1vw;
+  margin-left: 3vw;
   width: 60px;
-  /* height: 10px; */
+  height: 100px;
+  width: 100px;
   border-radius: 50%;
-  margin-top: 3.1vh;
+  margin-top: 9vh;
 }
 
 .other-profile1 {
@@ -91,4 +96,135 @@
   line-height: 20px;
   margin-bottom: 1vh;
   color: rgba(255, 255, 255, 0.9);
+}
+
+/* OTHER PROFILE COMPONENT */
+.profile-head2 {
+  width: 100vw;
+  height: 100vh;
+  /* left: 10vw; */
+  /* background-color: red; */
+  /* background-color: #260535; */
+}
+
+.profile-page2 {
+  /* width: 60vw;
+  height: fit-content;
+  margin-left: 30vw;
+  position: absolute;
+  top: 50px;
+  padding-bottom: 1vh;
+  background: #121212;
+  border-radius: 20px;
+  padding-bottom: 10vh;
+  color: white; */
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  /* left: 61vw; */
+  /* top: 10px; */
+  padding: 10px 4px 20px 8px;
+  background: rgb(16, 16, 16);
+  border-radius: 8px;
+  position: fixed;
+  overflow-y: scroll;
+  /* scroll-behavior: smooth; */
+  color: white;
+  width: 21.9vw;
+  height: 100vh;
+}
+.profile-body2 {
+  display: flex;
+  padding-top: 7vh;
+}
+
+.profile-div2 {
+  display: flex;
+  flex-direction: column;
+  margin-left: 7.5vw;
+}
+.user-img2 {
+  margin-left: 3vw;
+  width: 190px;
+  cursor: pointer;
+  height: 190px;
+  border-radius: 50%;
+}
+
+.profile12 {
+  display: flex;
+  margin-left: -4vw;
+  margin-top: 5vh;
+  margin-bottom: -20px;
+}
+
+.posts2 {
+  margin-right: 10vw;
+  font-weight: 400;
+  font-size: 19px;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  margin-bottom: 2vh;
+}
+
+.profile22 {
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: -15vw;
+}
+.count2 {
+  width: 26px;
+  font-weight: 400;
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.profile32 {
+  display: flex;
+  flex-direction: column;
+  padding-left: 5vw;
+  margin-top: 2.5vh;
+}
+
+.profile-info12 {
+  font-weight: 500;
+  font-size: 1.2rem;
+  line-height: 27px;
+  margin-bottom: 0.7vh;
+  color: white;
+}
+
+.profile-info32 {
+  font-weight: 400;
+  margin-bottom: 0.8vh;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 16px;
+}
+
+.profile-info42 {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  margin-bottom: 3vh;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.follow-btn {
+  border: none;
+  width: 9vw;
+  height: 36px;
+  /* margin-left: 1.7vw; */
+  border-radius: 13px;
+  cursor: pointer;
+  font-weight: 300;
+  font-size: 17px;
+  margin-top: 7vh;
+  /* margin-left: 0.1vw; */
+  color: rgba(255, 255, 255, 0.9);
+  background-color: rgb(174, 113, 215, 0.9);
+}
+.linee {
+  border: none;
+  border-top: 2px solid rgb(138, 9, 223); /* Change the color to your desired color */
+  font-weight: bolder;
 }

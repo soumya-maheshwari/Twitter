@@ -19,6 +19,29 @@ const userSchema = mongoose.Schema(
       type: String,
       unique: true,
     },
+    no_of_posts: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Post",
+        default: 0,
+      },
+    ],
+
+    followers: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        default: 0,
+      },
+    ],
+
+    following: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        default: 0,
+      },
+    ],
   }
 
   // { timestamps: true }

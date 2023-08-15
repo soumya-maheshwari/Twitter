@@ -5,6 +5,7 @@ const cors = require("cors");
 const app = express();
 const authRoutes = require("./routes/authRoutes");
 const postRoutes = require("./routes/postRoutes");
+const profileRoutes = require("./routes/profileRoutes");
 
 const { errorMiddleware } = require("./middleware/ErrorHandler");
 app.use(express.json());
@@ -28,3 +29,4 @@ app.use(errorMiddleware);
 //Routes
 app.use("/auth", errorMiddleware, authRoutes);
 app.use("/post", errorMiddleware, postRoutes);
+app.use("/profile", errorMiddleware, profileRoutes);
