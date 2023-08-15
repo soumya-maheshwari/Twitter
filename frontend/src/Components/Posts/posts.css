@@ -1,0 +1,54 @@
+.post-box {
+  width: 36vw;
+  background-color: white;
+  color: WHITE;
+  /* align-items: center; */
+  padding: 10px;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  /* width: 45vw; */
+  margin-bottom: 3vh;
+  background-color: #161719;
+  border-radius: 19px;
+}
+
+.box1 {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-box-name {
+  width: 15vw;
+  font-weight: 400;
+  font-size: 18px;
+  color: white;
+  margin-bottom: 0;
+}
+
+.post-box-username {
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 20px;
+  color: #7534e6;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+.post-texts {
+  width: 42.7vw;
+  margin-top: 7vh;
+  /* margin-left: 4.9vw; */
+  margin-bottom: 1vh;
+  color: white;
+  font-weight: 500;
+  font-size: 19px;
+}
+
+.like-icon {
+  width: 26px;
+  height: 26px;
+  margin-top: 0.2vh;
+  margin-right: 0.5vw;
+  cursor: pointer;
+}

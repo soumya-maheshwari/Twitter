@@ -11,4 +11,6 @@ router.post(
   postController.createPost
 );
 
+router.post("/likePost", authVerifyToken, postController.likePost);
+
 module.exports = router;

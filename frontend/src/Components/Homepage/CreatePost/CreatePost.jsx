@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { createPostThunk } from "../../../Redux/postSlice";
 import { ToastContainer, toast } from "react-toastify";
 import emojiImg from "../../../Assets/emoji.svg";
+import PostComponent from "../../Posts/PostComponent";
 
 const CreatePost = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,8 @@ const CreatePost = () => {
   const [selectedImgURL, setSelectedImgURL] = useState("");
   const [selectedVdeoURL, setSelectedVdeoURL] = useState("");
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+  const [post, setPost] = useState(false);
+  const [postid, setPostid] = useState("");
 
   const user = JSON.parse(localStorage.getItem("userInfo"));
   console.log(user);
@@ -38,6 +41,8 @@ const CreatePost = () => {
     dispatch(createPostThunk(userData))
       .then((res) => {
         console.log(res);
+        setPostid(res.payload.data.newPost._id);
+        setPost(true);
         if (res.payload.data.success) {
           toast.success(`${res.payload.data.msg}`, {
             position: "top-right",
@@ -86,7 +91,6 @@ const CreatePost = () => {
             <p className="username">@{user.user.username}</p>
           </div>
         </div>
-
         <form action="" onSubmit={handleCreatePost}>
           <div className="create-post-text">
             <p className="post-text">Share something with your followers</p>
@@ -153,25 +157,23 @@ const CreatePost = () => {
               </label>
               <p className="emoji-text">Emoji</p>
             </div>
-            {/* 
-            <button
-              type="submit"
-              className="create-btn"
-              // onClick={handleCreatePost}
-            >
-              Create
-            </button> */}
           </div>
 
-          <button
-            type="submit"
-            className="create-btn"
-            // onClick={handleCreatePost}
-          >
+          <button type="submit" className="create-btn">
             Create
           </button>
         </form>
       </div>
+      {post && (
+        <PostComponent
+          content={content}
+          username={user.user.username}
+          name={user.user.name}
+          image={selectedImgURL}
+          video={selectedVdeoURL}
+          postid={postid}
+        />
+      )}
       <ToastContainer />
     </>
   );
