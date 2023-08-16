@@ -12,7 +12,7 @@ export const createPostThunk = createAsyncThunk(
   "post/create_post",
   async (data) => {
     const user = JSON.parse(localStorage.getItem("userInfo"));
-    console.log(user.accessToken);
+    // console.log(user.accessToken);
     const config = {
       headers: {
         "Content-type": "application/json",
@@ -22,11 +22,11 @@ export const createPostThunk = createAsyncThunk(
 
     return await Api.post("post/create", data, config)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         return res;
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         return err.response;
       });
   }
@@ -36,7 +36,7 @@ export const likePostThunk = createAsyncThunk(
   "post/like_post",
   async (data) => {
     const user = JSON.parse(localStorage.getItem("userInfo"));
-    console.log(user.accessToken);
+    // console.log(user.accessToken);
     const config = {
       headers: {
         "Content-type": "application/json",
@@ -46,12 +46,12 @@ export const likePostThunk = createAsyncThunk(
 
     return await Api.post("post/likePost", data, config)
       .then((res) => {
-        console.log(res);
-        console.log(data);
+        // console.log(res);
+        // console.log(data);
         return res;
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         return err.response;
       });
   }
@@ -61,7 +61,7 @@ export const getHomeFeedsThunk = createAsyncThunk(
   "post/homeFeeds",
   async () => {
     const user = JSON.parse(localStorage.getItem("userInfo"));
-    console.log(user.accessToken);
+    // console.log(user.accessToken);
     const config = {
       headers: {
         "Content-type": "application/json",
@@ -71,11 +71,11 @@ export const getHomeFeedsThunk = createAsyncThunk(
 
     return await Api.get("post/homeFeeds", config)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         return res;
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         return err.response;
       });
   }
@@ -85,7 +85,7 @@ export const addToBookmarkThunk = createAsyncThunk(
   "post/addToBookmarks",
   async (data) => {
     const user = JSON.parse(localStorage.getItem("userInfo"));
-    console.log(user.accessToken);
+    // console.log(user.accessToken);
     const config = {
       headers: {
         "Content-type": "application/json",
@@ -93,13 +93,13 @@ export const addToBookmarkThunk = createAsyncThunk(
       },
     };
 
-    return await Api.get("post/addToBookmarks", data, config)
+    return await Api.post("post/addToBookmarks", data, config)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         return res;
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         return err.response;
       });
   }
@@ -117,7 +117,7 @@ export const postSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(createPostThunk.fulfilled, (state, action) => {
-        console.log(action.payload);
+        // console.log(action.payload);
         state.isLoading = false;
 
         if (action.payload.data.success) {
@@ -137,7 +137,7 @@ export const postSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(likePostThunk.fulfilled, (state, action) => {
-        console.log(action.payload);
+        // console.log(action.payload);
         state.isLoading = false;
 
         if (action.payload.data.success) {
@@ -157,7 +157,7 @@ export const postSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getHomeFeedsThunk.fulfilled, (state, action) => {
-        console.log(action.payload);
+        // console.log(action.payload);
         state.isLoading = false;
 
         if (action.payload.data.success) {
@@ -177,7 +177,7 @@ export const postSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(addToBookmarkThunk.fulfilled, (state, action) => {
-        console.log(action.payload);
+        // console.log(action.payload);
         state.isLoading = false;
 
         if (action.payload.data.success) {

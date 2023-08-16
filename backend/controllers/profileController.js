@@ -144,7 +144,13 @@ const getAllBookmarks = async (req, res, next) => {
     }
 
     // Find the user and populate their bookmarked posts
-    const currentUser = await User.findById(user._id).populate("bookmarks");
+    const currentUser = await User.findById(user._id).populate({
+      path: "bookmarks",
+      populate: {
+        path: "user",
+        select: "name username email",
+      },
+    });
 
     console.log(currentUser);
 
@@ -159,9 +165,39 @@ const getAllBookmarks = async (req, res, next) => {
   }
 };
 
+const editProfile = async (req, res, next) => {
+  try {
+    const user = req.user;
+    const userid = user.id;
+
+    console.log(user);
+
+    const { name, username, email } = req.body;
+
+    // updates
+
+    user.name = name || user.name;
+    user.username = username || user.username;
+
+    await user.save();
+
+    console.log(user);
+
+    return res.status(200).json({
+      success: true,
+      updatedProfile: user,
+      msg: "Profile updated successfully",
+    });
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
+
 module.exports = {
   accessProfile,
   followUser,
   unfollowUser,
   getAllBookmarks,
+  editProfile,
 };

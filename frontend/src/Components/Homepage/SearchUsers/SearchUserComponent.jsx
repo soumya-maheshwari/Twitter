@@ -8,7 +8,7 @@ const SearchUserComponent = (props) => {
   const [selectedUser, setSelectedUser] = useState("");
   const [selectedUserName, setSelectedUserName] = useState("");
 
-  console.log(props.username);
+  // console.log(props.username);
   // const userData = {
   //   username: props.username,
   // };
@@ -16,10 +16,10 @@ const SearchUserComponent = (props) => {
     setSelectedUser(props.name);
     setSelectedUserName(props.username);
     navigate(`/otherProfile/${props.username}`);
-    console.log(`/otherProfile/${props.username}}`);
+    // console.log(`/otherProfile/${props.username}}`);
   };
-  console.log(selectedUser);
-  console.log(selectedUserName);
+  // console.log(selectedUser);
+  // console.log(selectedUserName);
 
   const handleLeave = () => {
     setSelectedUser("");

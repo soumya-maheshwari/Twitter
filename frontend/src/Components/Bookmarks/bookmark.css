@@ -1,5 +1,70 @@
 .bookmark-page {
   width: 100vw;
   height: 100vh;
+  position: fixed;
   background-color: rgb(28, 28, 28);
+  overflow-x: scroll;
+  /* scrollbar-width: thin; */
+  scrollbar-color: transparent transparent;
+}
+
+.bookmark-page::-webkit-scrollbar {
+  width: 6px;
+}
+
+.bookmark-page::-webkit-scrollbar-thumb {
+  background-color: transparent; /* Color of the scrollbar thumb */
+}
+
+.bookmark-page::-webkit-scrollbar-track {
+  background-color: transparent; /* Color of the scrollbar track */
+}
+
+.post-box-bookmark {
+  width: 40vw;
+  background-color: white;
+  color: WHITE;
+  /* align-items: center; */
+  padding: 10px;
+  margin: 30px auto;
+  display: flex;
+  flex-direction: column;
+  /* width: 45vw; */
+  margin-bottom: 3vh;
+  background-color: #282829;
+  border-radius: 19px;
+  margin-top: 10vh;
+  border: 0.5px solid white;
+}
+
+.box1-bookmark {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-box-name-bookmark {
+  width: 15vw;
+  font-weight: 400;
+  font-size: 18px;
+  color: white;
+  margin-bottom: 0;
+}
+
+.post-box-username-bookmark {
+  font-weight: 500;
+  font-size: 19px;
+  line-height: 20px;
+  color: #7534e6;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+.post-texts-bookmark {
+  width: 42.7vw;
+  margin-top: 6vh;
+  /* margin-left: 4.9vw; */
+  margin-bottom: 1vh;
+  color: white;
+  font-weight: 300;
+  font-size: 19px;
 }

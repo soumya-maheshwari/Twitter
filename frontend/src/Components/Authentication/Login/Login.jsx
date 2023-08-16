@@ -12,8 +12,8 @@ const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const sm = useSelector((state) => state.auth);
-  console.log(sm);
-  console.log(sm.profile);
+  // console.log(sm);
+  // console.log(sm.profile);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -33,7 +33,7 @@ const Login = () => {
     e.preventDefault();
     dispatch(loginUserThunk(userData))
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         if (res.payload.data.success) {
           toast.success(`${res.payload.data.msg}`, {
             position: "top-right",
@@ -64,7 +64,7 @@ const Login = () => {
         return res;
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         return err.reponse;
       });
   };

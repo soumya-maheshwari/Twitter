@@ -20,7 +20,7 @@ const CreatePost = () => {
   const [postid, setPostid] = useState("");
 
   const user = JSON.parse(localStorage.getItem("userInfo"));
-  console.log(user);
+  // console.log(user);
 
   const handleEmojiClick = (emoji) => {
     setContent(content + emoji.native);
@@ -40,7 +40,7 @@ const CreatePost = () => {
 
     dispatch(createPostThunk(userData))
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setPostid(res.payload.data.newPost._id);
         setPost(true);
         if (res.payload.data.success) {
@@ -67,7 +67,7 @@ const CreatePost = () => {
         return res;
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         return err.response;
       });
   };

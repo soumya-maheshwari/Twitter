@@ -99,3 +99,11 @@
   margin-bottom: 3vh;
   color: rgba(255, 255, 255, 0.9);
 }
+
+.edit-icon {
+  width: 26px;
+  height: 26px;
+  margin-top: 5vh;
+  margin-right: 3vw;
+  cursor: pointer;
+}

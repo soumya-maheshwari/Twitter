@@ -2,10 +2,28 @@ import React from "react";
 import "./profilepage.css";
 import Sidebar from "../Sidebar/Sidebar";
 import avatarImg from "../../Assets/avatar.svg";
+import edit from "../../Assets/edit.svg";
+import { useDispatch } from "react-redux";
+import { editProfileThunk } from "../../Redux/profileSlice";
 
 const Profilepage = () => {
+  const dispatch = useDispatch();
+
+  const userData = {};
+
+  const handleEditProfile = () => {
+    dispatch(editProfileThunk(userData))
+      .then((res) => {
+        console.log(res);
+        return res;
+      })
+      .catch((err) => {
+        console.log(err);
+        return err.response;
+      });
+  };
   const user = JSON.parse(localStorage.getItem("userInfo"));
-  console.log(user);
+  // console.log(user);
 
   return (
     <>
@@ -17,6 +35,12 @@ const Profilepage = () => {
             {/*  */}
 
             <img src={avatarImg} alt="" className="user-img" />
+            <img
+              src={edit}
+              className="edit-icon"
+              onClick={handleEditProfile}
+              alt="Edit"
+            />
             <div className="profile-div">
               <div className="profile1">
                 <p className="posts">Posts</p>

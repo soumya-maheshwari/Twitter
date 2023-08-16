@@ -17,5 +17,6 @@ router.get(
   authVerifyToken,
   profileController.getAllBookmarks
 );
+router.put("/editProfile", authVerifyToken, profileController.editProfile);
 
 module.exports = router;

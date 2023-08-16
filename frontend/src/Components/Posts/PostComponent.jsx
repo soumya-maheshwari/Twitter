@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./posts.css";
 import likeImg from "../../Assets/like.svg";
 import { useDispatch } from "react-redux";
@@ -13,13 +13,27 @@ import bookImg from "../../Assets/book.svg";
 import book2 from "../../Assets/book2.svg";
 
 const PostComponent = (props) => {
+  const user = JSON.parse(localStorage.getItem("userInfo"));
+  // console.log(user.accessToken);
+  const userid = user.id;
+  // console.log(userid);
+
   const postid = props.postid;
   const dispatch = useDispatch();
+  // const [likesARR, setLikesARR] = useState();
+  const [isLike, setIsLike] = useState(props.isLike);
+
+  // useEffect(() => {
+  //   if (likesARR.includes(userid)) {
+  //     setIsLike(true);
+  //   }
+  // }, [isLike]);
   const handleLikePost = () => {
     dispatch(likePostThunk({ postid }))
       .then((res) => {
-        console.log(res);
-        console.log(postid);
+        // console.log(res);
+        // console.log(postid);
+        // setLikesARR(res.payload.data.likedPost.likes);
         if (res.payload.data.success) {
           document.getElementsByClassName("like-icon").src = like2;
           toast.success(`${res.payload.data.msg}`, {
@@ -45,13 +59,13 @@ const PostComponent = (props) => {
         return res;
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         return err.response;
       });
   };
 
   const handleAddBookmark = () => {
-    dispatch(addToBookmarkThunk(postid))
+    dispatch(addToBookmarkThunk({ postid }))
       .then((res) => {
         console.log(res);
         if (res.payload.data.success) {
@@ -95,7 +109,7 @@ const PostComponent = (props) => {
         <div className="imgss">
           <div className="like-div">
             <img
-              src={likeImg}
+              src={isLike ? like2 : likeImg}
               alt="like"
               className="like-icon"
               onClick={handleLikePost}

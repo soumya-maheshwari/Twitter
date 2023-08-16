@@ -20,11 +20,11 @@ export const registerUserThunk = createAsyncThunk(
 
     return await Api.post(`auth/signup`, data, config)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         return res;
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         return err.response;
       });
   }
@@ -101,7 +101,7 @@ export const searchUserThunk = createAsyncThunk(
   "authUser/search",
   async (data) => {
     const user = JSON.parse(localStorage.getItem("userInfo"));
-    console.log(user.accessToken);
+    // console.log(user.accessToken);
 
     const config = {
       headers: {
@@ -112,12 +112,12 @@ export const searchUserThunk = createAsyncThunk(
 
     return await Api.get(`auth/searchUser?search=${data}`, config)
       .then((res) => {
-        console.log(data);
-        console.log(res);
+        // console.log(data);
+        // console.log(res);
         return res;
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         return err.response;
       });
   }
@@ -157,7 +157,7 @@ export const authSlice = createSlice({
       .addCase(loginUserThunk.fulfilled, (state, action) => {
         state.isLoading = false;
 
-        console.log(action.payload);
+        // console.log(action.payload);
         if (action.payload.data.success) {
           state.isSuccess = true;
           state.user = action.payload.data.user;
@@ -216,7 +216,7 @@ export const authSlice = createSlice({
       })
       .addCase(searchUserThunk.fulfilled, (state, action) => {
         state.isLoading = false;
-        console.log(action.payload);
+        // console.log(action.payload);
         if (action.payload.data.success) {
           state.isSuccess = true;
         } else {

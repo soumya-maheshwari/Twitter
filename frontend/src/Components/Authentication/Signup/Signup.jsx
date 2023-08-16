@@ -12,7 +12,7 @@ const Signup = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const sm = useSelector((state) => state.auth);
-  console.log(sm);
+  // console.log(sm);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -40,7 +40,7 @@ const Signup = () => {
     e.preventDefault();
     dispatch(registerUserThunk(userData))
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         if (res.payload.data.success) {
           toast.success(`${res.payload.data.msg}`, {
             position: "top-right",
@@ -71,7 +71,7 @@ const Signup = () => {
         return res;
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         return err.reponse;
       });
   };
