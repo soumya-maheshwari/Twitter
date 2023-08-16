@@ -12,5 +12,8 @@ router.post(
 );
 
 router.post("/likePost", authVerifyToken, postController.likePost);
+router.get("/getPost/:postid", authVerifyToken, postController.getPost);
+router.get("/homeFeeds", authVerifyToken, postController.getHomePageFeeds);
+router.post("/addToBookmarks", authVerifyToken, postController.addToBookmarks);
 
 module.exports = router;

@@ -37,18 +37,41 @@
 }
 .post-texts {
   width: 42.7vw;
-  margin-top: 7vh;
+  margin-top: 6vh;
   /* margin-left: 4.9vw; */
   margin-bottom: 1vh;
   color: white;
-  font-weight: 500;
+  font-weight: 300;
   font-size: 19px;
 }
 
 .like-icon {
   width: 26px;
   height: 26px;
-  margin-top: 0.2vh;
-  margin-right: 0.5vw;
+  margin-top: 5vh;
+  margin-right: 3vw;
   cursor: pointer;
+}
+
+.imgss {
+  display: flex;
+  /* flex-direction: column; */
+  /* justify-content: space-between; */
+}
+.likes-count {
+  margin-top: -0.5vh;
+  font-weight: 400;
+  margin-bottom: 0.8vh;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 18px;
+  margin-left: 0.5vw;
+}
+.book-icon {
+  width: 26px;
+  height: 26px;
+  margin-top: 1vh;
+  /* margin-right: 3vw; */
+  cursor: pointer;
+  margin-left: 33.5vw;
+  right: 0;
 }

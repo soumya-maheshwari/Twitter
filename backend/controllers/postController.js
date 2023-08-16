@@ -36,6 +36,7 @@ const createPost = async (req, res, next) => {
     const updatedUser = await User.findByIdAndUpdate(userid, {
       $push: { no_of_posts: newPost._id },
     });
+    console.log(updatedUser);
 
     return res.status(200).json({
       success: true,
@@ -66,6 +67,11 @@ const getPost = async (req, res, next) => {
     });
 
     console.log(post);
+
+    return res.status(200).json({
+      success: true,
+      post,
+    });
   } catch (error) {
     next(error);
     console.log(error);
@@ -113,7 +119,83 @@ const likePost = async (req, res, next) => {
   }
 };
 
+const getHomePageFeeds = async (req, res, next) => {
+  try {
+    const user = req.user;
+    const userid = user._id;
+    console.log(userid, "user id");
+
+    if (!user) {
+      return next(new ErrorHandler(400, "Login or signup to continue"));
+    }
+    const currentUser = await User.findById(userid).populate(
+      "following",
+      "_id"
+    );
+
+    console.log(currentUser);
+
+    const followingIds = currentUser.following.map((user) => user._id);
+
+    const homeFeed = await Post.find({ user: { $in: followingIds } }).populate(
+      {
+        path: "user",
+
+        select: "name username",
+      }
+      // "user",
+      // // "username",
+      // "name"
+    );
+
+    return res.json({
+      success: true,
+      homeFeed,
+      msg: "Posts fetched",
+    });
+  } catch (error) {
+    next(error);
+    console.log(error);
+  }
+};
+
+const addToBookmarks = async (req, res, next) => {
+  try {
+    const user = req.user;
+    const userid = user._id;
+    console.log(userid, "user id");
+
+    if (!user) {
+      return next(new ErrorHandler(400, "Login or signup to continue"));
+    }
+    const { postid } = req.body;
+    console.log(postid);
+
+    if (!postid) {
+      return next(new ErrorHandler(400, "No post found"));
+    }
+
+    user.bookmarks.push(postid);
+    await user.save();
+
+    console.log(user);
+
+    return res.status(200).json({
+      success: true,
+      updatedUser: user,
+      msg: "post added to bookmarks",
+    });
+  } catch (error) {
+    next(error);
+    console.log(error);
+  }
+};
+
 module.exports = {
   createPost,
   likePost,
+  getHomePageFeeds,
+  getPost,
+  addToBookmarks,
+  // getAllBookmarks,
 };

@@ -133,8 +133,35 @@ const unfollowUser = async (req, res, next) => {
   }
 };
 
+const getAllBookmarks = async (req, res, next) => {
+  try {
+    const user = req.user;
+    const userid = user._id;
+    console.log(userid, "user id");
+
+    if (!user) {
+      return next(new ErrorHandler(400, "Login or signup to continue"));
+    }
+
+    // Find the user and populate their bookmarked posts
+    const currentUser = await User.findById(user._id).populate("bookmarks");
+
+    console.log(currentUser);
+
+    return res.status(200).json({
+      success: true,
+      bookmarks: currentUser.bookmarks,
+      msg: "Fetched all bookmarks",
+    });
+  } catch (error) {
+    next(error);
+    console.log(error);
+  }
+};
+
 module.exports = {
   accessProfile,
   followUser,
   unfollowUser,
+  getAllBookmarks,
 };

@@ -3,6 +3,7 @@ import Sidebar from "../Sidebar/Sidebar";
 import "./homepage.css";
 import CreatePost from "../Homepage/CreatePost/CreatePost";
 import SearchUsers from "./SearchUsers/SearchUsers";
+import HomeFeeds from "./HomeFeeds";
 
 const Homepage = () => {
   return (
@@ -12,6 +13,7 @@ const Homepage = () => {
         <div className="home-center">
           <div className="home-head">Home</div>
           <CreatePost />
+          <HomeFeeds />
         </div>
 
         <div className="home-right">

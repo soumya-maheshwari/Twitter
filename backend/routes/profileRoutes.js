@@ -12,4 +12,10 @@ router.get(
   profileController.accessProfile
 );
 
+router.get(
+  "/getAllBookmarks",
+  authVerifyToken,
+  profileController.getAllBookmarks
+);
+
 module.exports = router;

@@ -12,7 +12,8 @@
   padding-left: 1.5vw;
   overflow-x: hidden;
   padding-bottom: 50px;
-  margin-left: 1.9vw;
+  margin-left: 3.9vw;
+  /* align-items: center; */
   color: white;
   margin-top: 10px;
 }

@@ -83,7 +83,33 @@ export const unFollowUserThunk = createAsyncThunk(
       });
   }
 );
-export const userSlice = createSlice({
+
+export const getAllBookmarkThunk = createAsyncThunk(
+  "profile/getAllBookmarks",
+  async () => {
+    const user = JSON.parse(localStorage.getItem("userInfo"));
+    console.log(user.accessToken);
+
+    const config = {
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${user.accessToken}`,
+      },
+    };
+
+    return await Api.get(`profile/getAllBookmarks`, config)
+      .then((res) => {
+        console.log(res);
+        return res;
+      })
+      .catch((err) => {
+        console.log(err);
+        return err.response;
+      });
+  }
+);
+
+export const profileSlice = createSlice({
   name: "user",
   initialState: initialState,
   reducers: {},
@@ -144,8 +170,26 @@ export const userSlice = createSlice({
       .addCase(unFollowUserThunk.rejected, (state) => {
         state.isLoading = true;
         state.isError = true;
+      })
+      //  GET ALL BOOKMARKS
+      .addCase(getAllBookmarkThunk.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getAllBookmarkThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        console.log(action.payload);
+        if (action.payload.data.success) {
+          state.isSuccess = true;
+        } else {
+          state.isSuccess = false;
+          state.isError = true;
+        }
+      })
+      .addCase(getAllBookmarkThunk.rejected, (state) => {
+        state.isLoading = true;
+        state.isError = true;
       });
   },
 });
 
-export default userSlice.reducer;
+export default profileSlice.reducer;

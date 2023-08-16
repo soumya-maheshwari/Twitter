@@ -10,6 +10,7 @@ import OtpPage from "./Components/Authentication/OtpPage/OtpPage";
 import OtherProfileComponent from "./Components/OthersProfile/OtherProfileComponent";
 import OthersProfile from "./Components/OthersProfile/OthersProfile";
 import Search from "./Components/Search/Search";
+import Bookmarks from "./Components/Bookmarks/Bookmarks";
 function App() {
   return (
     <>
@@ -28,6 +29,7 @@ function App() {
             element={<OthersProfile />}
           />
           <Route path="/search" exact element={<Search />} />
+          <Route path="/bookmarks" exact element={<Bookmarks />} />
         </Routes>
       </BrowserRouter>
     </>

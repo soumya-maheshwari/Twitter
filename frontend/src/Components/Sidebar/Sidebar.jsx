@@ -74,15 +74,17 @@ const Sidebar = () => {
 
             <span className="bell-name">Notifications</span>
           </li>{" "}
-          <li className="list-item" onClick={handleBookmark}>
-            <img
-              src={bookmarkImg}
-              alt=""
-              className="bookmark-icon"
-              id="bookmark-icon"
-            />
-            <span className="bookmarks-name">Bookmarks</span>
-          </li>{" "}
+          <Link to="/bookmarks">
+            <li className="list-item" onClick={handleBookmark}>
+              <img
+                src={bookmarkImg}
+                alt=""
+                className="bookmark-icon"
+                id="bookmark-icon"
+              />
+              <span className="bookmarks-name">Bookmarks</span>
+            </li>{" "}
+          </Link>
           <Link to="/profile">
             <li className="list-item" onClick={handleProfile}>
               <img

@@ -146,14 +146,13 @@ const OthersProfile = (props) => {
               Follow
             </button>
 
-            <button
+            {/* <button
               className="follow-btn"
               type="submit"
               onClick={handleUnfollowUser}
             >
-              {/* {followed ? "Unfollow" : "Follow"} */}
               Unfollow
-            </button>
+            </button> */}
             {/* <hr className="linee" /> */}
           </div>
         </div>
