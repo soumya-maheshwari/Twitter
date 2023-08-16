@@ -4,8 +4,15 @@ import "./homepage.css";
 import CreatePost from "../Homepage/CreatePost/CreatePost";
 import SearchUsers from "./SearchUsers/SearchUsers";
 import HomeFeeds from "./HomeFeeds";
+import logoutImg from "../../Assets/logout.svg";
+import { useNavigate } from "react-router-dom";
 
 const Homepage = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    navigate("/logout");
+  };
   return (
     <>
       <Sidebar />
@@ -20,6 +27,12 @@ const Homepage = () => {
           <div className="home-center">
             <div className="home-head">Search Users</div>
             {/* <SearchUsers /> */}
+            <img
+              src={logoutImg}
+              alt="Logout"
+              className="logout-icon"
+              onClick={handleLogout}
+            />
           </div>
         </div>
       </div>

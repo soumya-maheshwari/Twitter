@@ -71,3 +71,8 @@
 .home-feeds {
   margin-top: 5vh;
 }
+.logout-icon {
+  width: 30px;
+  margin-left: 28vw;
+  cursor: pointer;
+}

@@ -10,6 +10,7 @@ import OtherProfileComponent from "./Components/OthersProfile/OtherProfileCompon
 import OthersProfile from "./Components/OthersProfile/OthersProfile";
 import Search from "./Components/Search/Search";
 import Bookmarks from "./Components/Bookmarks/Bookmarks";
+import Logout from "./Components/Logout/Logout";
 function App() {
   return (
     <>
@@ -27,6 +28,8 @@ function App() {
             element={<OthersProfile />}
           />
           <Route path="/search" exact element={<Search />} />
+          <Route path="/logout" exact element={<Logout />} />
+
           <Route path="/bookmarks" exact element={<Bookmarks />} />
         </Routes>
       </BrowserRouter>
