@@ -12,7 +12,11 @@ import Bookmarks from "./Components/Bookmarks/Bookmarks";
 import Logout from "./Components/Logout/Logout";
 import Notification from "./Components/Notifications/Notifications";
 import EditProfile from "./Components/Profilepage/EditProfile";
+import ErrorPage from "./Components/ErrorPage/ErrorPage";
 function App() {
+  // const user = JSON.parse(localStorage.getItem("userInfo")) ? true : false;
+  // console.log(user);
+
   return (
     <>
       <BrowserRouter>
@@ -23,6 +27,12 @@ function App() {
           <Route path="/profile" exact element={<Profilepage />} />
           <Route path="/forgotPassword" exact element={<ForgotPassword />} />
           <Route path="/verifyOTP" exact element={<OtpPage />} />
+
+          {/* {user ? (
+            <Route path="/search" exact element={<Search />} />
+          ) : (
+            <Route path="/error" exact element />
+          )} */}
           <Route
             path="/otherProfile/:username"
             exact
@@ -32,6 +42,7 @@ function App() {
           <Route path="/logout" exact element={<Logout />} />
           <Route path="/notifications" exact element={<Notification />} />
           <Route path="/editProfile" exact element={<EditProfile />} />
+          <Route path="/error" exact element={<ErrorPage />} />
 
           <Route path="/bookmarks" exact element={<Bookmarks />} />
         </Routes>

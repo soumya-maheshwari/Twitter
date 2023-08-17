@@ -1,0 +1,14 @@
+.error-page {
+  background-color: black;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  height: 100vh;
+}
+.error-img {
+  width: 40vw;
+  align-items: center;
+}
