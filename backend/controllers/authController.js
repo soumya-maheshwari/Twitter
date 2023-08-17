@@ -55,7 +55,7 @@ const login = async (req, res, next) => {
 
     // check for user in database
     const user = await User.findOne({ email });
-    console.log(user);
+    // console.log(user);
     if (!user) {
       return next(new ErrorHandler(404, "user not found"));
     }
@@ -84,7 +84,7 @@ const login = async (req, res, next) => {
       // refreshToken,
     });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     next(error);
   }
 };
@@ -152,7 +152,7 @@ const signup = async (req, res, next) => {
     });
   } catch (error) {
     next(error);
-    console.log(error);
+    // console.log(error);
   }
 };
 
@@ -171,7 +171,7 @@ const searchUser = async (req, res, next) => {
       success: true,
     });
   } catch (error) {
-    next(error);
+    // next(error);
     console.log(error);
   }
 };

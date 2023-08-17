@@ -4,26 +4,26 @@ const User = require("../models/userModel");
 const accessProfile = async (req, res, next) => {
   try {
     const { username } = req.params;
-    console.log(username, "username");
+    // console.log(username, "username");
     if (!username) {
       return next(new ErrorHandler(400, "Username required"));
     }
 
     const loggedInUser = req.user;
-    console.log(loggedInUser, "userr");
+    // console.log(loggedInUser, "userr");
 
     const user = await User.findOne({
       username: username,
     });
 
-    console.log(user);
+    // console.log(user);
 
     if (!user) {
       return next(new ErrorHandler(404, "User not found"));
     }
 
     const profile = await User.findOne({ username: username });
-    console.log(profile);
+    // console.log(profile);
 
     return res.status(200).json({
       success: true,
@@ -31,7 +31,7 @@ const accessProfile = async (req, res, next) => {
       msg: "Get profile",
     });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     next(error);
   }
 };
@@ -41,10 +41,10 @@ const followUser = async (req, res, next) => {
     const user = req.user;
     const userid = user.id;
 
-    console.log(user);
+    // console.log(user);
 
     const { userToFollow } = req.body;
-    console.log(userToFollow);
+    // console.log(userToFollow);
 
     if (!userToFollow) {
       return next(new ErrorHandler(404, "Please select a user to follow"));
@@ -52,9 +52,9 @@ const followUser = async (req, res, next) => {
 
     const userDB = await User.findById(userid);
 
-    console.log(userDB);
+    // console.log(userDB);
     const followUser = await User.findById(userToFollow);
-    console.log(followUser);
+    // console.log(followUser);
 
     if (!followUser) {
       return next(new ErrorHandler(400, "No user found with this id"));
@@ -68,10 +68,10 @@ const followUser = async (req, res, next) => {
     }
 
     await userDB.save();
-    console.log(userDB);
+    // console.log(userDB);
     await followUser.save();
 
-    console.log(followUser);
+    // console.log(followUser);
     return res.status(200).json({
       success: true,
       msg: "User followed",
@@ -79,7 +79,7 @@ const followUser = async (req, res, next) => {
       followUser,
     });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     next(error);
   }
 };
@@ -89,10 +89,10 @@ const unfollowUser = async (req, res, next) => {
     const user = req.user;
     const userid = user.id;
 
-    console.log(user);
+    // console.log(user);
 
     const { userToUnfollow } = req.body;
-    console.log(userToUnfollow);
+    // console.log(userToUnfollow);
 
     if (!userToUnfollow) {
       return next(new ErrorHandler(404, "Please select a user to unfollow"));
@@ -100,9 +100,9 @@ const unfollowUser = async (req, res, next) => {
 
     const userDB = await User.findById(userid);
 
-    console.log(userDB);
+    // console.log(userDB);
     const unfollowUser = await User.findById(userToUnfollow);
-    console.log(unfollowUser);
+    // console.log(unfollowUser);
 
     if (!unfollowUser) {
       return next(new ErrorHandler(400, "No user found with this id"));
@@ -116,10 +116,10 @@ const unfollowUser = async (req, res, next) => {
     }
 
     await userDB.save();
-    console.log(userDB);
+    // console.log(userDB);
     await unfollowUser.save();
 
-    console.log(unfollowUser);
+    // console.log(unfollowUser);
 
     return res.status(200).json({
       success: true,
@@ -128,7 +128,7 @@ const unfollowUser = async (req, res, next) => {
       followUser,
     });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     next(error);
   }
 };
@@ -137,7 +137,7 @@ const getAllBookmarks = async (req, res, next) => {
   try {
     const user = req.user;
     const userid = user._id;
-    console.log(userid, "user id");
+    // console.log(userid, "user id");
 
     if (!user) {
       return next(new ErrorHandler(400, "Login or signup to continue"));
@@ -152,7 +152,7 @@ const getAllBookmarks = async (req, res, next) => {
       },
     });
 
-    console.log(currentUser);
+    // console.log(currentUser);
 
     return res.status(200).json({
       success: true,
@@ -161,7 +161,7 @@ const getAllBookmarks = async (req, res, next) => {
     });
   } catch (error) {
     next(error);
-    console.log(error);
+    // console.log(error);
   }
 };
 
@@ -172,20 +172,38 @@ const editProfile = async (req, res, next) => {
 
     console.log(user);
 
-    const { name, username, email } = req.body;
+    // const { name, username, email } = req.body;
 
     // updates
 
-    user.name = name || user.name;
-    user.username = username || user.username;
+    // user.name = name || user.name;
+    // user.username = username || user.username;
+    const file = req.file ? req.file : null;
 
-    await user.save();
+    pic = "";
 
-    console.log(user);
+    if (file) {
+      pic = file.filename;
+    }
+    console.log(file);
+
+    console.log(pic);
+
+    const editUser = await User.findByIdAndUpdate(userid, {
+      // name: name,
+      // username: username,
+      // email: email,
+      // bio,
+      pic: pic,
+    });
+
+    // await user.save();
+
+    // console.log(user);
 
     return res.status(200).json({
       success: true,
-      updatedProfile: user,
+      updatedProfile: editUser,
       msg: "Profile updated successfully",
     });
   } catch (error) {

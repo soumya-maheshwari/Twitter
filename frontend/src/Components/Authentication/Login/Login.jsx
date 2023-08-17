@@ -13,7 +13,7 @@ const Login = () => {
   const navigate = useNavigate();
   const sm = useSelector((state) => state.auth);
   // console.log(sm);
-  // console.log(sm.profile);
+  console.log(sm.profile);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -49,7 +49,9 @@ const Login = () => {
             navigate("/homePage");
           }, 3000);
 
-          localStorage.setItem("userInfo", JSON.stringify(sm.profile));
+          // localStorage.setItem("userInfo", JSON.stringify(sm.profile));
+
+          localStorage.setItem("userInfo", JSON.stringify(res.payload.data));
         } else {
           toast.error(`${res.payload.data.msg}`, {
             position: "top-right",

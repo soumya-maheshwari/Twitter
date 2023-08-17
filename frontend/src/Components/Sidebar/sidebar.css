@@ -114,3 +114,24 @@
 .message-name {
   font-size: 25px;
 }
+
+/* responsive */
+
+@media (max-width: 1030px) {
+  .sidebar {
+    box-sizing: border-box;
+    position: fixed;
+    width: 20.1vw;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(15, 15, 15);
+  }
+  .lists-item {
+    list-style: none;
+    /* margin-top: 30px; */
+    font-weight: 100;
+    font-size: 24px;
+    color: rgba(224, 216, 216, 0.9);
+  }
+}

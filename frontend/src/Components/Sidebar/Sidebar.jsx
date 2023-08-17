@@ -69,11 +69,14 @@ const Sidebar = () => {
               <span className="search-name">Search</span>
             </li>{" "}
           </Link>
-          <li className="list-item" onClick={handleBell}>
-            <img src={bellImg} alt="" className="bell-icon" id="bell-icon" />
+          <Link to="/notifications">
+            <li className="list-item" onClick={handleBell}>
+              <img src={bellImg} alt="" className="bell-icon" id="bell-icon" />
 
-            <span className="bell-name">Notifications</span>
-          </li>{" "}
+              <span className="bell-name">Notifications</span>
+            </li>{" "}
+          </Link>
+
           <Link to="/bookmarks">
             <li className="list-item" onClick={handleBookmark}>
               <img

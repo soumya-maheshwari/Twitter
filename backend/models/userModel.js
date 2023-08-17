@@ -19,6 +19,10 @@ const userSchema = mongoose.Schema(
       type: String,
       unique: true,
     },
+
+    pic: {
+      type: String,
+    },
     no_of_posts: [
       {
         type: mongoose.Schema.Types.ObjectId,

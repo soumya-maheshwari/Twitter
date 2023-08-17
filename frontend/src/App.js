@@ -6,11 +6,12 @@ import Homepage from "./Components/Homepage/Homepage";
 import Profilepage from "./Components/Profilepage/Profilepage";
 import ForgotPassword from "./Components/Authentication/ForgotPassword/ForgotPassword";
 import OtpPage from "./Components/Authentication/OtpPage/OtpPage";
-import OtherProfileComponent from "./Components/OthersProfile/OtherProfileComponent";
 import OthersProfile from "./Components/OthersProfile/OthersProfile";
 import Search from "./Components/Search/Search";
 import Bookmarks from "./Components/Bookmarks/Bookmarks";
 import Logout from "./Components/Logout/Logout";
+import Notification from "./Components/Notifications/Notifications";
+import EditProfile from "./Components/Profilepage/EditProfile";
 function App() {
   return (
     <>
@@ -29,6 +30,8 @@ function App() {
           />
           <Route path="/search" exact element={<Search />} />
           <Route path="/logout" exact element={<Logout />} />
+          <Route path="/notifications" exact element={<Notification />} />
+          <Route path="/editProfile" exact element={<EditProfile />} />
 
           <Route path="/bookmarks" exact element={<Bookmarks />} />
         </Routes>

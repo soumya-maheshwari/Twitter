@@ -98,7 +98,7 @@ export const editProfileThunk = createAsyncThunk(
       },
     };
 
-    return await Api.post(`profile/editProfile`, data, config)
+    return await Api.put(`profile/editProfile`, data, config)
       .then((res) => {
         // console.log(data);
         // console.log(res);

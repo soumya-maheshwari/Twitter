@@ -39,7 +39,7 @@ export const loginUserThunk = createAsyncThunk("auth/login", async (data) => {
 
   return await Api.post(`auth/login`, data, config)
     .then((res) => {
-      // console.log(res);
+      console.log(res);
       return res;
     })
     .catch((err) => {

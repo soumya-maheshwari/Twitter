@@ -25,7 +25,7 @@ body {
   margin-top: 14vh;
   font-size: 60px;
   font-weight: bolder;
-  padding-right: 40px;
+  /* padding-right: 40px; */
   align-items: center;
   z-index: -1;
 }
@@ -166,23 +166,22 @@ button[type="submit"]:hover {
 
 @media (max-width: 670px) {
   .container-login {
-    max-width: 600px;
-    margin-top: 4%;
-    /* height: 90vh; */
+    max-width: 580px;
+    margin-top: 6%;
   }
   .left {
     display: none;
   }
   .form-login {
     /* width: 100%; */
-    padding-left: 13vw;
+    padding-left: 5vw;
   }
   .input-field {
     width: 70vw;
   }
 
   .eyeimg {
-    margin-left: 21vw;
+    margin-left: 9vw;
   }
   .login-btn {
     width: 70vw;
@@ -246,7 +245,10 @@ button[type="submit"]:hover {
     height: 90vh;
   }
   .eyeimg {
-    margin-left: 52vw;
+    margin-left: 62vw;
+  }
+  .form-class {
+    /* padding-top: -20px; */
   }
 }
 @media (max-width: 357px) {
