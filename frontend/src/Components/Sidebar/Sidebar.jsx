@@ -52,7 +52,10 @@ const Sidebar = () => {
         <ul className="lists-item">
           <Link to="/homePage">
             {" "}
-            <li className="list-item" onClick={handleHome}>
+            <li
+              className="list-item"
+              //  onClick={handleHome}
+            >
               <img src={homeImg} alt="" className="home-icon" id="home-icon" />
               <span id="home-name">Home</span>
             </li>
@@ -76,7 +79,6 @@ const Sidebar = () => {
               <span className="bell-name">Notifications</span>
             </li>{" "}
           </Link>
-
           <Link to="/bookmarks">
             <li className="list-item" onClick={handleBookmark}>
               <img
@@ -100,7 +102,7 @@ const Sidebar = () => {
               <span className="profile-name">Profile</span>
             </li>{" "}
           </Link>
-          <li className="list-item" onClick={handleMessage}>
+          {/* <li className="list-item" onClick={handleMessage}>
             <img
               src={messageImg}
               alt=""
@@ -108,7 +110,7 @@ const Sidebar = () => {
               id="message-icon"
             />
             <span className="message-name">Messages</span>
-          </li>
+          </li> */}
         </ul>
       </div>
     </>

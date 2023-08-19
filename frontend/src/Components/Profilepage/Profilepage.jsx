@@ -40,9 +40,9 @@ const Profilepage = () => {
               </div>
 
               <div className="profile2">
-                {/* <p className="count">{user.user.no_of_posts.length}</p>
+                <p className="count">{user.user.no_of_posts.length}</p>
                 <p className="count">{user.user.followers.length}</p>
-                <p className="count">{user.user.following.length}</p> */}
+                <p className="count">{user.user.following.length}</p>
               </div>
             </div>
           </div>

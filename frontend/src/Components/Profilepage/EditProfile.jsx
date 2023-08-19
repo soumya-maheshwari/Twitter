@@ -12,6 +12,8 @@ const EditProfile = () => {
   const dispatch = useDispatch();
   const user = JSON.parse(localStorage.getItem("userInfo"));
 
+  const [remainingCharacters, setRemainingCharacters] = useState(50);
+
   const [name, setName] = useState(user.user.name);
   const [username, setUsername] = useState(user.user.username);
   const [editProfileImage, setEditprofileImage] = useState(null);
@@ -48,6 +50,14 @@ const EditProfile = () => {
         return err.response;
       });
   };
+
+  const handleBioChange = (e) => {
+    const inputValue = e.target.value;
+    const charactersLeft = 50 - inputValue.length;
+    setRemainingCharacters(charactersLeft);
+    setBio(inputValue);
+  };
+
   return (
     <>
       <Sidebar />
@@ -97,10 +107,12 @@ const EditProfile = () => {
               type="text"
               className="edit-name-input"
               value={bio}
-              onChange={(e) => setBio(e.target.value)}
+              onChange={handleBioChange}
             />
             <img src={emoji} alt="" className="emoji-icon2" />
+            {/* <div className="character-count">{remainingCharacters} / 50</div> */}
           </div>
+          <div className="character-count">{remainingCharacters} / 50</div>
           <button type="submit" className="yes" onClick={handleEdit}>
             Edit
           </button>

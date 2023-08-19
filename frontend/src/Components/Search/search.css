@@ -1,22 +1,26 @@
+.search-page {
+  background-color: rgb(19, 19, 19);
+  width: 100vw;
+  height: 100vh;
+}
 .search-sidebar {
   display: flex;
   flex-direction: column;
-  position: absolute;
+  /* position: absolute; */
   left: 21vw;
   /* top: 90px; */
   padding: 10px 4px 20px 8px;
   background: black;
   border-radius: 8px;
   position: fixed;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
+  /* overflow-y: scroll; */
+  /* scroll-behavior: smooth; */
   color: white;
-  width: 40vw;
+  width: 50vw;
   height: 100vh;
-  overflow-x: scroll;
 
-  scrollbar-width: thin;
-  scrollbar-color: transparent transparent;
+  /* scrollbar-width: thin; */
+  /* scrollbar-color: transparent transparent; */
 }
 
 .search-sidebar ::-webkit-scrollbar {
