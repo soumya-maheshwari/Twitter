@@ -1,25 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./profilepage.css";
 import Sidebar from "../Sidebar/Sidebar";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { editProfileThunk } from "../../Redux/profileSlice";
+import { editProfileThunk, getProfileThunk } from "../../Redux/profileSlice";
 import emoji from "../../Assets/emoji.svg";
 import avatarImg from "../../Assets/avatar.svg";
+import { ToastContainer, toast } from "react-toastify";
+import api from "./API";
 
 const EditProfile = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const user = JSON.parse(localStorage.getItem("userInfo"));
-
+  const username = user.user.username;
   const [remainingCharacters, setRemainingCharacters] = useState(50);
-
-  const [name, setName] = useState(user.user.name);
-  const [username, setUsername] = useState(user.user.username);
+  const [name, setName] = useState("");
   const [editProfileImage, setEditprofileImage] = useState(null);
   const [sendImage, setSendImage] = useState([]);
   const [bio, setBio] = useState("");
+  const [pic, setPic] = useState("");
+  useEffect(() => {
+    dispatch(getProfileThunk(username)).then((res) => {
+      console.log(res);
+      setName(res.payload.data.profile.name);
+      setPic(res.payload.data.profile.profile_pic);
+      setBio(res.payload.data.profile.bio);
+      console.log(sendImage);
 
+      setSendImage(res.payload.data.profile.profile_pic);
+      return res;
+    });
+  }, [username]);
   const handleUpdateImg = (e) => {
     var profilePic = (document.getElementById("input-profile-img").src =
       URL.createObjectURL(e.target.files[0]));
@@ -30,6 +42,8 @@ const EditProfile = () => {
 
   const userData = {
     pic: sendImage,
+    name: name,
+    bio: bio,
   };
 
   console.log(userData);
@@ -38,11 +52,34 @@ const EditProfile = () => {
     navigate("/profile");
   };
 
+  // const avatarImg = `${api}/${sendImage}`;
+
   const handleEdit = (e) => {
     e.preventDefault();
     dispatch(editProfileThunk(userData))
       .then((res) => {
         console.log(res);
+        if (res.payload.data.success) {
+          toast.success(`${res.payload.data.msg}`, {
+            position: "top-right",
+            theme: "dark",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          });
+        } else {
+          toast.error(`${"Some error occured in updating the profile"}`, {
+            position: "top-right",
+            // theme: "DARK",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          });
+        }
         return res;
       })
       .catch((err) => {
@@ -92,15 +129,6 @@ const EditProfile = () => {
               onChange={(e) => setName(e.target.value)}
             />
           </div>
-          <p className="edit-name">Username</p>
-          <div className="edit-name-text">
-            <input
-              type="text"
-              className="edit-name-input"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-          </div>
           <p className="edit-name">Bio</p>
           <div className="edit-name-text">
             <input
@@ -109,7 +137,7 @@ const EditProfile = () => {
               value={bio}
               onChange={handleBioChange}
             />
-            <img src={emoji} alt="" className="emoji-icon2" />
+            {/* <img src={emoji} alt="" className="emoji-icon2" /> */}
             {/* <div className="character-count">{remainingCharacters} / 50</div> */}
           </div>
           <div className="character-count">{remainingCharacters} / 50</div>
@@ -121,6 +149,7 @@ const EditProfile = () => {
           </button>
         </form>
       </div>
+      <ToastContainer />
     </>
   );
 };

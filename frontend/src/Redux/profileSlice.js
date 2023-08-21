@@ -100,12 +100,12 @@ export const editProfileThunk = createAsyncThunk(
 
     return await Api.put(`profile/editProfile`, data, config)
       .then((res) => {
-        // console.log(data);
-        // console.log(res);
+        console.log(data);
+        console.log(res);
         return res;
       })
       .catch((err) => {
-        // console.log(err);
+        console.log(err);
         return err.response;
       });
   }

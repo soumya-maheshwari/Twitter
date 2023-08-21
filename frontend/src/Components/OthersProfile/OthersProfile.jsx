@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import avatarImg from "../../Assets/avatar.svg";
 import "./othersProfile.css";
-import Profilepage from "../Profilepage/Profilepage";
 import { useNavigate, useParams } from "react-router-dom";
-import OtherProfileComponent from "./OtherProfileComponent";
 import { useDispatch } from "react-redux";
 import {
   followUserThunk,
@@ -11,11 +9,9 @@ import {
   unFollowUserThunk,
 } from "../../Redux/profileSlice";
 import Sidebar from "../Sidebar/Sidebar";
-import SearchUsers from "../Homepage/SearchUsers/SearchUsers";
 import { ToastContainer, toast } from "react-toastify";
 
 const OthersProfile = (props) => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const [selectedUser, setSelectedUser] = useState("");
   const [name, setName] = useState("");
@@ -26,7 +22,7 @@ const OthersProfile = (props) => {
   const [posts, setPosts] = useState(0);
   const [userid, setUserid] = useState("");
   const [followed, setIsFollowed] = useState(false);
-
+  const [bio, setBio] = useState("");
   const [selectedUserName, setSelectedUserName] = useState("");
   // const dispatch = useDispatch();
 
@@ -110,6 +106,7 @@ const OthersProfile = (props) => {
           setFollowing(res.payload.data.profile.following.length);
           setPosts(res.payload.data.profile.no_of_posts.length);
           setUserid(res.payload.data.profile._id);
+          setBio(res.payload.data.profile.bio);
         }
         return res;
       })
@@ -161,7 +158,7 @@ const OthersProfile = (props) => {
           <p className="other-profile-info3">@{username}</p>
           <p className="other-profile-info2">{email}</p>
 
-          <p className="other-profile-info4">bio</p>
+          <p className="other-profile-info4">{bio}</p>
         </div>
         {/* <hr className="linee" /> */}
         ----------------------------------------------------------

@@ -7,7 +7,7 @@ const router = express.Router();
 router.post(
   "/create",
   authVerifyToken,
-  multerUpload.single("photo"),
+  multerUpload.single("image"),
   postController.createPost
 );
 

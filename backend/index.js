@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 require("dotenv").config();
 const cors = require("cors");
 const app = express();
+const path = require("path");
 const authRoutes = require("./routes/authRoutes");
 const postRoutes = require("./routes/postRoutes");
 const profileRoutes = require("./routes/profileRoutes");
@@ -25,6 +26,11 @@ console.log(`Connected to port ${process.env.PORT}`);
 
 // Global Error Handling
 app.use(errorMiddleware);
+
+// app.use(express.static(path.join(__dirname, "./media")));
+
+// Serve static files from the 'media' directory
+app.use("/media", express.static(path.join(__dirname, "media")));
 
 //Routes
 app.use("/auth", errorMiddleware, authRoutes);

@@ -1,6 +1,7 @@
 const User = require("../models/userModel");
 const Post = require("../models/postModel");
 const { ErrorHandler } = require("../middleware/ErrorHandler");
+const path = require("path");
 
 const createPost = async (req, res, next) => {
   try {
@@ -13,16 +14,20 @@ const createPost = async (req, res, next) => {
 
     const user = req.user;
     const userid = user._id;
+
     // console.log(userid, "user id");
+
     if (!user) {
       return next(new ErrorHandler(400, "Login or signup to continue"));
     }
+    const baseUrl = "http://localhost:5000";
 
     // const file = req.file ? req.file : null;
     // console.log(file);
 
     let file = req.file ? req.file.filename : null;
-    let image = "media/" + file;
+    // const image = req.file ? req.file.path : "";
+    const image = req.file ? baseUrl + "/media/" + req.file.filename : null;
     const newPost = await Post.create({
       user: userid,
       content: content,
@@ -30,7 +35,7 @@ const createPost = async (req, res, next) => {
       image: image,
     });
 
-    // console.log(newPost);
+    console.log(newPost);
 
     // Update the user's posts array
     const updatedUser = await User.findByIdAndUpdate(userid, {

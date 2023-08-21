@@ -13,6 +13,7 @@ import bookImg from "../../Assets/book.svg";
 import book2 from "../../Assets/book2.svg";
 
 const PostComponent = (props) => {
+  console.log(props);
   const user = JSON.parse(localStorage.getItem("userInfo"));
   // console.log(user.accessToken);
   const userid = user.id;
@@ -101,11 +102,8 @@ const PostComponent = (props) => {
           <p className="post-box-name">{props.name}</p>
           <p className="post-box-username">@{props.username}</p>
         </div>
-
         <p className="post-texts">{props.content}</p>
-        {/* <img src="" alt="" /> */}
-        {/* <video src=""></video> */}
-
+        <img src={props.image} alt="image" className="post-img" />
         <div className="imgss">
           <div className="like-div">
             <img

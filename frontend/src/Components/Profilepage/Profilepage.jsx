@@ -1,19 +1,64 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./profilepage.css";
 import Sidebar from "../Sidebar/Sidebar";
 import avatarImg from "../../Assets/avatar.svg";
 import edit from "../../Assets/edit.svg";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+import api from "./API";
+import { getProfileThunk } from "../../Redux/profileSlice";
+console.log(api);
 const Profilepage = () => {
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
 
   const handleEditProfile = () => {
     navigate("/editProfile");
   };
-  const user = JSON.parse(localStorage.getItem("userInfo"));
-  console.log(user);
 
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [usernamee, setUsernamee] = useState("");
+  const [followers, setFollowers] = useState(0);
+  const [following, setFollowing] = useState(0);
+  const [posts, setPosts] = useState(0);
+  const [userid, setUserid] = useState("");
+  const [profile_pic, setProfilePic] = useState("");
+  const [bio, setBio] = useState("");
+  const user = JSON.parse(localStorage.getItem("userInfo"));
+  // console.log(user);
+  // console.log(user.user.profile_pic);
+
+  const username = user.user.username;
+  console.log(username);
+
+  useEffect(() => {
+    dispatch(getProfileThunk(username))
+      .then((res) => {
+        console.log(res);
+        if (res.payload.data.success) {
+          setName(res.payload.data.profile.name);
+          setEmail(res.payload.data.profile.email);
+          setUsernamee(res.payload.data.profileusername);
+          setFollowers(res.payload.data.profile.followers.length);
+          setFollowing(res.payload.data.profile.following.length);
+          setPosts(res.payload.data.profile.no_of_posts.length);
+          setUserid(res.payload.data.profile._id);
+          setBio(res.payload.data.profile.bio);
+          setProfilePic(res.payload.data.profile.profile_pic);
+        }
+        return res;
+      })
+      .catch((err) => {
+        console.log(err);
+        return err.reponse;
+      });
+  }, [username]);
+
+  const profileURL = `${api}${profile_pic}`;
+
+  console.log(profileURL);
   return (
     <>
       <div className="profile-head">
@@ -29,8 +74,15 @@ const Profilepage = () => {
 
           <div className="profile-body">
             {/*  */}
-
-            <img src={avatarImg} alt="" className="user-img" />
+            {profile_pic ? (
+              <>
+                <img src={profileURL} alt="" className="user-img" />
+              </>
+            ) : (
+              <>
+                <img src={avatarImg} alt="" className="user-img" />
+              </>
+            )}
 
             <div className="profile-div">
               <div className="profile1">
@@ -40,18 +92,18 @@ const Profilepage = () => {
               </div>
 
               <div className="profile2">
-                <p className="count">{user.user.no_of_posts.length}</p>
-                <p className="count">{user.user.followers.length}</p>
-                <p className="count">{user.user.following.length}</p>
+                <p className="count">{posts}</p>
+                <p className="count">{followers}</p>
+                <p className="count">{following}</p>
               </div>
             </div>
           </div>
 
           <div className="profile3">
-            <p className="profile-info1">{user.user.name}</p>
-            <p className="profile-info2">{user.user.email}</p>
-            <p className="profile-info3">@{user.user.username}</p>
-            <p className="profile-info4">bio</p>
+            <p className="profile-info1">{name}</p>
+            <p className="profile-info2">{email}</p>
+            <p className="profile-info3">@{username}</p>
+            <p className="profile-info4">{bio}</p>
           </div>
         </div>
       </div>

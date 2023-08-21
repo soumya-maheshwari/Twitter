@@ -172,34 +172,34 @@ const editProfile = async (req, res, next) => {
 
     console.log(user);
 
-    // const { name, username, email } = req.body;
+    const { name, bio } = req.body;
 
-    // updates
-
-    // user.name = name || user.name;
-    // user.username = username || user.username;
+    user.name = name || user.name;
     const file = req.file ? req.file : null;
 
-    pic = "";
+    profile_pic = user.profile_pic;
 
-    if (file) {
-      pic = file.filename;
+    // if (file) {
+    //   pic = file.filename;
+    // }
+
+    if (req.file) {
+      profile_pic = req.file.filename;
     }
-    console.log(file);
+    console.log(req.file);
+    console.log(file, "file");
 
-    console.log(pic);
+    console.log(profile_pic, "pic");
 
     const editUser = await User.findByIdAndUpdate(userid, {
-      // name: name,
-      // username: username,
-      // email: email,
-      // bio,
-      pic: pic,
+      name: name,
+      bio: bio,
+      profile_pic: profile_pic,
     });
 
     // await user.save();
 
-    // console.log(user);
+    console.log(editUser);
 
     return res.status(200).json({
       success: true,

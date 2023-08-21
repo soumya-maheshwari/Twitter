@@ -16,14 +16,14 @@ const HomeFeeds = () => {
 
   dispatch(getHomeFeedsThunk())
     .then((res) => {
-      // console.log(res);
+      console.log(res);
 
       setPosts(res.payload.data.homeFeed);
       return res;
     })
     .catch(
       (err) => {
-        // console.log(err);
+        console.log(err);
         return err.reponse;
       },
       [posts]
@@ -43,6 +43,7 @@ const HomeFeeds = () => {
                   postid={post._id}
                   key={post._id}
                   no_of_likes={post.likes.length}
+                  image={post.image}
                   isLike={post.likes.includes(userid)}
                 />
               );

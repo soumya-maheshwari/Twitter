@@ -20,7 +20,10 @@ const userSchema = mongoose.Schema(
       unique: true,
     },
 
-    pic: {
+    profile_pic: {
+      type: String,
+    },
+    bio: {
       type: String,
     },
     no_of_posts: [
