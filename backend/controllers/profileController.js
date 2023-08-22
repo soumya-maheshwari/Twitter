@@ -14,20 +14,28 @@ const accessProfile = async (req, res, next) => {
 
     const user = await User.findOne({
       username: username,
-    });
+    })
+      .populate({
+        path: "followers",
+        select: "name username",
+      })
+      .populate({
+        path: "following",
+        select: "name username",
+      });
 
-    // console.log(user);
+    console.log(user);
 
     if (!user) {
       return next(new ErrorHandler(404, "User not found"));
     }
 
-    const profile = await User.findOne({ username: username });
+    // const profile = await User.findOne({ username: username });
     // console.log(profile);
 
     return res.status(200).json({
       success: true,
-      profile,
+      profile: user,
       msg: "Get profile",
     });
   } catch (error) {

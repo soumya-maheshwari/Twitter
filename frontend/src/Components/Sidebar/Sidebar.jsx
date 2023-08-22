@@ -11,6 +11,7 @@ import bookmark2Img from "../../Assets/bookmark2.svg";
 import profile2Img from "../../Assets/profile2.svg";
 import message2Img from "../../Assets/message2.svg";
 import searchImg from "../../Assets/search.svg";
+import menuImg from "../../Assets/menuIcon.svg";
 
 import { Link } from "react-router-dom";
 
@@ -43,6 +44,7 @@ const Sidebar = () => {
     <>
       <div className="sidebar">
         <p className="sidebar-head"></p>
+        <img src={menuImg} alt="menu" className="menu-icon" />
         <ul className="lists-item">
           <Link to="/homePage">
             {" "}

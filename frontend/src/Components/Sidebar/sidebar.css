@@ -16,6 +16,12 @@
   font-size: 39px;
   color: rgb(174, 113, 215);
 }
+
+.menu-icon {
+  width: 20px;
+  margin-left: 17.8vw;
+  cursor: pointer;
+}
 .lists-item {
   list-style: none;
   margin-top: 30px;

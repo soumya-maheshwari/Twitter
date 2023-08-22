@@ -7,7 +7,9 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import api from "./API";
 import { getProfileThunk } from "../../Redux/profileSlice";
-console.log(api);
+// console.log(api);
+import FollowingUsers from "./FollowingUsers";
+import PostComponent from "../Posts/PostComponent";
 const Profilepage = () => {
   const dispatch = useDispatch();
 
@@ -26,12 +28,14 @@ const Profilepage = () => {
   const [userid, setUserid] = useState("");
   const [profile_pic, setProfilePic] = useState("");
   const [bio, setBio] = useState("");
+  const [followersARR, setFollowerARR] = useState("");
+  const [followingARR, setFollowingARR] = useState("");
   const user = JSON.parse(localStorage.getItem("userInfo"));
   // console.log(user);
   // console.log(user.user.profile_pic);
 
   const username = user.user.username;
-  console.log(username);
+  // console.log(username);
 
   useEffect(() => {
     dispatch(getProfileThunk(username))
@@ -47,6 +51,8 @@ const Profilepage = () => {
           setUserid(res.payload.data.profile._id);
           setBio(res.payload.data.profile.bio);
           setProfilePic(res.payload.data.profile.profile_pic);
+          setFollowerARR(res.payload.data.profile.followers);
+          setFollowingARR(res.payload.data.profile.following);
         }
         return res;
       })
@@ -58,7 +64,48 @@ const Profilepage = () => {
 
   const profileURL = `${api}${profile_pic}`;
 
-  console.log(profileURL);
+  // console.log(profileURL);
+
+  const showFollowers = () => {
+    if (!followersARR) {
+      alert("no followers");
+    } else {
+      return followersARR.map((follower) => {
+        return (
+          <div
+            key={follower._id}
+            style={{
+              backgroundColor: "red",
+            }}
+          >
+            <p>{follower.username}</p>
+            <p>{follower.name}</p>
+          </div>
+        );
+      });
+    }
+  };
+
+  const showFollowing = () => {
+    if (!followingARR) {
+      alert("no followers");
+    } else {
+      console.log(followingARR);
+      followingARR.map((following) => {
+        return (
+          <>
+            <div
+              key={following._id}
+              // className="followimg"
+            >
+              <p>{following.username}</p>
+              <p>{following.name}</p>
+            </div>
+          </>
+        );
+      });
+    }
+  };
   return (
     <>
       <div className="profile-head">
@@ -93,8 +140,16 @@ const Profilepage = () => {
 
               <div className="profile2">
                 <p className="count">{posts}</p>
-                <p className="count">{followers}</p>
-                <p className="count">{following}</p>
+                <p
+                  className="count"
+                  onClick={showFollowers}
+                  onMouseOver={showFollowers}
+                >
+                  {followers}
+                </p>
+                <p className="count" onClick={showFollowing}>
+                  {following}
+                </p>
               </div>
             </div>
           </div>

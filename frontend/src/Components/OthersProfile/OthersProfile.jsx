@@ -160,8 +160,6 @@ const OthersProfile = (props) => {
 
           <p className="other-profile-info4">{bio}</p>
         </div>
-        {/* <hr className="linee" /> */}
-        ----------------------------------------------------------
       </div>
       <ToastContainer />
     </>
