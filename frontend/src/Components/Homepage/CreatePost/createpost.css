@@ -1,10 +1,9 @@
 .create-post {
   /* position: fixed; */
-  width: 50vw;
-  /* height: fit-content; */
+  width: 40vw;
+  height: fit-content;
   /* left: 29vw; */
-  top: 80px;
-
+  margin-top: 6vh;
   border: 1.9px solid rgba(255, 255, 255, 0.1);
   z-index: 20;
   display: flex;
@@ -15,11 +14,25 @@
   margin-left: 3.9vw;
   /* align-items: center; */
   color: white;
-  margin-top: 10px;
+  height: 65vh;
+  /* margin-top: 50px; */
+}
+
+.create-post::-webkit-scrollbar {
+  width: 6px;
+}
+
+.create-post::-webkit-scrollbar-thumb {
+  background-color: transparent; /* Color of the scrollbar thumb */
+}
+
+.create-post::-webkit-scrollbar-track {
+  background-color: transparent; /* Color of the scrollbar track */
 }
 .create-post-div1 {
   display: flex;
-  padding-top: 3vh;
+  /* margin-top: 7vh; */
+  /* padding-top: 1vh; */
 }
 .create-post-div {
   display: flex;
@@ -33,10 +46,9 @@
 }
 
 .username {
-  width: 117px;
   height: 20px;
   margin-left: 1vw;
-  font-weight: 500;
+  font-weight: 400;
   font-size: 1.1rem;
   color: rgb(174, 113, 215, 0.9);
 }
@@ -48,7 +60,6 @@
   margin-top: 15px;
   font-weight: 300;
   font-size: 18px;
-  line-height: 19px;
   color: rgba(245, 241, 241, 0.7);
   margin-left: 1vw;
 }
@@ -58,9 +69,9 @@
   margin-left: 1vw;
 }
 .write-post-text {
-  width: 23.5vw;
+  width: 30.5vw;
   border: none;
-  height: 60px;
+  height: 70px;
   outline: none;
   background: none;
   font-weight: 500;
@@ -157,13 +168,78 @@
 
 .emojipicker1 {
   position: absolute;
-  top: 49vh;
-  left: 23vw;
-  width: 10vw;
+  top: 39vh;
+  left: 17vw;
+  width: 6vw;
 }
 
 .emoji-text {
   font-size: 12px;
   margin-top: 4px;
   color: rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 381px) {
+  .create-post {
+    left: 0vw;
+    width: 100%;
+  }
+  .create-post-div1 {
+    padding-top: 0vh;
+    margin-top: 1vh;
+  }
+
+  .post-text {
+    font-size: 17px;
+    margin-top: 3vh;
+  }
+
+  .write-post-text {
+    width: 70.5vw;
+    height: 70px;
+    font-size: 15px;
+  }
+  .create-btn {
+    width: 20vw;
+    height: 39px;
+    margin-top: 3vh;
+  }
+
+  .image-text {
+    font-size: 12px;
+    margin-top: 3px;
+  }
+
+  .selected-img {
+    width: 79.5vw;
+    margin-top: 1vh;
+  }
+
+  .selected-video {
+    width: 79.5vw;
+    height: 30vh;
+    margin-top: 1vh;
+  }
+
+  .emoji-icon {
+    cursor: pointer;
+    margin-right: 2.1vw;
+    margin-top: 0.7vh;
+    height: 27px;
+    cursor: pointer;
+    margin-right: 2.1vw;
+  }
+
+  .emojipicker1 {
+    position: absolute;
+    top: 39vh;
+    left: 17vw;
+    width: 6vw;
+  }
+
+  .emoji-text {
+    font-size: 12px;
+    margin-top: 4px;
+    color: rgba(255, 255, 255, 0.6);
+  }
 }

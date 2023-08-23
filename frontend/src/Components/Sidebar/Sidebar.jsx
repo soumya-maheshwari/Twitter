@@ -12,10 +12,12 @@ import profile2Img from "../../Assets/profile2.svg";
 import message2Img from "../../Assets/message2.svg";
 import searchImg from "../../Assets/search.svg";
 import menuImg from "../../Assets/menuIcon.svg";
+import cross from "../../Assets/cross.svg";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
+  const navigate = useNavigate();
   const handleHome = () => {
     document.getElementById("home-icon").src = homeImg2;
     // document.getElementById("list-name").style.color = "rgb(174, 113, 215)";
@@ -40,11 +42,22 @@ const Sidebar = () => {
     document.getElementById("message-icon").src = bookmark2Img;
     // document.getElementById("message-name").style.color = "rgb(174, 113, 215)";
   };
+
+  const hideMenu = () => {
+    navigate("/homePage");
+  };
+
   return (
     <>
       <div className="sidebar">
         <p className="sidebar-head"></p>
-        <img src={menuImg} alt="menu" className="menu-icon" />
+        <img
+          src={cross}
+          alt="X"
+          className="cross-icon"
+          id="cross"
+          onClick={hideMenu}
+        />
         <ul className="lists-item">
           <Link to="/homePage">
             {" "}

@@ -1,3 +1,9 @@
+.HOME {
+  width: 100vw;
+  height: 100vh;
+  background: rgb(16, 16, 16);
+}
+
 .home-page {
   display: flex;
   flex-direction: column;
@@ -11,7 +17,7 @@
   overflow-y: scroll;
   scroll-behavior: smooth;
   color: white;
-  width: 46vw;
+  width: 56vw;
   height: 100vh;
   overflow-x: scroll;
   /* scrollbar-width: thin; */
@@ -37,6 +43,7 @@
   margin-top: 10px;
   font-weight: 500;
   font-size: 39px;
+  /* position: fixed; */
   color: rgb(174, 113, 215);
 }
 
@@ -44,7 +51,7 @@
   display: flex;
   flex-direction: column;
   position: absolute;
-  left: 67.5vw;
+  left: 77.8vw;
   top: -10px;
   padding: 10px 4px 20px 8px;
   background: rgb(16, 16, 16);
@@ -53,7 +60,7 @@
   overflow-y: scroll;
   /* scroll-behavior: smooth; */
   color: white;
-  width: 31.9vw;
+  width: 21.9vw;
   height: 100vh;
 }
 .home-right::-webkit-scrollbar {
@@ -69,10 +76,85 @@
 }
 
 .home-feeds {
-  margin-top: 5vh;
+  /* left: 21vw; */
+  margin-top: 3vh;
 }
 .logout-icon {
   width: 30px;
-  margin-left: 28vw;
+  margin-left: 14vw;
+  margin-top: 4vh;
   cursor: pointer;
+}
+.menu-icon {
+  width: 20px;
+  margin-top: 1.8vh;
+  cursor: pointer;
+  display: none;
+  margin-left: 2.8vw;
+}
+
+@media (max-width: 967px) {
+  .home-page {
+    left: 27vw;
+    width: 55vw;
+  }
+  .lists-item {
+    list-style: none;
+    /* margin-top: 30px; */
+    font-weight: 100;
+    font-size: 21px;
+    color: rgba(224, 216, 216, 0.9);
+  }
+}
+
+@media (max-width: 867px) {
+  .home-page {
+    left: 33vw;
+    width: 60vw;
+  }
+  .lists-item {
+    list-style: none;
+    /* margin-top: 30px; */
+    font-weight: 100;
+    font-size: 20px;
+    color: rgba(224, 216, 216, 0.9);
+  }
+}
+
+@media (max-width: 727px) {
+  .home-page {
+    left: 33vw;
+    width: 60vw;
+  }
+  .lists-item {
+    list-style: none;
+    /* margin-top: 30px; */
+    font-weight: 100;
+    font-size: 18px;
+    color: rgba(224, 216, 216, 0.9);
+  }
+}
+@media (max-width: 453px) {
+  .home-page {
+    left: 45vw;
+    width: 60vw;
+  }
+  .lists-item {
+    font-size: 21px;
+    margin-left: -20px;
+  }
+}
+@media (max-width: 381px) {
+  .home-page {
+    left: 0vw;
+    width: 100%;
+  }
+  .menu-icon {
+    width: 20px;
+    margin-top: 1.8vh;
+    cursor: pointer;
+    display: block;
+    margin-left: 2.8vw;
+    position: fixed;
+  }
 }

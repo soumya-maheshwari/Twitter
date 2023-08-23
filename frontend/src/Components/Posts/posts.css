@@ -1,10 +1,10 @@
 .post-box {
-  width: 36vw;
+  width: 39vw;
   background-color: white;
   color: WHITE;
   /* align-items: center; */
   padding: 10px;
-  margin: 30px auto;
+  margin: 10px auto;
   display: flex;
   flex-direction: column;
   /* width: 45vw; */
@@ -78,4 +78,16 @@
 
 .post-img {
   width: 30vw;
+}
+
+@media (max-width: 381px) {
+  .post-box {
+    width: 77vw;
+  }
+  .book-icon {
+    width: 26px;
+    height: 26px;
+
+    margin-left: 70.5vw;
+  }
 }

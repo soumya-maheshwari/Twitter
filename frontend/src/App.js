@@ -13,6 +13,7 @@ import Logout from "./Components/Logout/Logout";
 import Notification from "./Components/Notifications/Notifications";
 import EditProfile from "./Components/Profilepage/EditProfile";
 import ErrorPage from "./Components/ErrorPage/ErrorPage";
+import Sidebar from "./Components/Sidebar/Sidebar";
 function App() {
   // const user = JSON.parse(localStorage.getItem("userInfo")) ? true : false;
   // console.log(user);
@@ -43,6 +44,7 @@ function App() {
           <Route path="/notifications" exact element={<Notification />} />
           <Route path="/editProfile" exact element={<EditProfile />} />
           <Route path="/error" exact element={<ErrorPage />} />
+          <Route path="/sidebar" exact element={<Sidebar />} />
 
           <Route path="/bookmarks" exact element={<Bookmarks />} />
         </Routes>

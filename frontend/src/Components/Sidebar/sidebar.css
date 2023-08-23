@@ -17,10 +17,11 @@
   color: rgb(174, 113, 215);
 }
 
-.menu-icon {
+.cross-icon {
   width: 20px;
-  margin-left: 17.8vw;
-  cursor: pointer;
+  margin-left: 10vw;
+  padding-left: 34vw;
+  display: none;
 }
 .lists-item {
   list-style: none;
@@ -28,19 +29,11 @@
   /* font-weight: 600; */
   font-size: 24px;
   font-weight: 200;
-
+  margin-left: -10px;
   color: rgba(224, 216, 216, 0.9);
   /* font-family: "Montserrat"; */
   list-style-type: none;
 }
-/* .list-item {
-  margin-bottom: 35px;
-  cursor: pointer;
-} */
-
-/* #list-name {
-  opacity: 0.9;
-} */
 
 .home-icon {
   padding-right: 1vw;
@@ -135,19 +128,68 @@
 
 @media (max-width: 1045px) {
   .sidebar {
-    box-sizing: border-box;
-    position: fixed;
     width: 25.1vw;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    background-color: rgb(15, 15, 15);
   }
   .lists-item {
-    list-style: none;
-    /* margin-top: 30px; */
     font-weight: 100;
     font-size: 21px;
+  }
+}
+
+@media (max-width: 967px) {
+  .sidebar {
+    width: 28.1vw;
+    height: 100%;
+  }
+  .lists-item {
+    font-weight: 100;
+    font-size: 21px;
+  }
+}
+@media (max-width: 867px) {
+  .sidebar {
+    width: 33.1vw;
+  }
+  .lists-item {
+    font-weight: 100;
+    font-size: 21px;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    width: 33.1vw;
+  }
+  .lists-item {
+    font-size: 21px;
     color: rgba(224, 216, 216, 0.9);
+  }
+}
+
+@media (max-width: 453px) {
+  .sidebar {
+    width: 45.1vw;
+  }
+  .lists-item {
+    font-size: 21px;
+    margin-left: -20px;
+  }
+}
+
+@media (max-width: 381px) {
+  .sidebar {
+    /* width: 45.1vw; */
+    /* display: none; */
+    width: 100%;
+    width: 100vw;
+    /* width: 381px; */
+  }
+  .lists-item {
+    font-size: 21px;
+    margin-left: 30px;
+  }
+  .cross-icon {
+    display: block;
   }
 }
