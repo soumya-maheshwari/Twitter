@@ -1,6 +1,6 @@
 .create-post {
   /* position: fixed; */
-  width: 30vw;
+  width: 50vw;
   /* height: fit-content; */
   /* left: 29vw; */
   top: 80px;
@@ -153,6 +153,13 @@
   height: 27px;
   cursor: pointer;
   margin-right: 2.1vw;
+}
+
+.emojipicker1 {
+  position: absolute;
+  top: 49vh;
+  left: 23vw;
+  width: 10vw;
 }
 
 .emoji-text {

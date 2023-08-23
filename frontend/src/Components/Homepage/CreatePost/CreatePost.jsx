@@ -7,6 +7,7 @@ import { createPostThunk } from "../../../Redux/postSlice";
 import { ToastContainer, toast } from "react-toastify";
 import emojiImg from "../../../Assets/emoji.svg";
 import PostComponent from "../../Posts/PostComponent";
+import EmojiPicker from "emoji-picker-react";
 
 const CreatePost = () => {
   const dispatch = useDispatch();
@@ -82,6 +83,10 @@ const CreatePost = () => {
     setUploadVdeo(selectedFile);
     setSelectedVdeoURL(URL.createObjectURL(selectedFile)); // Create a URL for selected video
   };
+  const onClickEmoji = (object, e) => {
+    setContent((prevText) => prevText + object.emoji);
+    setShowEmojiPicker(false);
+  };
   return (
     <>
       <div className="create-post">
@@ -152,9 +157,24 @@ const CreatePost = () => {
             </div>
 
             <div className="create-imgs">
-              <label onClick={toggleEmojiPicker}>
-                <img src={emojiImg} alt="" className="emoji-icon" />
-              </label>
+              <img
+                src={emojiImg}
+                alt=""
+                className="emoji-icon"
+                onClick={toggleEmojiPicker}
+              />
+
+              {showEmojiPicker ? (
+                <div className="emojipicker1">
+                  <EmojiPicker
+                    theme="dark"
+                    width="20vw"
+                    height="300px"
+                    onEmojiClick={onClickEmoji}
+                  />
+                </div>
+              ) : null}
+              {/* </label> */}
               <p className="emoji-text">Emoji</p>
             </div>
           </div>
