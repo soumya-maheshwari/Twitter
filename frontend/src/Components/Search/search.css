@@ -16,7 +16,7 @@
   /* overflow-y: scroll; */
   /* scroll-behavior: smooth; */
   color: white;
-  width: 50vw;
+  width: 90vw;
   height: 100vh;
 
   /* scrollbar-width: thin; */
@@ -33,4 +33,63 @@
 
 .search-sidebar ::-webkit-scrollbar-track {
   background-color: transparent; /* Color of the scrollbar track */
+}
+
+.menu-icon-search {
+  width: 20px;
+  margin-top: 1.8vh;
+  margin-bottom: -8vh;
+  cursor: pointer;
+  /* display: none; */
+  margin-left: 2.8vw;
+}
+@media (max-width: 967px) {
+  .search-sidebar {
+    left: 27vw;
+    width: 75vw;
+  }
+  .lists-item {
+    list-style: none;
+    /* margin-top: 30px; */
+    font-weight: 100;
+    font-size: 21px;
+    color: rgba(224, 216, 216, 0.9);
+  }
+}
+
+@media (max-width: 867px) {
+  .search-sidebar {
+    left: 33vw;
+    width: 69vw;
+  }
+  .lists-item {
+    list-style: none;
+    /* margin-top: 30px; */
+    font-weight: 100;
+    font-size: 20px;
+    color: rgba(224, 216, 216, 0.9);
+  }
+}
+
+@media (max-width: 727px) {
+  .search-sidebar {
+    left: 33vw;
+    width: 60vw;
+  }
+}
+@media (max-width: 453px) {
+  .search-sidebar {
+    left: 45vw;
+    width: 60vw;
+  }
+}
+@media (max-width: 381px) {
+  .search-sidebar {
+    left: 0vw;
+    width: 100%;
+  }
+  /* .menu-icon-search {
+    display: block;
+    margin-left: 2.8vw;
+  } */
 }
