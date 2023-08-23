@@ -5,16 +5,17 @@ import cross from "../../Assets/cross.svg";
 import cross2 from "../../Assets/cross2.svg";
 import { removeBookmarkThunk } from "../../Redux/postSlice";
 import { ToastContainer, toast } from "react-toastify";
+import menu from "../../Assets/menuIcon.svg";
 
 const BookMarkPosts = (props) => {
   const postid = props.postid;
   const dispatch = useDispatch();
   const handleMouseOver = () => {
-    document.getElementById("cross").src = cross2;
+    document.getElementById("crosss").src = cross2;
   };
 
   const handleMouseLeave = () => {
-    document.getElementById("cross").src = cross;
+    document.getElementById("crosss").src = cross;
   };
 
   const handleRemoveBookmark = () => {
@@ -46,8 +47,8 @@ const BookMarkPosts = (props) => {
           <img
             src={cross}
             alt=""
-            className="cross-icon"
-            id="cross"
+            className="crosss-icon"
+            id="crosss"
             onMouseOver={handleMouseOver}
             onMouseLeave={handleMouseLeave}
             onClick={handleRemoveBookmark}

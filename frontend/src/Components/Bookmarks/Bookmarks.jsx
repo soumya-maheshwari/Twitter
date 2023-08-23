@@ -28,6 +28,7 @@ const Bookmarks = () => {
       <div className="bookmark-page">
         <Sidebar />
         <div className="all-bookmarks">
+          <h1 className="head-b">BOOKMARKED POSTS</h1>
           {bookmarks &&
             bookmarks.map((post) => {
               return (

@@ -7,6 +7,10 @@
   /* scrollbar-width: thin; */
   scrollbar-color: transparent transparent;
 }
+.head-b {
+  color: white;
+  text-align: center;
+}
 
 .bookmark-page::-webkit-scrollbar {
   width: 6px;
@@ -20,6 +24,9 @@
   background-color: transparent; /* Color of the scrollbar track */
 }
 
+.all-bookmarks {
+  margin-left: 20vw;
+}
 .post-box-bookmark {
   width: 40vw;
   background-color: white;
@@ -43,8 +50,8 @@
   flex-direction: column;
 }
 
-.cross-icon {
-  width: 20px;
+.crosss-icon {
+  width: 17px;
   margin-left: 36vw;
   cursor: pointer;
 }
@@ -76,4 +83,42 @@
   color: white;
   font-weight: 300;
   font-size: 19px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 670px) {
+  .head-b {
+    color: white;
+    text-align: center;
+    font-weight: 100;
+    margin-left: 4vw;
+  }
+  .all-bookmarks {
+    margin-left: 30vw;
+  }
+}
+@media (max-width: 470px) {
+  .head-b {
+    color: white;
+    text-align: center;
+    font-weight: 100;
+    margin-left: 4vw;
+    font-size: 20px;
+  }
+  .all-bookmarks {
+    margin-left: 30vw;
+  }
+}
+@media (max-width: 447px) {
+  .head-b {
+    color: white;
+    text-align: center;
+    font-weight: 100;
+    /* margin-left: 4vw; */
+    font-size: 20px;
+  }
+  .all-bookmarks {
+    margin-left: 46vw;
+  }
 }
