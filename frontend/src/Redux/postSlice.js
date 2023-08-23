@@ -105,6 +105,29 @@ export const addToBookmarkThunk = createAsyncThunk(
   }
 );
 
+export const removeBookmarkThunk = createAsyncThunk(
+  "post/removeBookmark",
+  async (data) => {
+    const user = JSON.parse(localStorage.getItem("userInfo"));
+    // console.log(user.accessToken);
+    const config = {
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Bearer ${user.accessToken}`,
+      },
+    };
+
+    return await Api.post("post/removeBookmark", data, config)
+      .then((res) => {
+        console.log(res);
+        return res;
+      })
+      .catch((err) => {
+        console.log(err);
+        return err.response;
+      });
+  }
+);
 export const postSlice = createSlice({
   name: "post",
   initialState: initialState,
@@ -188,6 +211,26 @@ export const postSlice = createSlice({
         }
       })
       .addCase(addToBookmarkThunk.rejected, (state) => {
+        state.isLoading = true;
+        state.isError = true;
+      })
+
+      // REMOVE FROM BOOKMARKS
+      .addCase(removeBookmarkThunk.pending, (state, action) => {
+        state.isLoading = true;
+      })
+      .addCase(removeBookmarkThunk.fulfilled, (state, action) => {
+        // console.log(action.payload);
+        state.isLoading = false;
+
+        if (action.payload.data.success) {
+          state.isSuccess = true;
+        } else {
+          state.isSuccess = false;
+          state.isError = true;
+        }
+      })
+      .addCase(removeBookmarkThunk.rejected, (state) => {
         state.isLoading = true;
         state.isError = true;
       });

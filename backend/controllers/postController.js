@@ -230,6 +230,42 @@ const addToBookmarks = async (req, res, next) => {
 //   }
 // };
 
+const removeFromBookmarks = async (req, res, next) => {
+  try {
+    const user = req.user;
+    const userid = user._id;
+
+    if (!user) {
+      return next(new ErrorHandler(400, "Login or signup to continue"));
+    }
+
+    const { postid } = req.body;
+
+    if (!postid) {
+      return next(new ErrorHandler(400, "No post found"));
+    }
+
+    // Find the index of the postid in the bookmarks array
+    const bookmarkIndex = user.bookmarks.indexOf(postid);
+
+    if (bookmarkIndex === -1) {
+      return next(new ErrorHandler(404, "Post not found in bookmarks"));
+    }
+
+    // Remove the postid from bookmarks array
+    user.bookmarks.splice(bookmarkIndex, 1);
+    await user.save();
+
+    return res.status(200).json({
+      success: true,
+      updatedUser: user,
+      msg: "post removed from bookmarks",
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   createPost,
   likePost,
@@ -238,4 +274,5 @@ module.exports = {
   addToBookmarks,
   // getAllBookmarks,
   // commentPost,
+  removeFromBookmarks,
 };

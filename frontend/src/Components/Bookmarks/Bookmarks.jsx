@@ -3,7 +3,6 @@ import Sidebar from "../Sidebar/Sidebar";
 import "./bookmark.css";
 import { useDispatch } from "react-redux";
 import { getAllBookmarkThunk } from "../../Redux/profileSlice";
-import PostComponent from "../Posts/PostComponent";
 import BookMarkPosts from "./BookMarkPosts";
 
 const Bookmarks = () => {
@@ -41,6 +40,7 @@ const Bookmarks = () => {
                     postid={post._id}
                     key={post._id}
                     no_of_likes={post.likes.length}
+                    image={post.image}
                     // isLike={post.likes.includes(userid)}
                   />
                 </>

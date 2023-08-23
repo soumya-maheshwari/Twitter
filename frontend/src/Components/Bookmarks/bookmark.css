@@ -34,7 +34,7 @@
   background-color: #282829;
   border-radius: 19px;
   margin-top: 10vh;
-  border: 0.5px solid white;
+  border: 2.5px solid white;
 }
 
 .box1-bookmark {
@@ -43,6 +43,11 @@
   flex-direction: column;
 }
 
+.cross-icon {
+  width: 20px;
+  margin-left: 36vw;
+  cursor: pointer;
+}
 .post-box-name-bookmark {
   width: 15vw;
   font-weight: 400;
@@ -58,6 +63,10 @@
   color: #7534e6;
   margin-bottom: 0;
   cursor: pointer;
+}
+.bookmark-image {
+  width: 40vw;
+  margin-top: 4vh;
 }
 .post-texts-bookmark {
   width: 42.7vw;
