@@ -2,12 +2,10 @@
   width: 39vw;
   background-color: white;
   color: WHITE;
-  /* align-items: center; */
   padding: 10px;
   margin: 10px auto;
   display: flex;
   flex-direction: column;
-  /* width: 45vw; */
   margin-bottom: 3vh;
   background-color: #161719;
   border-radius: 19px;
@@ -38,7 +36,6 @@
 .post-texts {
   width: 42.7vw;
   margin-top: 6vh;
-  /* margin-left: 4.9vw; */
   margin-bottom: 1vh;
   color: white;
   font-weight: 300;
@@ -55,8 +52,6 @@
 
 .imgss {
   display: flex;
-  /* flex-direction: column; */
-  /* justify-content: space-between; */
 }
 .likes-count {
   margin-top: -0.5vh;
@@ -70,7 +65,6 @@
   width: 26px;
   height: 26px;
   margin-top: 1vh;
-  /* margin-right: 3vw; */
   cursor: pointer;
   margin-left: 33.5vw;
   right: 0;

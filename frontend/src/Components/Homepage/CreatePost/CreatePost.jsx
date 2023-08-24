@@ -8,9 +8,11 @@ import { ToastContainer, toast } from "react-toastify";
 import emojiImg from "../../../Assets/emoji.svg";
 import PostComponent from "../../Posts/PostComponent";
 import EmojiPicker from "emoji-picker-react";
+import { useNavigate } from "react-router-dom";
 
 const CreatePost = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [content, setContent] = useState("");
   const [uploadImg, setUploadImg] = useState(null);
   const [uploadVdeo, setUploadVdeo] = useState(null);
@@ -87,13 +89,25 @@ const CreatePost = () => {
     setContent((prevText) => prevText + object.emoji);
     setShowEmojiPicker(false);
   };
+
+  const handleNavigate = () => {
+    navigate("/profile");
+  };
   return (
     <>
       <div className="create-post">
         <div className="create-post-div1">
           <div className="create-post-div">
             <p className="user-name">{user.user.name}</p>
-            <p className="username">@{user.user.username}</p>
+            <p
+              className="username"
+              onClick={handleNavigate}
+              style={{
+                cursor: "pointer",
+              }}
+            >
+              @{user.user.username}
+            </p>
           </div>
         </div>
         <form action="" onSubmit={handleCreatePost}>

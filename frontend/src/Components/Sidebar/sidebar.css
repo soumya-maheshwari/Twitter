@@ -5,7 +5,6 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  /* display: block-; */
   background-color: rgb(15, 15, 15);
 }
 
@@ -26,12 +25,10 @@
 .lists-item {
   list-style: none;
   margin-top: 30px;
-  /* font-weight: 600; */
   font-size: 24px;
   font-weight: 200;
   margin-left: -10px;
   color: rgba(224, 216, 216, 0.9);
-  /* font-family: "Montserrat"; */
   list-style-type: none;
 }
 
@@ -42,12 +39,9 @@
   align-items: center;
   text-align: center;
   margin-top: -10px;
-  /* padding-top: 10px; */
 }
 
 #home-name {
-  /* font-size: 38px; */
-  /* margin-left: -4px; */
   color: white;
   font-weight: 200;
 }
@@ -55,9 +49,7 @@
   padding-right: 1vw;
   opacity: 0.8;
   width: 34px;
-  /* align-items: center; */
   margin-top: 20px;
-  /* text-align: center; */
   padding-right: 1vw;
   opacity: 0.8;
   width: 39px;
@@ -66,8 +58,6 @@
 }
 
 .search-name {
-  /* font-size: 38px; */
-  /* margin-top: 30px; */
   color: white;
 }
 .bell-icon {
@@ -81,7 +71,6 @@
 
 .bell-name {
   color: white;
-  /* font-size: 25px; */
 }
 
 .bookmark-icon {
@@ -94,7 +83,6 @@
 }
 
 .bookmarks-name {
-  /* font-size: 25px; */
   color: white;
 }
 
@@ -107,7 +95,6 @@
   margin-top: 30px;
 }
 .profile-name {
-  /* font-size: 25px; */
   color: white;
 }
 
@@ -117,7 +104,6 @@
   width: 22px;
   align-items: center;
   margin-top: 13px;
-
   text-align: center;
 }
 .message-name {
@@ -177,13 +163,10 @@
   }
 }
 
-@media (max-width: 381px) {
+/* @media (max-width: 381px) {
   .sidebar {
-    /* width: 45.1vw; */
-    /* display: none; */
     width: 100%;
     width: 100vw;
-    /* width: 381px; */
   }
   .lists-item {
     font-size: 21px;
@@ -192,4 +175,4 @@
   .cross-icon {
     display: block;
   }
-}
+} */

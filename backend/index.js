@@ -8,6 +8,7 @@ const authRoutes = require("./routes/authRoutes");
 const postRoutes = require("./routes/postRoutes");
 const profileRoutes = require("./routes/profileRoutes");
 const commentRoutes = require("./routes/commentRoutes");
+const chatRoutes = require("./routes/chatRoutes");
 
 const { errorMiddleware } = require("./middleware/ErrorHandler");
 app.use(express.json());
@@ -38,3 +39,4 @@ app.use("/auth", errorMiddleware, authRoutes);
 app.use("/post", errorMiddleware, postRoutes);
 app.use("/profile", errorMiddleware, profileRoutes);
 app.use("/comment", errorMiddleware, commentRoutes);
+app.use("/chat", errorMiddleware, chatRoutes);

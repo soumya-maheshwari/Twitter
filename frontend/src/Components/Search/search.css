@@ -6,21 +6,14 @@
 .search-sidebar {
   display: flex;
   flex-direction: column;
-  /* position: absolute; */
   left: 21vw;
-  /* top: 90px; */
   padding: 10px 4px 20px 8px;
   background: black;
   border-radius: 8px;
   position: fixed;
-  /* overflow-y: scroll; */
-  /* scroll-behavior: smooth; */
   color: white;
   width: 90vw;
   height: 100vh;
-
-  /* scrollbar-width: thin; */
-  /* scrollbar-color: transparent transparent; */
 }
 
 .search-sidebar ::-webkit-scrollbar {
@@ -43,6 +36,7 @@
   /* display: none; */
   margin-left: 2.8vw;
 }
+
 @media (max-width: 967px) {
   .search-sidebar {
     left: 27vw;
@@ -50,7 +44,6 @@
   }
   .lists-item {
     list-style: none;
-    /* margin-top: 30px; */
     font-weight: 100;
     font-size: 21px;
     color: rgba(224, 216, 216, 0.9);
@@ -64,7 +57,6 @@
   }
   .lists-item {
     list-style: none;
-    /* margin-top: 30px; */
     font-weight: 100;
     font-size: 20px;
     color: rgba(224, 216, 216, 0.9);
@@ -88,8 +80,4 @@
     left: 0vw;
     width: 100%;
   }
-  /* .menu-icon-search {
-    display: block;
-    margin-left: 2.8vw;
-  } */
 }

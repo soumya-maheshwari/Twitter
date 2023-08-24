@@ -1,15 +1,13 @@
 .profile-head {
   width: 100vw;
   height: 100vh;
-  background-color: #171718;
+  position: fixed;
+  background-color: rgb(28, 28, 28);
 }
 
 .profile-page {
   width: 60vw;
   left: 31vw;
-
-  height: fit-content;
-  /* margin-left: 33vw; */
   position: absolute;
   top: 70px;
   padding-bottom: 3vh;
@@ -65,8 +63,8 @@
   justify-content: space-evenly;
   margin-left: -15vw;
 }
+
 .count {
-  /* width: 26px; */
   font-weight: 400;
   font-size: 20px;
   cursor: pointer;
@@ -84,7 +82,7 @@
 }
 
 .profile-info1 {
-  font-weight: 500;
+  font-weight: 400;
   font-size: 1.7rem;
   line-height: 21px;
   margin-bottom: 0.1vh;
@@ -99,13 +97,14 @@
 }
 
 .profile-info2 {
-  font-weight: 400;
+  font-weight: 300;
   width: 20vw;
   height: auto;
-  font-size: 18px;
+  font-size: 16px;
   margin-bottom: 0.3vh;
   color: rgba(255, 255, 255, 0.9);
 }
+
 .profile-info4 {
   font-weight: 400;
   font-size: 19px;
@@ -118,12 +117,18 @@
   width: 26px;
   height: 26px;
   margin-top: 2.9vh;
-  /* margin-right: 3vw; */
   cursor: pointer;
   margin-left: 55.9vw;
 }
 
 /* edit profile */
+
+.edit-profile-pagee {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: rgb(28, 28, 28);
+}
 .edit-profile-page {
   box-sizing: border-box;
   display: flex;
@@ -131,14 +136,12 @@
   position: absolute;
   top: 11vh;
   left: 35.5vw;
-  width: 40vw;
+  width: 50vw;
   padding-bottom: 35px;
   height: fit-content;
   background-color: #121212;
   border: 3px solid rgba(255, 255, 255, 0.7);
-  /* box-shadow: 0px 100px 80px #1A1C1E; */
   border-radius: 16px;
-  /* display: none; */
   z-index: 110;
   color: white;
 }
@@ -170,7 +173,7 @@
 }
 .edit-name-text {
   border-bottom: 1px solid rgba(255, 255, 255, 0.9);
-  width: 30vw;
+  width: 35vw;
   margin-left: 2vw;
   margin-top: -2vh;
   margin-bottom: 3vh;
@@ -194,7 +197,7 @@
 }
 
 .character-count {
-  margin-left: 30vw;
+  margin-left: 35vw;
   margin-top: -10px;
 }
 .character-count::after {
@@ -206,8 +209,14 @@
   font-size: 12px;
   margin-left: 10vw;
 }
+.emojipicker12 {
+  position: absolute;
+  top: 39vh;
+  left: 39vw;
+  width: 6vw;
+}
 
-@media (max-width: 1245px) {
+@media (max-width: 1130px) {
   .profile-page {
     width: 61vw;
   }
@@ -217,16 +226,23 @@
   .profile-div {
     margin-left: 5.5vw;
   }
-  .user-img {
-    margin-left: 3vw;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
+}
+
+@media (max-width: 1030px) {
+  .profile-page {
+    width: 67.4vw;
+  }
+  .profile-body {
+    padding-top: 3vh;
+  }
+  .profile-div {
+    margin-left: 5.5vw;
   }
 }
-@media (max-width: 910px) {
+
+@media (max-width: 906px) {
   .profile-page {
-    width: 62.4vw;
+    width: 64.4vw;
   }
   .profile-body {
     padding-top: 3vh;
@@ -242,10 +258,10 @@
   }
 }
 
-@media (max-width: 872px) {
+@media (max-width: 867px) {
   .profile-page {
-    width: 62.4vw;
-    left: 40vw;
+    width: 61vw;
+    left: 35vw;
   }
   .profile-body {
     padding-top: 3vh;
@@ -253,10 +269,104 @@
   .profile-div {
     margin-left: 5.5vw;
   }
+}
+
+@media (max-width: 800px) {
+  .profile-page {
+    width: 63vw;
+    left: 33.8vw;
+  }
+  .profile-body {
+    padding-top: 3vh;
+  }
+
+  .profile-div {
+    display: flex;
+    flex-direction: column;
+    margin-left: 7vw;
+  }
   .user-img {
-    margin-top: 4.8vh;
+    margin-left: 1vw;
+    width: 110px;
+    cursor: pointer;
+    height: 110px;
+    border-radius: 50%;
+  }
+
+  .posts {
+    margin-right: 6vw;
+    font-weight: 200;
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 610px) {
+  .profile-div {
+    margin-left: 4vw;
+  }
+  .user-img {
+    margin-left: 1vw;
     width: 100px;
     height: 100px;
-    border-radius: 50%;
+  }
+}
+
+@media (max-width: 561px) {
+  .profile-div {
+    margin-left: 3vw;
+  }
+  .user-img {
+    margin-left: 1vw;
+    width: 90px;
+    height: 90px;
+  }
+}
+
+/* edit profile responsive */
+@media (max-width: 1130px) {
+  .edit-profile-page {
+    left: 33.5vw;
+    width: 56vw;
+  }
+}
+
+@media (max-width: 868px) {
+  .edit-profile-page {
+    left: 37.5vw;
+    width: 56vw;
+  }
+}
+
+@media (max-width: 460px) {
+  .edit-profile-page {
+    left: 39.5vw;
+    width: 59vw;
+  }
+}
+
+@media (max-width: 453px) {
+  .edit-profile-page {
+    left: 44.5vw;
+    width: 51vw;
+  }
+  .edit-name-input {
+    font-weight: 300;
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+@media (max-width: 381px) {
+  .edit-profile-page {
+    left: 2vw;
+    width: 95%;
+  }
+  .profile-page {
+    left: 2vw;
+    width: 95%;
+  }
+
+  .edit-icon {
+    margin-left: 75.9vw;
   }
 }

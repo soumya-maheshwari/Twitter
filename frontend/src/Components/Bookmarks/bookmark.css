@@ -4,7 +4,6 @@
   position: fixed;
   background-color: rgb(28, 28, 28);
   overflow-x: scroll;
-  /* scrollbar-width: thin; */
   scrollbar-color: transparent transparent;
 }
 .head-b {
@@ -31,17 +30,16 @@
   width: 40vw;
   background-color: white;
   color: WHITE;
-  /* align-items: center; */
   padding: 10px;
   margin: 30px auto;
   display: flex;
   flex-direction: column;
-  /* width: 45vw; */
   margin-bottom: 3vh;
   background-color: #282829;
   border-radius: 19px;
   margin-top: 10vh;
   border: 2.5px solid white;
+  cursor: pointer;
 }
 
 .box1-bookmark {
@@ -52,7 +50,7 @@
 
 .crosss-icon {
   width: 17px;
-  margin-left: 36vw;
+  margin-left: 38vw;
   cursor: pointer;
 }
 .post-box-name-bookmark {
@@ -120,5 +118,15 @@
   }
   .all-bookmarks {
     margin-left: 46vw;
+  }
+}
+@media (max-width: 381px) {
+  .all-bookmarks {
+    margin-left: -20vw;
+    width: 100%;
+    position: absolute;
+  }
+  .sidebar {
+    display: none;
   }
 }

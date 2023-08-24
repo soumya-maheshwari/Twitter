@@ -8,11 +8,9 @@
   background: rgb(16, 16, 16);
   border-radius: 8px;
   position: fixed;
-  /* overflow-y: scroll; */
   scroll-behavior: smooth;
   color: white;
   width: 50.9vw;
-  /* height: 100vh; */
 }
 .other-profile-body {
   display: flex;
@@ -102,33 +100,17 @@
 .profile-head2 {
   width: 100vw;
   height: 100vh;
-  /* left: 10vw; */
-  /* background-color: red; */
-  /* background-color: #260535; */
 }
 
 .profile-page2 {
-  /* width: 60vw;
-  height: fit-content;
-  margin-left: 30vw;
-  position: absolute;
-  top: 50px;
-  padding-bottom: 1vh;
-  background: #121212;
-  border-radius: 20px;
-  padding-bottom: 10vh;
-  color: white; */
   display: flex;
   flex-direction: column;
   position: absolute;
-  /* left: 61vw; */
-  /* top: 10px; */
   padding: 10px 4px 20px 8px;
   background: rgb(16, 16, 16);
   border-radius: 8px;
   position: fixed;
   overflow-y: scroll;
-  /* scroll-behavior: smooth; */
   color: white;
   width: 21.9vw;
   height: 100vh;
@@ -213,13 +195,11 @@
   border: none;
   width: 9vw;
   height: 36px;
-  /* margin-left: 1.7vw; */
   border-radius: 13px;
   cursor: pointer;
   font-weight: 300;
   font-size: 17px;
   margin-top: 7vh;
-  /* margin-left: 0.1vw; */
   color: rgba(255, 255, 255, 0.9);
   background-color: rgb(174, 113, 215, 0.9);
 }

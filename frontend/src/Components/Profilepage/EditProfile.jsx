@@ -8,6 +8,7 @@ import emoji from "../../Assets/emoji.svg";
 import avatarImg from "../../Assets/avatar.svg";
 import { ToastContainer, toast } from "react-toastify";
 import api from "./API";
+import EmojiPicker from "emoji-picker-react";
 
 const EditProfile = () => {
   const navigate = useNavigate();
@@ -20,18 +21,21 @@ const EditProfile = () => {
   const [sendImage, setSendImage] = useState([]);
   const [bio, setBio] = useState("");
   const [pic, setPic] = useState("");
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+
   useEffect(() => {
     dispatch(getProfileThunk(username)).then((res) => {
       console.log(res);
       setName(res.payload.data.profile.name);
       setPic(res.payload.data.profile.profile_pic);
-      setBio(res.payload.data.profile.bio);
+      setBio(res.payload.data.profile.bio || "");
       console.log(sendImage);
 
       setSendImage(res.payload.data.profile.profile_pic);
       return res;
     });
   }, [username]);
+
   const handleUpdateImg = (e) => {
     var profilePic = (document.getElementById("input-profile-img").src =
       URL.createObjectURL(e.target.files[0]));
@@ -95,60 +99,86 @@ const EditProfile = () => {
     setBio(inputValue);
   };
 
+  const toggleEmojiPicker = () => {
+    setShowEmojiPicker(!showEmojiPicker);
+  };
+
+  const onClickEmoji = (object, e) => {
+    setBio((prevText) => prevText + object.emoji);
+    setShowEmojiPicker(false);
+  };
+
   return (
     <>
-      <Sidebar />
-      <div className="edit-profile-page">
-        {editProfileImage ? (
-          <>
-            <img src={editProfileImage} alt="" className="user-img3" />
-          </>
-        ) : (
-          <img src={avatarImg} alt="" className="user-img3" />
-        )}
-        <p>
-          <img id="editProfileImg" />
-        </p>
-        <form action="">
-          <label>
-            <p className="edit-img-text">Edit profile Pic</p>{" "}
-            <input
-              type="file"
-              id="input-profile-img"
-              accept="image/png, image/jpg, image/jpeg"
-              hidden
-              onChange={handleUpdateImg}
-            />
-          </label>
-          <p className="edit-name">Name</p>
-          <div className="edit-name-text">
-            <input
-              type="text"
-              className="edit-name-input"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </div>
-          <p className="edit-name">Bio</p>
-          <div className="edit-name-text">
-            <input
-              type="text"
-              className="edit-name-input"
-              value={bio}
-              onChange={handleBioChange}
-            />
-            {/* <img src={emoji} alt="" className="emoji-icon2" /> */}
-            {/* <div className="character-count">{remainingCharacters} / 50</div> */}
-          </div>
-          <div className="character-count">{remainingCharacters} / 50</div>
-          <button type="submit" className="yes" onClick={handleEdit}>
-            Edit
-          </button>
-          <button type="submit" className="no" onClick={handleCancel}>
-            Cancel
-          </button>
-        </form>
+      <div className="edit-profile-pagee">
+        <Sidebar />
+        <div className="edit-profile-page">
+          {editProfileImage ? (
+            <>
+              <img src={editProfileImage} alt="" className="user-img3" />
+            </>
+          ) : (
+            <img src={avatarImg} alt="" className="user-img3" />
+          )}
+          <p>
+            <img id="editProfileImg" />
+          </p>
+          <form action="">
+            <label>
+              <p className="edit-img-text">Edit profile Pic</p>{" "}
+              <input
+                type="file"
+                id="input-profile-img"
+                accept="image/png, image/jpg, image/jpeg"
+                hidden
+                onChange={handleUpdateImg}
+              />
+            </label>
+            <p className="edit-name">Name</p>
+            <div className="edit-name-text">
+              <input
+                type="text"
+                className="edit-name-input"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+            <p className="edit-name">Bio</p>
+            <div className="edit-name-text">
+              <input
+                type="text"
+                className="edit-name-input"
+                value={bio}
+                onChange={handleBioChange}
+              />
+              <img
+                src={emoji}
+                alt=""
+                className="emoji-icon2"
+                onClick={toggleEmojiPicker}
+              />
+              {showEmojiPicker ? (
+                <div className="emojipicker12">
+                  <EmojiPicker
+                    theme="dark"
+                    width="20vw"
+                    height="300px"
+                    onEmojiClick={onClickEmoji}
+                  />
+                </div>
+              ) : null}
+            </div>
+            <div className="character-count">{remainingCharacters} / 50</div>
+            <button type="submit" className="yes" onClick={handleEdit}>
+              Edit
+            </button>
+            <button type="submit" className="no" onClick={handleCancel}>
+              Cancel
+            </button>
+          </form>
+        </div>
       </div>
+
       <ToastContainer />
     </>
   );

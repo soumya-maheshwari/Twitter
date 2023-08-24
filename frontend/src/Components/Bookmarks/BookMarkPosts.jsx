@@ -6,10 +6,11 @@ import cross2 from "../../Assets/cross2.svg";
 import { removeBookmarkThunk } from "../../Redux/postSlice";
 import { ToastContainer, toast } from "react-toastify";
 import menu from "../../Assets/menuIcon.svg";
-
+import { useNavigate } from "react-router-dom";
 const BookMarkPosts = (props) => {
   const postid = props.postid;
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const handleMouseOver = () => {
     document.getElementById("crosss").src = cross2;
   };
@@ -40,6 +41,10 @@ const BookMarkPosts = (props) => {
         return err.reponse;
       });
   };
+
+  const handleNavigate = () => {
+    navigate(`/otherProfile/${props.username}`);
+  };
   return (
     <>
       <div className="post-box-bookmark">
@@ -49,12 +54,14 @@ const BookMarkPosts = (props) => {
             alt=""
             className="crosss-icon"
             id="crosss"
-            onMouseOver={handleMouseOver}
-            onMouseLeave={handleMouseLeave}
+            // onMouseOver={handleMouseOver}
+            // onMouseLeave={handleMouseLeave}
             onClick={handleRemoveBookmark}
           />
           <p className="post-box-name-bookmark">{props.name}</p>
-          <p className="post-box-username-bookmark">@{props.username}</p>
+          <p className="post-box-username-bookmark" onClick={handleNavigate}>
+            @{props.username}
+          </p>
         </div>
         <img src={props.image} alt="image" className="bookmark-image" />
         <p className="post-texts-bookmark">{props.content}</p>

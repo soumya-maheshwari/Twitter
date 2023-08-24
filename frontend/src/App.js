@@ -34,6 +34,7 @@ function App() {
           ) : (
             <Route path="/error" exact element />
           )} */}
+
           <Route
             path="/otherProfile/:username"
             exact
