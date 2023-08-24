@@ -28,6 +28,7 @@ const HomeFeeds = () => {
       },
       [posts]
     );
+  console.log(posts);
   return (
     <>
       <div className="home-feeds">
@@ -45,6 +46,7 @@ const HomeFeeds = () => {
                   no_of_likes={post.likes.length}
                   image={post.image}
                   isLike={post.likes.includes(userid)}
+                  commentsCount={post.commentsCount}
                 />
               );
             })}

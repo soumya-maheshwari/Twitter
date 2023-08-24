@@ -34,6 +34,10 @@ const postSchema = mongoose.Schema({
       ref: "Comment",
     },
   ],
+  commentsCount: {
+    type: Number,
+    default: 0,
+  },
 });
 
 module.exports = mongoose.model("Post", postSchema);

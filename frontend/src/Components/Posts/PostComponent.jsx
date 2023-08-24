@@ -180,7 +180,7 @@ const PostComponent = (props) => {
               id="comment-icon"
               onClick={openCommentBox}
             />
-            <p className="likes-count">0</p>
+            <p className="likes-count">{props.commentsCount}</p>
             <div className="comment-box">
               {isCommentBoxOpen && (
                 <div className="comment-input">
@@ -195,14 +195,7 @@ const PostComponent = (props) => {
               )}
             </div>
           </div>
-          {/* <div className="comment-box">
-            {isCommentBoxOpen && (
-              <div className="comment-input">
-                <input type="text" placeholder="Add a comment..." />
-                <button>Submit</button>
-              </div>
-            )}
-          </div> */}
+
           <div className="likes-div">
             <img
               src={shareImg}
