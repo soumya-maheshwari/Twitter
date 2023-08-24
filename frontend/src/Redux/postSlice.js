@@ -128,6 +128,7 @@ export const removeBookmarkThunk = createAsyncThunk(
       });
   }
 );
+
 export const postSlice = createSlice({
   name: "post",
   initialState: initialState,

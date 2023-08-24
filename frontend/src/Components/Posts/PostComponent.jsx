@@ -11,9 +11,12 @@ import shareImg from "../../Assets/share.svg";
 import share2 from "../../Assets/share2.svg";
 import bookImg from "../../Assets/book.svg";
 import book2 from "../../Assets/book2.svg";
+import { addCommentThunk } from "../../Redux/commentSlice";
 
 const PostComponent = (props) => {
-  console.log(props);
+  const [isCommentBoxOpen, setIsCommentBoxOpen] = useState(false);
+  const [comment_text, setCommmentText] = useState("");
+  // console.log(props);
   const user = JSON.parse(localStorage.getItem("userInfo"));
   // console.log(user.accessToken);
   const userid = user.id;
@@ -29,6 +32,12 @@ const PostComponent = (props) => {
   //     setIsLike(true);
   //   }
   // }, [isLike]);
+
+  const userData = {
+    comment_text: comment_text,
+    userid: userid,
+    postid: postid,
+  };
   const handleLikePost = () => {
     dispatch(likePostThunk({ postid }))
       .then((res) => {
@@ -88,6 +97,54 @@ const PostComponent = (props) => {
       });
   };
 
+  const openCommentBox = () => {
+    setIsCommentBoxOpen(true);
+  };
+
+  const addComment = () => {
+    if (!comment_text) {
+      toast.error(`Enter something to comment`, {
+        position: "top-right",
+        theme: "dark",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+    }
+    dispatch(addCommentThunk(userData))
+      .then((res) => {
+        if (res.payload.data.success) {
+          toast.success(`${res.payload.data.msg}`, {
+            position: "top-right",
+            theme: "dark",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          });
+          setIsCommentBoxOpen(false);
+        } else {
+          toast.error(`unable to comment on the post`, {
+            position: "top-right",
+            theme: "dark",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+          });
+        }
+        console.log(res);
+        return res;
+      })
+      .catch((err) => {
+        console.log(err);
+        return err.reponse;
+      });
+  };
   return (
     <>
       <div className="post-box">
@@ -121,9 +178,31 @@ const PostComponent = (props) => {
               alt="comment"
               className="like-icon"
               id="comment-icon"
+              onClick={openCommentBox}
             />
             <p className="likes-count">0</p>
+            <div className="comment-box">
+              {isCommentBoxOpen && (
+                <div className="comment-input">
+                  <input
+                    type="text"
+                    placeholder="Add a comment..."
+                    value={comment_text}
+                    onChange={(e) => setCommmentText(e.target.value)}
+                  />
+                  <button onClick={addComment}>Comment</button>
+                </div>
+              )}
+            </div>
           </div>
+          {/* <div className="comment-box">
+            {isCommentBoxOpen && (
+              <div className="comment-input">
+                <input type="text" placeholder="Add a comment..." />
+                <button>Submit</button>
+              </div>
+            )}
+          </div> */}
           <div className="likes-div">
             <img
               src={shareImg}

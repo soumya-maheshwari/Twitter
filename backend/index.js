@@ -7,6 +7,7 @@ const path = require("path");
 const authRoutes = require("./routes/authRoutes");
 const postRoutes = require("./routes/postRoutes");
 const profileRoutes = require("./routes/profileRoutes");
+const commentRoutes = require("./routes/commentRoutes");
 
 const { errorMiddleware } = require("./middleware/ErrorHandler");
 app.use(express.json());
@@ -36,3 +37,4 @@ app.use("/media", express.static(path.join(__dirname, "media")));
 app.use("/auth", errorMiddleware, authRoutes);
 app.use("/post", errorMiddleware, postRoutes);
 app.use("/profile", errorMiddleware, profileRoutes);
+app.use("/comment", errorMiddleware, commentRoutes);

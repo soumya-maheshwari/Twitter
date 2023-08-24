@@ -16,14 +16,14 @@ const HomeFeeds = () => {
 
   dispatch(getHomeFeedsThunk())
     .then((res) => {
-      console.log(res);
+      // console.log(res);
 
       setPosts(res.payload.data.homeFeed);
       return res;
     })
     .catch(
       (err) => {
-        console.log(err);
+        // console.log(err);
         return err.reponse;
       },
       [posts]

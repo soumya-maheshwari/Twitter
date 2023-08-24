@@ -6,6 +6,7 @@ import thunk from "redux-thunk";
 import authReducer from "./authSlice";
 import postReducer from "./postSlice";
 import profileReducer from "./profileSlice";
+import commentReducer from "./commentSlice";
 
 // Redux Persist configuration
 const persistConfig = {
@@ -18,12 +19,14 @@ const persistConfig = {
 const persistedAuthReducer = persistReducer(persistConfig, authReducer);
 const persistedPostReducer = persistReducer(persistConfig, postReducer);
 const persistedProfileReducer = persistReducer(persistConfig, profileReducer);
+const persistedCommentReducer = persistReducer(persistConfig, commentReducer);
 
 const store = configureStore({
   reducer: {
     auth: persistedAuthReducer,
     post: persistedPostReducer,
     user: persistedProfileReducer,
+    comment: persistedCommentReducer,
   },
 
   middleware: [thunk],

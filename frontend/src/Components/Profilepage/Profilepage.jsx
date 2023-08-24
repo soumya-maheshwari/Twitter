@@ -7,12 +7,13 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import api from "./API";
 import { getProfileThunk } from "../../Redux/profileSlice";
+
 // console.log(api);
+
 import FollowingUsers from "./FollowingUsers";
 import PostComponent from "../Posts/PostComponent";
 const Profilepage = () => {
   const dispatch = useDispatch();
-
   const navigate = useNavigate();
 
   const handleEditProfile = () => {

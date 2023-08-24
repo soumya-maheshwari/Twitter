@@ -196,40 +196,6 @@ const addToBookmarks = async (req, res, next) => {
   }
 };
 
-// const commentPost = async (req, res, next) => {
-//   try {
-//     const user = req.user;
-//     const userid = user._id;
-//     console.log(userid, "user id");
-
-//     if (!user) {
-//       return next(new ErrorHandler(400, "Login or signup to continue"));
-//     }
-
-//     const { postid } = req.body;
-//     console.log(postid);
-
-//     if (!postid) {
-//       return next(new ErrorHandler(400, "No post found"));
-//     }
-
-//     const { comment } = req.body;
-
-//     if (!comment) {
-//       return next(new ErrorHandler(400, "Enter something to comment"));
-//     }
-
-//     const post = await Post.findById(postId);
-
-//     if (!post) {
-//       return next(new ErrorHandler(400, "No post found with this id "));
-//     }
-//   } catch (error) {
-//     next(error);
-//     console.log(error);
-//   }
-// };
-
 const removeFromBookmarks = async (req, res, next) => {
   try {
     const user = req.user;

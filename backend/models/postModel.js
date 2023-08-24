@@ -31,7 +31,7 @@ const postSchema = mongoose.Schema({
     {
       // default: 0,
       type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+      ref: "Comment",
     },
   ],
 });
