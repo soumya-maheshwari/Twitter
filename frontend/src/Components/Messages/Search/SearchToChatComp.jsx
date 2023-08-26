@@ -17,7 +17,7 @@ const SearchUserComponent = (props) => {
   //   username: props.username,
   // };
 
-  const userId = props.userID;
+  const userId = props.userId;
   console.log(userId);
   const handleUserClick = () => {
     setSelectedUser(props.name);

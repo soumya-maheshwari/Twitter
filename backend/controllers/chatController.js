@@ -18,8 +18,9 @@ const createChat = async (req, res, next) => {
         { users: { $elemMatch: { $eq: userid } } },
         { users: { $elemMatch: { $eq: userId } } },
       ],
-    }).populate("users", "-password");
-    // .populate("latestMessage");
+    })
+      .populate("users", "-password")
+      .populate("latestMessage");
 
     console.log(isChat);
     let chatData = null;
@@ -27,21 +28,20 @@ const createChat = async (req, res, next) => {
     if (isChat.length > 0) {
       res.send(isChat[0]);
     } else {
-      chatData = await Chat.create({
-        users: [userid, userId],
+      const chatData = await Chat.create({
+        users: [req.user._id, userId],
+      });
+      const fullChat = await Chat.findOne({ _id: chatData._id }).populate(
+        "users",
+        "-password"
+      );
+
+      res.status(200).json({
+        fullChat,
+        success: true,
+        msg: "chat created successfully",
       });
     }
-
-    const fullChat = await Chat.findOne({ _id: chatData._id }).populate(
-      "users",
-      "-password"
-    );
-    console.log(fullChat);
-    return res.status(200).json({
-      fullChat,
-      success: true,
-      msg: "chat created successfully",
-    });
   } catch (error) {
     console.log(error);
     next(error);
@@ -63,12 +63,14 @@ const fetchAllChats = async (req, res, next) => {
 
     console.log(chat);
 
-    // const USER = await User.populate(chat, {
-    //   select: "username email name _id",
-    // });
+    const USER = await User.populate(chat, {
+      // select: "username email name _id",
+      path: "latestMessage.sender",
+      select: "username email name _id",
+    });
 
     res.status(200).json({
-      chat,
+      USER,
       msg: "chat fetched successfully",
       success: true,
     });

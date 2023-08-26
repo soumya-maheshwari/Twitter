@@ -59,7 +59,12 @@ const SearchToChat = () => {
   return (
     <>
       <div className="search-users">
-        <div className="search-user-body">
+        <div
+          className="search-user-body"
+          style={{
+            marginTop: "10px",
+          }}
+        >
           <img
             src={searchImg}
             alt="search"
@@ -85,7 +90,7 @@ const SearchToChat = () => {
                     name={userr.name}
                     username={userr.username}
                     key={userr._id}
-                    userId={userr.id}
+                    userId={userr._id}
                     pic={userr.profile_pic}
                     // object={userr}
                   />

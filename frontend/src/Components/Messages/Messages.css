@@ -12,7 +12,7 @@
   border-radius: 8px;
   position: fixed;
   color: white;
-  width: 39.9vw;
+  width: 37.9vw;
   height: 100vh;
 }
 
@@ -26,12 +26,14 @@
   text-align: center;
   margin: 0 auto;
   margin-top: 40vh;
+  font-size: 26px;
+  font-weight: 500;
 }
 
 .search-users-messages {
   display: flex;
   flex-direction: column;
-  left: 62vw;
+  left: 61.6vw;
   padding: 10px 4px 20px 8px;
   background: black;
   border-radius: 8px;
@@ -52,4 +54,28 @@
 .ss {
   display: flex;
   flex-direction: column;
+}
+
+.all-chats {
+  padding: 7px;
+  /* background-color: rgb(170, 101, 222); */
+  /* flex-direction: column; */
+  align-items: center;
+  /* display: flex; */
+  color: black;
+  width: 90%;
+}
+
+.all-chat {
+  padding: 10px;
+  cursor: pointer;
+  background-color: rgb(226, 97, 218);
+  background-color: rgb(238, 134, 134);
+}
+.sender {
+  font-weight: 400;
+  font-size: 1.7rem;
+  line-height: 21px;
+  margin-bottom: 1.9vh;
+  color: white;
 }

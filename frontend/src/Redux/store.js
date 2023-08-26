@@ -8,6 +8,7 @@ import postReducer from "./postSlice";
 import profileReducer from "./profileSlice";
 import commentReducer from "./commentSlice";
 import chatReducer from "./chatSlice";
+import messageReducer from "./messageSlice";
 
 // Redux Persist configuration
 const persistConfig = {
@@ -22,6 +23,7 @@ const persistedPostReducer = persistReducer(persistConfig, postReducer);
 const persistedProfileReducer = persistReducer(persistConfig, profileReducer);
 const persistedCommentReducer = persistReducer(persistConfig, commentReducer);
 const persistedChatReducer = persistReducer(persistConfig, chatReducer);
+const persistedMessageReducer = persistReducer(persistConfig, messageReducer);
 
 const store = configureStore({
   reducer: {
@@ -30,6 +32,7 @@ const store = configureStore({
     user: persistedProfileReducer,
     comment: persistedCommentReducer,
     chat: persistedChatReducer,
+    message: persistedMessageReducer,
   },
 
   middleware: [thunk],
