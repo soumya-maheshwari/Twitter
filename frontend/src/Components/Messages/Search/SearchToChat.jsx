@@ -40,8 +40,7 @@ const SearchToChat = () => {
     }
   };
 
-  console.log(onSearch, "on search");
-  // console.log(onSearch.length);
+  // console.log(onSearch, "on search");
 
   const handleUserSearch = (e) => {
     e.preventDefault();

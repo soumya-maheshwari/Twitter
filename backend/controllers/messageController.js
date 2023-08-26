@@ -53,7 +53,7 @@ const fetchAllMessages = async (req, res, next) => {
 
     res.json({
       msg: "messages fetching successful",
-      messages,
+      messages: messages,
       success: true,
     });
   } catch (error) {

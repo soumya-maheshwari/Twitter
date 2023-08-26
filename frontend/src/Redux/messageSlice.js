@@ -5,6 +5,7 @@ const initialState = {
   isError: false,
   isSuccess: false,
   isLoading: false,
+  messagesArray: "",
 };
 
 export const sendMessageThunk = createAsyncThunk(
@@ -88,10 +89,13 @@ export const messageSlice = createSlice({
       })
       .addCase(getAllMessagesThunk.fulfilled, (state, action) => {
         console.log(action.payload);
+        console.log(action.payload.data.messages);
+
         state.isLoading = false;
 
         if (action.payload.data.success) {
           state.isSuccess = true;
+          state.messagesArray = action.payload.data.messages;
         } else {
           state.isSuccess = false;
           state.isError = true;

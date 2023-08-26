@@ -2,19 +2,25 @@ import React, { useEffect, useState } from "react";
 import "./Messages.css";
 import Sidebar from "../Sidebar/Sidebar";
 import SearchToChat from "./Search/SearchToChat";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { getAllChatsThunk } from "../../Redux/chatSlice";
 import { getSenderName, getSenderUserName } from "../../Config/Helper";
 import sendImg from "../../Assets/send.svg";
-import { sendMessageThunk } from "../../Redux/messageSlice";
+import {
+  getAllMessagesThunk,
+  sendMessageThunk,
+} from "../../Redux/messageSlice";
+import ScrollableChatFeeds from "./ScrollableChatFeeds";
 
 const Messages = () => {
   const dispatch = useDispatch();
   const [selectedChat, setSelectedChat] = useState(null);
   const [content, setContent] = useState("");
   const [chats, setChats] = useState([]);
+  const [allMessages, setAllMessages] = useState([]);
+
   const user = JSON.parse(localStorage.getItem("userInfo"));
-  console.log(user);
+  // console.log(user);
 
   useEffect(() => {
     dispatch(getAllChatsThunk())
@@ -31,11 +37,26 @@ const Messages = () => {
         return err.response;
       });
   }, []);
+  const msg = useSelector((state) => state.message);
 
+  useEffect(() => {
+    if (msg.isSuccess) {
+      setAllMessages(msg.messagesArray);
+      // setMessageToSend("");
+      // socket.emit("join a chat", chatid);
+
+      // setLoading(false);
+    }
+  }, [msg]);
   const userData = {
     content: content,
     chatId: selectedChat ? selectedChat._id : "",
   };
+
+  const userData2 = {
+    chatId: selectedChat ? selectedChat._id : "",
+  };
+
   const handleSend = () => {
     if (!selectedChat) {
       dispatch(sendMessageThunk(userData))
@@ -49,7 +70,25 @@ const Messages = () => {
         });
     }
   };
-  console.log(selectedChat, "selected chat");
+
+  // console.log(selectedChat, "selected chat");
+
+  useEffect(() => {
+    // if (selectedChat) {
+    dispatch(getAllMessagesThunk(userData2))
+      .then((res) => {
+        console.log(res.payload.data.messages);
+        // setAllMessages(res.payload.data.messages);
+        console.log(res);
+        // console.log(allMessages);
+        return res;
+      })
+      .catch((err) => {
+        console.log(err);
+        return err.response;
+      });
+    // }
+  });
   return (
     <>
       <div className="message-page">
@@ -62,11 +101,19 @@ const Messages = () => {
                   <p className="sender-heading">
                     {getSenderName(user, selectedChat.users)}
                   </p>
+                  <div className="messages">
+                    <ScrollableChatFeeds allMessages={allMessages} />
+                  </div>
+                  bhjbjt
                 </div>
               </>
             ) : (
               <>
                 <p className="chat-text">Click on a user to start chatting</p>
+
+                {/* <div className="messages">
+                  <ScrollableChatFeeds allMessages={allMessages} />
+                </div> */}
               </>
             )}
 
