@@ -18,10 +18,47 @@
 
 .message-box {
   width: 38.9vw;
-  height: 100vh;
+  height: 94vh;
   border: 2px solid white;
 }
+.chat-box {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 20px solid white;
+}
 
+.sender-heading {
+  font-size: 29px;
+  font-weight: 500;
+}
+.send-input-msg {
+  margin-top: 68vh;
+}
+.input-msg {
+  /* width: 90%; */
+  border: none;
+  outline: none;
+  /* position: fixed; */
+  width: 35.6vw;
+  height: 49px;
+  background: #151515;
+  border-radius: 11px;
+  font-weight: 100;
+  font-size: 15px;
+  /* display: inline-block; */
+  padding-left: 2vw;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.send-img {
+  width: 30px;
+  margin-top: 10px;
+  margin-left: -3vw;
+  position: absolute;
+  cursor: pointer;
+}
 .chat-text {
   text-align: center;
   margin: 0 auto;
@@ -69,8 +106,8 @@
 .all-chat {
   padding: 10px;
   cursor: pointer;
-  background-color: rgb(226, 97, 218);
-  background-color: rgb(238, 134, 134);
+  /* background-color: rgb(226, 97, 218); */
+  /* background-color: rgb(238, 134, 134); */
 }
 .sender {
   font-weight: 400;

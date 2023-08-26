@@ -5,7 +5,6 @@ const initialState = {
   isError: false,
   isSuccess: false,
   isLoading: false,
-  newPost: null,
 };
 
 export const sendMessageThunk = createAsyncThunk(
