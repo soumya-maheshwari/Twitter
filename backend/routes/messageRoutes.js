@@ -4,6 +4,10 @@ const router = express.Router();
 const { messageController } = require("../controllers");
 
 router.post("/sendMessage", authVerifyToken, messageController.sendMessage);
-router.get("/getAll", authVerifyToken, messageController.fetchAllMessages);
+router.get(
+  "/getAll/:chatId",
+  authVerifyToken,
+  messageController.fetchAllMessages
+);
 
 module.exports = router;

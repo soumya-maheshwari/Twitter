@@ -47,10 +47,10 @@ const sendMessage = async (req, res, next) => {
 const fetchAllMessages = async (req, res, next) => {
   try {
     const { chatId } = req.body;
-    const messages = await Message.find({ chat: chatId })
+    const messages = await Message.find({ chat: req.params.chatId })
       .populate("sender", "name email username")
       .populate("chat");
-
+    console.log(messages);
     res.json({
       msg: "messages fetching successful",
       messages: messages,

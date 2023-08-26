@@ -74,20 +74,20 @@ const Messages = () => {
   // console.log(selectedChat, "selected chat");
 
   useEffect(() => {
-    // if (selectedChat) {
-    dispatch(getAllMessagesThunk(userData2))
-      .then((res) => {
-        console.log(res.payload.data.messages);
-        // setAllMessages(res.payload.data.messages);
-        console.log(res);
-        // console.log(allMessages);
-        return res;
-      })
-      .catch((err) => {
-        console.log(err);
-        return err.response;
-      });
-    // }
+    if (selectedChat) {
+      dispatch(getAllMessagesThunk(userData2.chatId))
+        .then((res) => {
+          console.log(res.payload.data.messages);
+          // setAllMessages(res.payload.data.messages);
+          console.log(res);
+          // console.log(allMessages);
+          return res;
+        })
+        .catch((err) => {
+          console.log(err);
+          return err.response;
+        });
+    }
   });
   return (
     <>
@@ -104,19 +104,29 @@ const Messages = () => {
                   <div className="messages">
                     <ScrollableChatFeeds allMessages={allMessages} />
                   </div>
-                  bhjbjt
+                  <div className="send-input-msg">
+                    <input
+                      type="text"
+                      value={content}
+                      onChange={(e) => setContent(e.target.value)}
+                      className="input-msg"
+                      placeholder="Enter a message"
+                    />
+                    <img
+                      src={sendImg}
+                      alt=""
+                      className="send-img"
+                      onClick={handleSend}
+                    />
+                  </div>
                 </div>
               </>
             ) : (
               <>
                 <p className="chat-text">Click on a user to start chatting</p>
-
-                {/* <div className="messages">
-                  <ScrollableChatFeeds allMessages={allMessages} />
-                </div> */}
               </>
             )}
-
+            {/* 
             <div className="send-input-msg">
               <input
                 type="text"
@@ -131,7 +141,7 @@ const Messages = () => {
                 className="send-img"
                 onClick={handleSend}
               />
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="search-users-messages">
@@ -141,7 +151,7 @@ const Messages = () => {
             chats.map((chat) => {
               return (
                 <>
-                  <div className="all-chats">
+                  <div className="all-chats" key={chat._id}>
                     <div
                       className="all-chat"
                       style={{

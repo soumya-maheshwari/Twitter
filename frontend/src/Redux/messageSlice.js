@@ -34,7 +34,7 @@ export const sendMessageThunk = createAsyncThunk(
 
 export const getAllMessagesThunk = createAsyncThunk(
   "message/getAll",
-  async () => {
+  async (data) => {
     const user = JSON.parse(localStorage.getItem("userInfo"));
     // console.log(user.accessToken);
     const config = {
@@ -44,7 +44,7 @@ export const getAllMessagesThunk = createAsyncThunk(
       },
     };
 
-    return await Api.get("message/getAll", config)
+    return await Api.get(`message/getAll/${data}`, config)
       .then((res) => {
         console.log(res);
         return res;

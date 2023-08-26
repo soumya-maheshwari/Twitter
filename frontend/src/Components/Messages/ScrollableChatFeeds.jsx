@@ -10,7 +10,7 @@ import {
 const ScrollableChatFeeds = ({ allMessages }) => {
   const user = JSON.parse(localStorage.getItem("userInfo"));
   // console.log(user);
-  // console.log(allMessages);
+  console.log(allMessages);
 
   return (
     <>
@@ -21,13 +21,8 @@ const ScrollableChatFeeds = ({ allMessages }) => {
               return (
                 <>
                   <div key={m._id} style={{ display: "flex" }}>
-                    {(isSameSender(allMessages, m, i, user.id) ||
-                      isLastMessage(allMessages, i, user.id)) &&
-                      // <Tooltip title={m.sender.name} placement="bottom-start">
-
-                      {
-                        /* </Tooltip> */
-                      }}
+                    {/* {isSameSender(allMessages, m, i, user.id) ||
+                      isLastMessage(allMessages, i, user.id)} */}
                     <span
                       style={{
                         borderRadius: "20px",
@@ -48,6 +43,7 @@ const ScrollableChatFeeds = ({ allMessages }) => {
                         marginTop: isSameUser(allMessages, m, i, user.id)
                           ? 3
                           : 10,
+                        color: "black",
                       }}
                     >
                       {m.content}
