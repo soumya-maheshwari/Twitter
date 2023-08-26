@@ -9,6 +9,7 @@ const postRoutes = require("./routes/postRoutes");
 const profileRoutes = require("./routes/profileRoutes");
 const commentRoutes = require("./routes/commentRoutes");
 const chatRoutes = require("./routes/chatRoutes");
+const messageRoutes = require("./routes/messageRoutes");
 
 const { errorMiddleware } = require("./middleware/ErrorHandler");
 app.use(express.json());
@@ -40,3 +41,4 @@ app.use("/post", errorMiddleware, postRoutes);
 app.use("/profile", errorMiddleware, profileRoutes);
 app.use("/comment", errorMiddleware, commentRoutes);
 app.use("/chat", errorMiddleware, chatRoutes);
+app.use("/message", errorMiddleware, messageRoutes);

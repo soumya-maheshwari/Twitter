@@ -1,5 +1,6 @@
 const { ErrorHandler } = require("../middleware/ErrorHandler");
 const Chat = require("../models/chatModel");
+const User = require("../models/userModel");
 
 const createChat = async (req, res, next) => {
   try {
@@ -47,6 +48,36 @@ const createChat = async (req, res, next) => {
   }
 };
 
+const fetchAllChats = async (req, res, next) => {
+  try {
+    const user = req.user;
+    const userid = user._id;
+
+    const chat = await Chat.find({
+      users: {
+        $elemMatch: {
+          $eq: userid,
+        },
+      },
+    }).populate("users", "-password");
+
+    console.log(chat);
+
+    // const USER = await User.populate(chat, {
+    //   select: "username email name _id",
+    // });
+
+    res.status(200).json({
+      chat,
+      msg: "chat fetched successfully",
+      success: true,
+    });
+  } catch (error) {
+    console.log(error);
+    next(error);
+  }
+};
 module.exports = {
   createChat,
+  fetchAllChats,
 };
