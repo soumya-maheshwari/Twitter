@@ -111,15 +111,17 @@ const Sidebar = () => {
               <span className="profile-name">Profile</span>
             </li>{" "}
           </Link>
-          {/* <li className="list-item" onClick={handleMessage}>
-            <img
-              src={messageImg}
-              alt=""
-              className="message-icon"
-              id="message-icon"
-            />
-            <span className="message-name">Messages</span>
-          </li> */}
+          <Link to="/messages">
+            <li className="list-item" onClick={handleMessage}>
+              <img
+                src={messageImg}
+                alt=""
+                className="message-icon"
+                id="message-icon"
+              />
+              <span className="message-name">Messages</span>
+            </li>
+          </Link>
         </ul>
       </div>
     </>

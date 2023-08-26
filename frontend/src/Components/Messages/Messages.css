@@ -1,0 +1,55 @@
+.message-page {
+  background-color: rgb(19, 19, 19);
+  width: 100vw;
+  height: 100vh;
+}
+.message-box-body {
+  display: flex;
+  flex-direction: column;
+  left: 21vw;
+  padding: 10px 4px 20px 8px;
+  background: black;
+  border-radius: 8px;
+  position: fixed;
+  color: white;
+  width: 39.9vw;
+  height: 100vh;
+}
+
+.message-box {
+  width: 38.9vw;
+  height: 100vh;
+  border: 2px solid white;
+}
+
+.chat-text {
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 40vh;
+}
+
+.search-users-messages {
+  display: flex;
+  flex-direction: column;
+  left: 62vw;
+  padding: 10px 4px 20px 8px;
+  background: black;
+  border-radius: 8px;
+  position: fixed;
+  color: white;
+  height: 100vh;
+  width: 36.9vw;
+  background-color: indianred;
+}
+
+.msg-imgg {
+  width: 20px;
+  height: 20px;
+  margin-left: 33.3vw;
+  position: absolute;
+  cursor: pointer;
+}
+.ss {
+  display: flex;
+  flex-direction: column;
+}

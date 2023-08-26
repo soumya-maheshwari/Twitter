@@ -8,8 +8,8 @@ const initialState = {
   newPost: null,
 };
 
-export const addCommentThunk = createAsyncThunk(
-  "comment/addComment",
+export const createChatThunk = createAsyncThunk(
+  "chat/createChat",
   async (data) => {
     const user = JSON.parse(localStorage.getItem("userInfo"));
     // console.log(user.accessToken);
@@ -20,7 +20,7 @@ export const addCommentThunk = createAsyncThunk(
       },
     };
 
-    return await Api.post("comment/addComment", data, config)
+    return await Api.post("chat/createChat", data, config)
       .then((res) => {
         console.log(res);
         return res;
@@ -32,19 +32,19 @@ export const addCommentThunk = createAsyncThunk(
   }
 );
 
-export const commentSlice = createSlice({
-  name: "comment",
+export const chatSlice = createSlice({
+  name: "chat",
   initialState: initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
 
-      //ADD COMMENT
-      .addCase(addCommentThunk.pending, (state, action) => {
+      // CREATE CHAT
+      .addCase(createChatThunk.pending, (state, action) => {
         state.isLoading = true;
       })
-      .addCase(addCommentThunk.fulfilled, (state, action) => {
-        // console.log(action.payload);
+      .addCase(createChatThunk.fulfilled, (state, action) => {
+        console.log(action.payload);
         state.isLoading = false;
 
         if (action.payload.data.success) {
@@ -54,11 +54,11 @@ export const commentSlice = createSlice({
           state.isError = true;
         }
       })
-      .addCase(addCommentThunk.rejected, (state) => {
+      .addCase(createChatThunk.rejected, (state) => {
         state.isLoading = true;
         state.isError = true;
       });
   },
 });
 
-export default commentSlice.reducer;
+export default chatSlice.reducer;

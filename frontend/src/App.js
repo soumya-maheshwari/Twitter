@@ -14,6 +14,7 @@ import Notification from "./Components/Notifications/Notifications";
 import EditProfile from "./Components/Profilepage/EditProfile";
 import ErrorPage from "./Components/ErrorPage/ErrorPage";
 import Sidebar from "./Components/Sidebar/Sidebar";
+import Messages from "./Components/Messages/Messages";
 function App() {
   // const user = JSON.parse(localStorage.getItem("userInfo")) ? true : false;
   // console.log(user);
@@ -46,6 +47,7 @@ function App() {
           <Route path="/editProfile" exact element={<EditProfile />} />
           <Route path="/error" exact element={<ErrorPage />} />
           <Route path="/sidebar" exact element={<Sidebar />} />
+          <Route path="/messages" exact element={<Messages />} />
 
           <Route path="/bookmarks" exact element={<Bookmarks />} />
         </Routes>

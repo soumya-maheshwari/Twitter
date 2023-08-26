@@ -17,16 +17,16 @@ const createChat = async (req, res, next) => {
         { users: { $elemMatch: { $eq: userid } } },
         { users: { $elemMatch: { $eq: userId } } },
       ],
-    })
-      .populate("users", "-password")
-      .populate("latestMessage");
+    }).populate("users", "-password");
+    // .populate("latestMessage");
 
     console.log(isChat);
+    let chatData = null;
 
     if (isChat.length > 0) {
       res.send(isChat[0]);
     } else {
-      const chatData = await Chat.create({
+      chatData = await Chat.create({
         users: [userid, userId],
       });
     }

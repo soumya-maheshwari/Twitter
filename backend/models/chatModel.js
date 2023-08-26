@@ -8,10 +8,10 @@ const chatSchema = mongoose.Schema({
     },
   ],
 
-  latestMessage: {
-    type: mongoose.Schema.Types.ObjectId,
-    default: "New chat created",
-  },
+  // latestMessage: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   default: "New chat created",
+  // },
 });
 
 module.exports = mongoose.model("Chat", chatSchema);

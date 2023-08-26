@@ -7,6 +7,7 @@ import authReducer from "./authSlice";
 import postReducer from "./postSlice";
 import profileReducer from "./profileSlice";
 import commentReducer from "./commentSlice";
+import chatReducer from "./chatSlice";
 
 // Redux Persist configuration
 const persistConfig = {
@@ -20,6 +21,7 @@ const persistedAuthReducer = persistReducer(persistConfig, authReducer);
 const persistedPostReducer = persistReducer(persistConfig, postReducer);
 const persistedProfileReducer = persistReducer(persistConfig, profileReducer);
 const persistedCommentReducer = persistReducer(persistConfig, commentReducer);
+const persistedChatReducer = persistReducer(persistConfig, chatReducer);
 
 const store = configureStore({
   reducer: {
@@ -27,6 +29,7 @@ const store = configureStore({
     post: persistedPostReducer,
     user: persistedProfileReducer,
     comment: persistedCommentReducer,
+    chat: persistedChatReducer,
   },
 
   middleware: [thunk],
