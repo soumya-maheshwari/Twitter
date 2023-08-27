@@ -18,12 +18,12 @@ const Bookmarks = () => {
   useEffect(() => {
     dispatch(getAllBookmarkThunk())
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setBookmarks(res.payload.data.bookmarks);
         return res;
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         return err.response;
       });
   });

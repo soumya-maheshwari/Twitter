@@ -23,7 +23,6 @@ const CreatePost = () => {
   const [postid, setPostid] = useState("");
 
   const user = JSON.parse(localStorage.getItem("userInfo"));
-  // console.log(user);
 
   const toggleEmojiPicker = () => {
     setShowEmojiPicker(!showEmojiPicker);

@@ -194,28 +194,28 @@ const forgotPassword = async (req, res, next) => {
     if (!isUser) {
       return next(new ErrorHandler(400, "User by this email does not exist"));
     }
-    console.log(isUser);
+    // console.log(isUser);
     const OTPtoMail = otpGenerator.generate(6, {
       upperCaseAlphabets: false,
       lowerCaseAlphabets: false,
       specialChars: false,
     });
 
-    console.log(OTPtoMail);
+    // console.log(OTPtoMail);
 
     mailer.sendEmail(email, OTPtoMail);
 
     const findOtp = await Otp.findOne({ email });
 
-    console.log(findOtp, "find otp");
+    // console.log(findOtp, "find otp");
     if (findOtp) {
       let date = new Date();
       date = date.getTime() / 1000;
-      console.log(date, "date");
+      // console.log(date, "date");
       let otpDate = new Date(findOtp.updatedAt);
       otpDate = otpDate.getTime() / 1000;
-      console.log(otpDate, "otp date");
-      console.log(date, otpDate);
+      // console.log(otpDate, "otp date");
+      // console.log(date, otpDate);
       if (date < otpDate + 10) {
         return next(new ErrorHandler(400, "Wait for some time resend otp"));
       }
@@ -258,12 +258,12 @@ const OtpVerify = async (req, res, next) => {
     const findOtp = await Otp.findOne({
       email: email,
     });
-    console.log(findOtp);
+    // console.log(findOtp);
     if (!findOtp) {
       return next(new ErrorHandler(400, "Otp is expired."));
     }
 
-    console.log(findOtp);
+    // console.log(findOtp);
     if (findOtp.otp != otp) {
       return next(new ErrorHandler(400, "Incorrect Otp"));
     }
@@ -275,7 +275,7 @@ const OtpVerify = async (req, res, next) => {
     });
     var user;
     user = findUser;
-    console.log(user);
+    // console.log(user);
 
     const token = jwt.sign(
       {

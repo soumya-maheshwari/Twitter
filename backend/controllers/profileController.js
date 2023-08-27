@@ -24,7 +24,7 @@ const accessProfile = async (req, res, next) => {
         select: "name username",
       });
 
-    console.log(user);
+    // console.log(user);
 
     if (!user) {
       return next(new ErrorHandler(404, "User not found"));
@@ -178,7 +178,7 @@ const editProfile = async (req, res, next) => {
     const user = req.user;
     const userid = user.id;
 
-    console.log(user);
+    // console.log(user);
 
     const { name, bio } = req.body;
 
@@ -194,10 +194,10 @@ const editProfile = async (req, res, next) => {
     if (req.file) {
       profile_pic = req.file.filename;
     }
-    console.log(req.file);
-    console.log(file, "file");
+    // console.log(req.file);
+    // console.log(file, "file");
 
-    console.log(profile_pic, "pic");
+    // console.log(profile_pic, "pic");
 
     const editUser = await User.findByIdAndUpdate(userid, {
       name: name,
@@ -207,7 +207,7 @@ const editProfile = async (req, res, next) => {
 
     // await user.save();
 
-    console.log(editUser);
+    // console.log(editUser);
 
     return res.status(200).json({
       success: true,

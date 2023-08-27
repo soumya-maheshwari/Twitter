@@ -12,7 +12,6 @@ export const createPostThunk = createAsyncThunk(
   "post/create_post",
   async (data) => {
     const user = JSON.parse(localStorage.getItem("userInfo"));
-    // console.log(user.accessToken);
     const config = {
       headers: {
         "Content-type": "application/json",
@@ -36,7 +35,6 @@ export const likePostThunk = createAsyncThunk(
   "post/like_post",
   async (data) => {
     const user = JSON.parse(localStorage.getItem("userInfo"));
-    // console.log(user.accessToken);
     const config = {
       headers: {
         "Content-type": "application/json",
@@ -47,7 +45,6 @@ export const likePostThunk = createAsyncThunk(
     return await Api.post("post/likePost", data, config)
       .then((res) => {
         // console.log(res);
-        // console.log(data);
         return res;
       })
       .catch((err) => {
@@ -61,7 +58,6 @@ export const getHomeFeedsThunk = createAsyncThunk(
   "post/homeFeeds",
   async () => {
     const user = JSON.parse(localStorage.getItem("userInfo"));
-    // console.log(user.accessToken);
     const config = {
       headers: {
         "Content-type": "application/json",
@@ -85,7 +81,6 @@ export const addToBookmarkThunk = createAsyncThunk(
   "post/addToBookmarks",
   async (data) => {
     const user = JSON.parse(localStorage.getItem("userInfo"));
-    // console.log(user.accessToken);
     const config = {
       headers: {
         "Content-type": "application/json",
@@ -109,7 +104,6 @@ export const removeBookmarkThunk = createAsyncThunk(
   "post/removeBookmark",
   async (data) => {
     const user = JSON.parse(localStorage.getItem("userInfo"));
-    // console.log(user.accessToken);
     const config = {
       headers: {
         "Content-type": "application/json",
@@ -119,11 +113,11 @@ export const removeBookmarkThunk = createAsyncThunk(
 
     return await Api.post("post/removeBookmark", data, config)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         return res;
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         return err.response;
       });
   }

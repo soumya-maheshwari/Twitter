@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import api from "./API";
 import { getProfileThunk } from "../../Redux/profileSlice";
+import menuImg from "../../Assets/menuIcon.svg";
 
 // console.log(api);
 
@@ -18,6 +19,9 @@ const Profilepage = () => {
 
   const handleEditProfile = () => {
     navigate("/editProfile");
+  };
+  const showMenu = () => {
+    navigate("/sidebar");
   };
 
   const [name, setName] = useState("");
@@ -111,6 +115,14 @@ const Profilepage = () => {
     <>
       <div className="profile-head">
         <Sidebar />
+        <img
+          src={menuImg}
+          alt="menu"
+          className="menu-icon-home2"
+          id="menu2"
+          onClick={showMenu}
+        />
+        <h1 className="home-head HOME-HEAD">PROFILE</h1>
 
         <div className="profile-page">
           <img

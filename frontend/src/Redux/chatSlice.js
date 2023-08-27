@@ -12,7 +12,6 @@ export const createChatThunk = createAsyncThunk(
   "chat/createChat",
   async (data) => {
     const user = JSON.parse(localStorage.getItem("userInfo"));
-    // console.log(user.accessToken);
     const config = {
       headers: {
         "Content-type": "application/json",
@@ -22,11 +21,11 @@ export const createChatThunk = createAsyncThunk(
 
     return await Api.post("chat/createChat", data, config)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         return res;
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         return err.response;
       });
   }
@@ -34,7 +33,6 @@ export const createChatThunk = createAsyncThunk(
 
 export const getAllChatsThunk = createAsyncThunk("chat/fetchAll", async () => {
   const user = JSON.parse(localStorage.getItem("userInfo"));
-  // console.log(user.accessToken);
   const config = {
     headers: {
       "Content-type": "application/json",
@@ -65,7 +63,7 @@ export const chatSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(createChatThunk.fulfilled, (state, action) => {
-        console.log(action.payload);
+        // console.log(action.payload);
         state.isLoading = false;
 
         if (action.payload.data.success) {

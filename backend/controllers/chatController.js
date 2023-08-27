@@ -22,8 +22,8 @@ const createChat = async (req, res, next) => {
       .populate("users", "-password")
       .populate("latestMessage");
 
-    console.log(isChat);
-    let chatData = null;
+    // console.log(isChat);
+    // let chatData = null;
 
     if (isChat.length > 0) {
       res.send(isChat[0]);
@@ -61,7 +61,7 @@ const fetchAllChats = async (req, res, next) => {
       },
     }).populate("users", "-password");
 
-    console.log(chat);
+    // console.log(chat);
 
     const USER = await User.populate(chat, {
       // select: "username email name _id",
@@ -75,7 +75,7 @@ const fetchAllChats = async (req, res, next) => {
       success: true,
     });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     next(error);
   }
 };

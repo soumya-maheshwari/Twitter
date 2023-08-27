@@ -9,6 +9,7 @@ import avatarImg from "../../Assets/avatar.svg";
 import { ToastContainer, toast } from "react-toastify";
 import api from "./API";
 import EmojiPicker from "emoji-picker-react";
+import menuImg from "../../Assets/menuIcon.svg";
 
 const EditProfile = () => {
   const navigate = useNavigate();
@@ -24,16 +25,21 @@ const EditProfile = () => {
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
 
   useEffect(() => {
-    dispatch(getProfileThunk(username)).then((res) => {
-      console.log(res);
-      setName(res.payload.data.profile.name);
-      setPic(res.payload.data.profile.profile_pic);
-      setBio(res.payload.data.profile.bio || "");
-      console.log(sendImage);
+    dispatch(getProfileThunk(username))
+      .then((res) => {
+        console.log(res);
+        setName(res.payload.data.profile.name);
+        setPic(res.payload.data.profile.profile_pic);
+        setBio(res.payload.data.profile.bio || "");
+        console.log(sendImage);
 
-      setSendImage(res.payload.data.profile.profile_pic);
-      return res;
-    });
+        setSendImage(res.payload.data.profile.profile_pic);
+        return res;
+      })
+      .catch((err) => {
+        console.log(err);
+        return err.response;
+      });
   }, [username]);
 
   const handleUpdateImg = (e) => {
@@ -107,11 +113,23 @@ const EditProfile = () => {
     setBio((prevText) => prevText + object.emoji);
     setShowEmojiPicker(false);
   };
+  const showMenu = () => {
+    navigate("/sidebar");
+  };
 
   return (
     <>
       <div className="edit-profile-pagee">
         <Sidebar />
+        <img
+          src={menuImg}
+          alt="menu"
+          className="menu-icon-home"
+          id="menu2"
+          onClick={showMenu}
+        />
+        <h1 className="home-head HOME-HEAD">PROFILE</h1>
+
         <div className="edit-profile-page">
           {editProfileImage ? (
             <>
@@ -172,7 +190,7 @@ const EditProfile = () => {
             <button type="submit" className="yes" onClick={handleEdit}>
               Edit
             </button>
-            <button type="submit" className="no" onClick={handleCancel}>
+            <button type="submit" className="no noo" onClick={handleCancel}>
               Cancel
             </button>
           </form>

@@ -11,7 +11,6 @@ export const getProfileThunk = createAsyncThunk(
   "user/getProfile",
   async (data) => {
     const user = JSON.parse(localStorage.getItem("userInfo"));
-    // console.log(user.accessToken);
 
     const config = {
       headers: {
@@ -23,7 +22,6 @@ export const getProfileThunk = createAsyncThunk(
     return await Api.get(`profile/getProfile/${data}`, config)
       .then((res) => {
         // console.log(res);
-        // console.log(data);
         return res;
       })
       .catch((err) => {
@@ -37,7 +35,6 @@ export const followUserThunk = createAsyncThunk(
   "profile/followUser",
   async (data) => {
     const user = JSON.parse(localStorage.getItem("userInfo"));
-    // console.log(user.accessToken);
 
     const config = {
       headers: {
@@ -48,7 +45,6 @@ export const followUserThunk = createAsyncThunk(
 
     return await Api.post(`profile/followUser`, data, config)
       .then((res) => {
-        // console.log(data);
         // console.log(res);
         return res;
       })
@@ -63,7 +59,6 @@ export const unFollowUserThunk = createAsyncThunk(
   "profile/unFollowUser",
   async (data) => {
     const user = JSON.parse(localStorage.getItem("userInfo"));
-    // console.log(user.accessToken);
 
     const config = {
       headers: {
@@ -74,7 +69,6 @@ export const unFollowUserThunk = createAsyncThunk(
 
     return await Api.post(`profile/unfollowUser`, data, config)
       .then((res) => {
-        // console.log(data);
         // console.log(res);
         return res;
       })
@@ -89,7 +83,6 @@ export const editProfileThunk = createAsyncThunk(
   "profile/editProfile",
   async (data) => {
     const user = JSON.parse(localStorage.getItem("userInfo"));
-    // console.log(user.accessToken);
 
     const config = {
       headers: {
@@ -100,12 +93,11 @@ export const editProfileThunk = createAsyncThunk(
 
     return await Api.put(`profile/editProfile`, data, config)
       .then((res) => {
-        console.log(data);
-        console.log(res);
+        // console.log(res);
         return res;
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         return err.response;
       });
   }
@@ -115,7 +107,6 @@ export const getAllBookmarkThunk = createAsyncThunk(
   "profile/getAllBookmarks",
   async () => {
     const user = JSON.parse(localStorage.getItem("userInfo"));
-    // console.log(user.accessToken);
 
     const config = {
       headers: {
@@ -198,13 +189,14 @@ export const profileSlice = createSlice({
         state.isLoading = true;
         state.isError = true;
       })
+
       //  GET ALL BOOKMARKS
       .addCase(getAllBookmarkThunk.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(getAllBookmarkThunk.fulfilled, (state, action) => {
         state.isLoading = false;
-        console.log(action.payload);
+        // console.log(action.payload);
         if (action.payload.data.success) {
           state.isSuccess = true;
         } else {
@@ -223,7 +215,7 @@ export const profileSlice = createSlice({
       })
       .addCase(editProfileThunk.fulfilled, (state, action) => {
         state.isLoading = false;
-        console.log(action.payload);
+        // console.log(action.payload);
         if (action.payload.data.success) {
           state.isSuccess = true;
         } else {

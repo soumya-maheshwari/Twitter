@@ -39,7 +39,7 @@ export const loginUserThunk = createAsyncThunk("auth/login", async (data) => {
 
   return await Api.post(`auth/login`, data, config)
     .then((res) => {
-      console.log(res);
+      // console.log(res);
       return res;
     })
     .catch((err) => {
@@ -52,7 +52,6 @@ export const forgotPasswordThunk = createAsyncThunk(
   "auth/forgotPassword",
   async (data) => {
     const user = JSON.parse(localStorage.getItem("userInfo"));
-    console.log(user.accessToken);
 
     const config = {
       headers: {
@@ -63,11 +62,11 @@ export const forgotPasswordThunk = createAsyncThunk(
 
     return await Api.post(`auth/forgot`, data)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         return res;
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         return err.response;
       });
   }
@@ -77,7 +76,6 @@ export const verifyOTPThunk = createAsyncThunk(
   "auth/forgotPassword/verify",
   async (data) => {
     const user = JSON.parse(localStorage.getItem("userInfo"));
-    console.log(user.accessToken);
 
     const config = {
       headers: {
@@ -87,11 +85,11 @@ export const verifyOTPThunk = createAsyncThunk(
     };
     return await Api.post(`auth/forgot/verify`, data)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         return res;
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         return err.response;
       });
   }
@@ -101,7 +99,6 @@ export const searchUserThunk = createAsyncThunk(
   "authUser/search",
   async (data) => {
     const user = JSON.parse(localStorage.getItem("userInfo"));
-    // console.log(user.accessToken);
 
     const config = {
       headers: {
@@ -112,7 +109,6 @@ export const searchUserThunk = createAsyncThunk(
 
     return await Api.get(`auth/searchUser?search=${data}`, config)
       .then((res) => {
-        // console.log(data);
         // console.log(res);
         return res;
       })
@@ -178,7 +174,7 @@ export const authSlice = createSlice({
       })
       .addCase(forgotPasswordThunk.fulfilled, (state, action) => {
         state.isLoading = false;
-        console.log(action.payload);
+        // console.log(action.payload);
         if (action.payload.data.success) {
           state.isSuccess = true;
         } else {
@@ -197,7 +193,7 @@ export const authSlice = createSlice({
       })
       .addCase(verifyOTPThunk.fulfilled, (state, action) => {
         state.isLoading = false;
-        console.log(action.payload);
+        // console.log(action.payload);
         if (action.payload.data.success) {
           state.isSuccess = true;
         } else {

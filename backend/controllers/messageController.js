@@ -24,7 +24,7 @@ const sendMessage = async (req, res, next) => {
       };
 
       var message = await Message.create(newMessage);
-      console.log(message, "message");
+      // console.log(message, "message");
       message = await message.populate("sender", "name email username");
       message = await message.populate("chat");
       message = await User.populate(message, {
@@ -39,7 +39,7 @@ const sendMessage = async (req, res, next) => {
       });
     }
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     next(error);
   }
 };
@@ -50,14 +50,14 @@ const fetchAllMessages = async (req, res, next) => {
     const messages = await Message.find({ chat: req.params.chatId })
       .populate("sender", "name email username")
       .populate("chat");
-    console.log(messages);
+    // console.log(messages);
     res.json({
       msg: "messages fetching successful",
       messages: messages,
       success: true,
     });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     next(error);
   }
 };

@@ -35,7 +35,7 @@ const createPost = async (req, res, next) => {
       image: image,
     });
 
-    console.log(newPost);
+    // console.log(newPost);
 
     // Update the user's posts array
     const updatedUser = await User.findByIdAndUpdate(userid, {

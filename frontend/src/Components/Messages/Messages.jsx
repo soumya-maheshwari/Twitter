@@ -13,6 +13,8 @@ import { ToastContainer, toast } from "react-toastify";
 import ScrollableChatFeeds from "./ScrollableChatFeeds";
 import emoji from "../../Assets/emoji.svg";
 import EmojiPicker from "emoji-picker-react";
+import arrow from "../../Assets/arrow.svg";
+import arrow2 from "../../Assets/arrow2.svg";
 
 const Messages = () => {
   const dispatch = useDispatch();
@@ -22,8 +24,31 @@ const Messages = () => {
   const [content, setContent] = useState("");
   const [chats, setChats] = useState([]);
   const [allMessages, setAllMessages] = useState([]);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [bool, setBool] = useState(true);
 
   const user = JSON.parse(localStorage.getItem("userInfo"));
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (windowWidth <= 508 && selectedChat) {
+      document.getElementById("MESSAGE").style.width = "94vw";
+      document.getElementById("SEARCH").style.display = "none";
+      // document.getElementById("MESSAGE2").style.width = "100%";
+    } else {
+    }
+  }, [windowWidth]);
 
   const toggleEmojiPicker = () => {
     setShowEmojiPicker(!showEmojiPicker);
@@ -130,18 +155,37 @@ const Messages = () => {
         });
     }
   });
+
+  const handleBack = () => {};
+
+  const handleMouse = () => {
+    document.getElementById("ARROW").src = arrow2;
+  };
+  // console.log(window.innerWidth);
+
   return (
     <>
       <div className="message-page">
         <Sidebar />
-        <div className="message-box-body">
-          <div className="message-box">
+        <div className="message-box-body" id="MESSAGE">
+          <div className="message-box" is="MESSAGE2">
             {selectedChat ? (
               <>
                 <div className="chat-box">
-                  <p className="sender-heading">
+                  {" "}
+                  <div className="chat-head">
+                    <img
+                      src={arrow}
+                      alt=""
+                      className="arrow"
+                      onClick={handleBack}
+                      onMouseOver={handleMouse}
+                      id="ARROW"
+                    />
+                  </div>
+                  {/* <p className="sender-heading">
                     {getSenderName(user, selectedChat.users)}
-                  </p>
+                  </p> */}
                   <div className="messages">
                     <ScrollableChatFeeds allMessages={allMessages} />
                   </div>
@@ -200,7 +244,17 @@ const Messages = () => {
             </div> */}
           </div>
         </div>
-        <div className="search-users-messages">
+        <div
+          className="search-users-messages"
+          id="SEARCH"
+          // style={{
+          //   display: `${selectedChat ? "none" : "flex"}`,
+          // }}
+          // style={{
+          //   display={{ xs: selectedChat ? "none" : "flex", md: "flex" }}
+          //   width={{ xs: "100%", md: "31%" }}
+          // }}
+        >
           <SearchToChat />
           <h1
             style={{
