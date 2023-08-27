@@ -23,7 +23,7 @@ body {
 }
 .signup-head {
   margin-top: 1vh;
-  font-size: 49px;
+  font-size: 41px;
   font-weight: bolder;
   /* padding-right: 40px;
    */
@@ -45,9 +45,9 @@ body {
   margin-bottom: 5px;
 }
 
-.input-field {
+.input-fieldd {
   width: 30vw;
-  height: 41px;
+  height: 30px;
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -93,7 +93,7 @@ button[type="submit"]:hover {
   height: 20px;
   position: relative;
   display: block;
-  top: -40px;
+  top: -27px;
 }
 
 @media (max-width: 670px) {
@@ -107,69 +107,124 @@ button[type="submit"]:hover {
   }
   .form-signup {
     /* width: 100%; */
-    padding-left: 13vw;
+    padding-left: 7vw;
   }
-  .input-field {
-    width: 60vw;
+  .input-fieldd {
+    width: 74vw;
   }
 
-  .eyeimg {
-    margin-left: 61vw;
+  .eyeimg2 {
+    margin-left: 74vw;
   }
+
   .signup-btn {
     width: 70vw;
-    /* margin-top: -10px; */
   }
 }
 
 @media (max-width: 600px) {
   .container-signup {
-    max-width: 500px;
+    max-width: 520px;
     /* margin-top: 7%; */
     /* height: 90vh; */
+  }
+  .input-fieldd {
+    width: 66vw;
+  }
+
+  .eyeimg2 {
+    margin-left: 68vw;
+  }
+}
+@media (max-width: 562px) {
+  .container-signup {
+    max-width: 520px;
+  }
+  .input-fieldd {
+    width: 70vw;
+  }
+
+  .eyeimg2 {
+    margin-left: 70vw;
   }
 }
 
 @media (max-width: 530px) {
   .container-signup {
-    max-width: 460px;
+    max-width: 490px;
     margin-top: 7%;
     height: 90vh;
   }
+  .eyeimg2 {
+    margin-left: 71vw;
+  }
+}
+@media (max-width: 507px) {
+  .container-signup {
+    max-width: 470px;
+    margin-top: 7%;
+    height: 90vh;
+  }
+  .eyeimg2 {
+    margin-left: 71vw;
+  }
 }
 
-@media (max-width: 466px) {
+@media (max-width: 476px) {
   .container-signup {
-    max-width: 400px;
+    max-width: 440px;
   }
 
-  .eyeimg {
-    margin-left: 60vw;
+  .eyeimg2 {
+    margin-left: 73vw;
+  }
+}
+@media (max-width: 448px) {
+  .container-signup {
+    max-width: 410px;
+  }
+
+  .eyeimg2 {
+    margin-left: 73vw;
   }
 }
 
 @media (max-width: 419px) {
   .container-signup {
-    max-width: 340px;
+    max-width: 370px;
   }
 
-  .input-field {
-    /* margin-top: -10px; */
-    width: 53vw;
+  .input-fieldd {
+    width: 65vw;
   }
-  .eyeimg {
-    margin-left: 53vw;
+  .eyeimg2 {
+    margin-left: 66vw;
   }
 }
 
-@media (max-width: 372px) {
+@media (max-width: 386px) {
+  .container-signup {
+    max-width: 360px;
+  }
+
+  .input-fieldd {
+    width: 65vw;
+  }
+  .eyeimg2 {
+    margin-left: 67vw;
+  }
+}
+@media (max-width: 373px) {
   .container-signup {
     max-width: 340px;
     margin-top: 7%;
     height: 90vh;
   }
-  .eyeimg {
-    margin-left: 52vw;
+  .eyeimg2 {
+    margin-left: 71vw;
+  }
+  .input-fieldd {
+    width: 70vw;
   }
 }
 
@@ -182,15 +237,21 @@ button[type="submit"]:hover {
   .eyeimg {
     margin-left: 52vw;
   }
+  .input-fieldd {
+    width: 70vw;
+  }
 }
 @media (max-width: 357px) {
   .container-signup {
-    max-width: 290px;
+    max-width: 301px;
     margin-top: 7%;
     height: 90vh;
   }
-  .eyeimg {
-    margin-left: 50vw;
+  .input-fieldd {
+    width: 61vw;
+  }
+  .eyeimg2 {
+    margin-left: 61vw;
   }
 }
 

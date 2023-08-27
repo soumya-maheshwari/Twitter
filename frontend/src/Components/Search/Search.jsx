@@ -9,8 +9,7 @@ const Search = () => {
   const navigate = useNavigate();
 
   const showMenu = () => {
-    alert("i");
-    // navigate("/sidebar");
+    navigate("/sidebar");
   };
 
   return (
@@ -19,13 +18,15 @@ const Search = () => {
         <Sidebar />
 
         <div className="search-sidebar">
+          <h1 className="home-head search-head">SEARCH USERS</h1>
           <img
             src={menuImg}
             alt="menu"
-            className="menu-icon-search"
+            className="menu-icon-home"
             id="menu2"
             onClick={showMenu}
           />
+
           <SearchUsers />
         </div>
       </div>

@@ -55,7 +55,7 @@ const Login = () => {
         } else {
           toast.error(`${res.payload.data.msg}`, {
             position: "top-right",
-            // theme: "DARK",
+            theme: "DARK",
             autoClose: 3000,
             hideProgressBar: false,
             closeOnClick: true,

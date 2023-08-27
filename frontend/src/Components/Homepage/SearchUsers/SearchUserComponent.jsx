@@ -7,6 +7,7 @@ import avatarImg from "../../../Assets/avatar.svg";
 const SearchUserComponent = (props) => {
   const navigate = useNavigate();
   const [selectedUser, setSelectedUser] = useState("");
+
   const [selectedUserName, setSelectedUserName] = useState("");
 
   // console.log(props.username);

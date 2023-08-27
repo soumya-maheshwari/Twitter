@@ -92,7 +92,7 @@ const Signup = () => {
               <input
                 type="text"
                 value={name}
-                className="input-field"
+                className="input-fieldd"
                 name="email"
                 required
                 onChange={(e) => setName(e.target.value)}
@@ -105,25 +105,25 @@ const Signup = () => {
               <input
                 type="text"
                 value={email}
-                className="input-field"
+                className="input-fieldd"
                 id="email"
                 name="email"
                 required
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <div className="form-group">
-                <label htmlFor="email" className="form-label">
-                  User Name
-                </label>{" "}
-                <input
-                  type="text"
-                  value={username}
-                  className="input-field"
-                  name="name"
-                  required
-                  onChange={(e) => setUsername(e.target.value)}
-                />
-              </div>
+            </div>
+            <div className="form-group">
+              <label htmlFor="email" className="form-label">
+                User Name
+              </label>{" "}
+              <input
+                type="text"
+                value={username}
+                className="input-fieldd"
+                name="name"
+                required
+                onChange={(e) => setUsername(e.target.value)}
+              />
             </div>
             <div className="form-group">
               <label htmlFor="email" className="form-label">
@@ -131,7 +131,7 @@ const Signup = () => {
               </label>{" "}
               <input
                 type={show ? "text" : "password"}
-                className="input-field"
+                className="input-fieldd"
                 id="password"
                 name="password"
                 required
@@ -141,14 +141,14 @@ const Signup = () => {
               {show ? (
                 <FontAwesomeIcon
                   icon={faEye}
-                  className="eyeimg"
+                  className="eyeimg2"
                   onClick={handleShowHide}
                 />
               ) : (
                 <FontAwesomeIcon
                   icon={faEyeSlash}
                   onClick={handleShowHide}
-                  className="eyeimg"
+                  className="eyeimg2"
                 />
               )}
             </div>
@@ -158,26 +158,26 @@ const Signup = () => {
               </label>{" "}
               <input
                 type={show2 ? "text" : "password"}
-                className="input-field"
+                className="input-fieldd"
                 name="password"
                 required
                 value={cPassword}
                 onChange={(e) => setCPassword(e.target.value)}
               />
+              {show2 ? (
+                <FontAwesomeIcon
+                  icon={faEye}
+                  className="eyeimg2"
+                  onClick={handleShowHide2}
+                />
+              ) : (
+                <FontAwesomeIcon
+                  icon={faEyeSlash}
+                  onClick={handleShowHide2}
+                  className="eyeimg2"
+                />
+              )}
             </div>
-            {show2 ? (
-              <FontAwesomeIcon
-                icon={faEye}
-                className="eyeimg2"
-                onClick={handleShowHide2}
-              />
-            ) : (
-              <FontAwesomeIcon
-                icon={faEyeSlash}
-                onClick={handleShowHide2}
-                className="eyeimg"
-              />
-            )}
             <button type="submit" className="signup-btn">
               Signup
             </button>{" "}

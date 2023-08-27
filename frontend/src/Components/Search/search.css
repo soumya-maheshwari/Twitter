@@ -12,7 +12,7 @@
   border-radius: 8px;
   position: fixed;
   color: white;
-  width: 90vw;
+  width: 77vw;
   height: 100vh;
 }
 
@@ -79,5 +79,13 @@
   .search-sidebar {
     left: 0vw;
     width: 100%;
+  }
+  .menu-icon-search {
+    display: block;
+    margin-top: -9.8vh;
+  }
+  .search-head {
+    margin-top: 19px;
+    font-size: 25px;
   }
 }

@@ -85,9 +85,9 @@
   margin-top: 4vh;
   cursor: pointer;
 }
-.menu-icon {
+.menu-icon-home {
   width: 20px;
-  margin-top: 1.8vh;
+  margin-top: 2.8vh;
   cursor: pointer;
   display: none;
   margin-left: 2.8vw;
@@ -149,9 +149,9 @@
     left: 0vw;
     width: 100%;
   }
-  .menu-icon {
+  .menu-icon-home {
     width: 20px;
-    margin-top: 1.8vh;
+    margin-top: 3.8vh;
     cursor: pointer;
     display: block;
     margin-left: 2.8vw;

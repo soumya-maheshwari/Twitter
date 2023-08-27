@@ -7,7 +7,6 @@
   scrollbar-color: transparent transparent;
 }
 .head-b {
-  color: white;
   text-align: center;
 }
 
@@ -24,7 +23,24 @@
 }
 
 .all-bookmarks {
-  margin-left: 20vw;
+  left: 20vw;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  color: white;
+  width: 77vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  left: 21vw;
+  padding: 10px 4px 20px 8px;
+  background: black;
+  border-radius: 8px;
+  position: fixed;
+  color: white;
+  width: 77vw;
+  height: 100vh;
 }
 .post-box-bookmark {
   width: 40vw;
@@ -90,43 +106,42 @@
     color: white;
     text-align: center;
     font-weight: 100;
-    margin-left: 4vw;
+    margin-left: 10vw;
   }
   .all-bookmarks {
-    margin-left: 30vw;
+    /* margin-left: 30vw; */
   }
 }
 @media (max-width: 470px) {
   .head-b {
     color: white;
     text-align: center;
-    font-weight: 100;
-    margin-left: 4vw;
+    font-weight: 400;
+    margin-left: 20vw;
     font-size: 20px;
   }
   .all-bookmarks {
-    margin-left: 30vw;
+    /* margin-left: 30vw; */
   }
 }
 @media (max-width: 447px) {
   .head-b {
     color: white;
     text-align: center;
-    font-weight: 100;
-    /* margin-left: 4vw; */
+    font-weight: 200;
+    margin-left: 1vw;
     font-size: 20px;
   }
   .all-bookmarks {
-    margin-left: 46vw;
+    /* margin-left: 46vw; */
   }
 }
 @media (max-width: 381px) {
   .all-bookmarks {
-    margin-left: -20vw;
+    left: 0vw;
     width: 100%;
-    position: absolute;
   }
-  .sidebar {
-    display: none;
+  .head-b {
+    margin-top: 2.9vh;
   }
 }

@@ -29,7 +29,7 @@ const Homepage = () => {
             <img
               src={menuImg}
               alt="menu"
-              className="menu-icon"
+              className="menu-icon-home"
               id="menu"
               onClick={showMenu}
             />

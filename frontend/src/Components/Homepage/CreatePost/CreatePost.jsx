@@ -178,7 +178,7 @@ const CreatePost = () => {
                 <div className="emojipicker1">
                   <EmojiPicker
                     theme="dark"
-                    width="20vw"
+                    width="30vw"
                     height="300px"
                     onEmojiClick={onClickEmoji}
                   />

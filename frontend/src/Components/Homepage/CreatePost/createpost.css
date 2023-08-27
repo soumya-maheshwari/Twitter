@@ -83,8 +83,8 @@
 }
 .create-btn {
   border: none;
-  width: 10vw;
-  height: 36px;
+  width: 15vw;
+  height: 39px;
   /* margin-left: 1.7vw; */
   border-radius: 13px;
   cursor: pointer;
@@ -170,7 +170,7 @@
   position: absolute;
   top: 39vh;
   left: 17vw;
-  width: 6vw;
+  width: 19vw;
 }
 
 .emoji-text {
@@ -179,6 +179,14 @@
   color: rgba(255, 255, 255, 0.6);
 }
 
+@media (max-width: 999px) {
+  .emojipicker1 {
+    position: absolute;
+    top: 39vh;
+    left: 19vw;
+    width: 10vw;
+  }
+}
 @media (max-width: 381px) {
   .create-post {
     left: 0vw;
@@ -234,7 +242,7 @@
     position: absolute;
     top: 39vh;
     left: 17vw;
-    width: 6vw;
+    width: 10vw;
   }
 
   .emoji-text {

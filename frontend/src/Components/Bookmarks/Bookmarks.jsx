@@ -4,11 +4,16 @@ import "./bookmark.css";
 import { useDispatch } from "react-redux";
 import { getAllBookmarkThunk } from "../../Redux/profileSlice";
 import BookMarkPosts from "./BookMarkPosts";
+import menuImg from "../../Assets/menuIcon.svg";
+import { useNavigate } from "react-router-dom";
 
 const Bookmarks = () => {
   const dispatch = useDispatch();
-
+  const navigate = useNavigate();
   const [bookmarks, setBookmarks] = useState();
+  const showMenu = () => {
+    navigate("/sidebar");
+  };
 
   useEffect(() => {
     dispatch(getAllBookmarkThunk())
@@ -28,7 +33,15 @@ const Bookmarks = () => {
       <div className="bookmark-page">
         <Sidebar />
         <div className="all-bookmarks">
-          <h1 className="head-b">BOOKMARKED POSTS</h1>
+          <img
+            src={menuImg}
+            alt="menu"
+            className="menu-icon-home"
+            id="menu2"
+            onClick={showMenu}
+          />
+
+          <h1 className="head-b home-head">BOOKMARKED POSTS</h1>
           {bookmarks &&
             bookmarks.map((post) => {
               return (
