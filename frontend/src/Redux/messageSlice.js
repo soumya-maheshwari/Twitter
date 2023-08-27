@@ -46,11 +46,11 @@ export const getAllMessagesThunk = createAsyncThunk(
 
     return await Api.get(`message/getAll/${data}`, config)
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         return res;
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         return err.response;
       });
   }
@@ -88,8 +88,8 @@ export const messageSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(getAllMessagesThunk.fulfilled, (state, action) => {
-        console.log(action.payload);
-        console.log(action.payload.data.messages);
+        // console.log(action.payload);
+        // console.log(action.payload.data.messages);
 
         state.isLoading = false;
 

@@ -9,8 +9,6 @@ import {
 
 const ScrollableChatFeeds = ({ allMessages }) => {
   const user = JSON.parse(localStorage.getItem("userInfo"));
-  // console.log(user);
-  console.log(allMessages);
 
   return (
     <>

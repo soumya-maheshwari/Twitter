@@ -107,6 +107,19 @@
   text-align: center;
 }
 .message-name {
+  color: white;
+}
+
+.message-icon {
+  padding-right: 1.9vw;
+  opacity: 0.8;
+  width: 20px;
+  align-items: center;
+  margin-top: 30px;
+  text-align: center;
+}
+
+.message-name {
   font-size: 25px;
 }
 

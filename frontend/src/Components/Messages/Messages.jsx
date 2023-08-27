@@ -5,35 +5,47 @@ import SearchToChat from "./Search/SearchToChat";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllChatsThunk } from "../../Redux/chatSlice";
 import { getSenderName, getSenderUserName } from "../../Config/Helper";
-import sendImg from "../../Assets/send.svg";
 import {
   getAllMessagesThunk,
   sendMessageThunk,
 } from "../../Redux/messageSlice";
+import { ToastContainer, toast } from "react-toastify";
 import ScrollableChatFeeds from "./ScrollableChatFeeds";
+import emoji from "../../Assets/emoji.svg";
+import EmojiPicker from "emoji-picker-react";
 
 const Messages = () => {
   const dispatch = useDispatch();
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+
   const [selectedChat, setSelectedChat] = useState(null);
   const [content, setContent] = useState("");
   const [chats, setChats] = useState([]);
   const [allMessages, setAllMessages] = useState([]);
 
   const user = JSON.parse(localStorage.getItem("userInfo"));
-  // console.log(user);
+
+  const toggleEmojiPicker = () => {
+    setShowEmojiPicker(!showEmojiPicker);
+  };
+
+  const onClickEmoji = (object, e) => {
+    setContent((prevText) => prevText + object.emoji);
+    setShowEmojiPicker(false);
+  };
 
   useEffect(() => {
     dispatch(getAllChatsThunk())
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         setChats(res.payload.data.USER);
 
         // console.log(res.payload.data.USERS);
-        console.log(chats);
+        // console.log(chats);
         return res;
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         return err.response;
       });
   }, []);
@@ -57,13 +69,47 @@ const Messages = () => {
     chatId: selectedChat ? selectedChat._id : "",
   };
 
-  const handleSend = () => {
-    if (!selectedChat) {
+  const handleSend = (e) => {
+    if (selectedChat && e.key === "Enter") {
+      if (!content) {
+        toast.error("Enter some text to send", {
+          position: "top-right",
+          theme: "dark",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+        });
+      }
       dispatch(sendMessageThunk(userData))
         .then((res) => {
           console.log(res);
+          if (res.payload.data.success) {
+            toast.success(`${res.payload.data.msg}`, {
+              position: "top-right",
+              theme: "dark",
+              autoClose: 3000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+            });
+            setContent("");
+          } else {
+            toast.error(`${"unable to send the message"}`, {
+              position: "top-right",
+              theme: "DARK",
+              autoClose: 3000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+            });
+          }
           return res;
         })
+
         .catch((err) => {
           console.log(err);
           return err.response;
@@ -71,20 +117,15 @@ const Messages = () => {
     }
   };
 
-  // console.log(selectedChat, "selected chat");
-
   useEffect(() => {
     if (selectedChat) {
       dispatch(getAllMessagesThunk(userData2.chatId))
         .then((res) => {
-          console.log(res.payload.data.messages);
-          // setAllMessages(res.payload.data.messages);
-          console.log(res);
-          // console.log(allMessages);
+          // console.log(res);
           return res;
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
           return err.response;
         });
     }
@@ -111,13 +152,28 @@ const Messages = () => {
                       onChange={(e) => setContent(e.target.value)}
                       className="input-msg"
                       placeholder="Enter a message"
+                      onKeyDown={handleSend}
                     />
                     <img
-                      src={sendImg}
+                      src={emoji}
                       alt=""
-                      className="send-img"
-                      onClick={handleSend}
+                      onClick={toggleEmojiPicker}
+                      className="emoji-img emoji-icon emojii"
                     />
+                    {showEmojiPicker ? (
+                      <div className="emojipicker11">
+                        <EmojiPicker
+                          theme="dark"
+                          width="20vw"
+                          height="300px"
+                          onEmojiClick={onClickEmoji}
+                        />
+                      </div>
+                    ) : null}
+                    {/* <button onClick={handleSend}> */}
+                    {/* <img src={sendImg} alt="" className="send-img" /> */}
+                    {/* send */}
+                    {/* </button> */}
                   </div>
                 </div>
               </>
@@ -146,7 +202,13 @@ const Messages = () => {
         </div>
         <div className="search-users-messages">
           <SearchToChat />
-          <h1>MY CHATS</h1>
+          <h1
+            style={{
+              textAlign: "center",
+            }}
+          >
+            MY CHATS
+          </h1>
           {chats &&
             chats.map((chat) => {
               return (
@@ -176,6 +238,7 @@ const Messages = () => {
             })}
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 };

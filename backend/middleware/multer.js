@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
   },
 });
 
-console.log(storage, "storage");
+// console.log(storage, "storage");
 
 const fileValidations = (req, file, cb) => {
   const allowedFileTypes = [

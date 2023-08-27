@@ -13,7 +13,7 @@ const SearchToChat = () => {
 
   const handleSearchUser = async (query) => {
     setSearch(query);
-    console.log(search);
+    // console.log(search);
     if (!query) {
       return;
     } else {
@@ -21,7 +21,7 @@ const SearchToChat = () => {
         // setLoadingUser(true);
         dispatch(searchUserThunk(search))
           .then((res) => {
-            console.log(res);
+            // console.log(res);
             setOnSearch(res.payload.data.user);
 
             if (res.payload.data.user.length > 0) {
@@ -30,11 +30,11 @@ const SearchToChat = () => {
             return res;
           })
           .catch((err) => {
-            console.log(err);
+            // console.log(err);
             return err.response;
           });
       } catch (error) {
-        console.log(error);
+        // console.log(error);
         return error.response;
       }
     }
@@ -47,11 +47,11 @@ const SearchToChat = () => {
     alert(search);
     dispatch(searchUserThunk())
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         return res;
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
         return err.response;
       });
   };

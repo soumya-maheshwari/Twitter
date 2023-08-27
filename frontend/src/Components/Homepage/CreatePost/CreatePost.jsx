@@ -25,10 +25,6 @@ const CreatePost = () => {
   const user = JSON.parse(localStorage.getItem("userInfo"));
   // console.log(user);
 
-  const handleEmojiClick = (emoji) => {
-    setContent(content + emoji.native);
-  };
-
   const toggleEmojiPicker = () => {
     setShowEmojiPicker(!showEmojiPicker);
   };
