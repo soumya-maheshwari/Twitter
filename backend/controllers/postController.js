@@ -104,19 +104,31 @@ const likePost = async (req, res, next) => {
 
     // console.log(likedPost);
 
-    if (likedPost.likes.includes(userid)) {
-      return next(new ErrorHandler(400, "You have already liked this post"));
-    } else {
-      likedPost.likes.push(userid);
+    // if (likedPost.likes.includes(userid)) {
+    //   return next(new ErrorHandler(400, "You have already liked this post"));
+    // } else {
+    //   likedPost.likes.push(userid);
 
-      // console.log(likedPost);
-      await likedPost.save();
+    //   await likedPost.save();
+    // }
+
+    const likedIndex = likedPost.likes.indexOf(userid);
+
+    if (likedIndex !== -1) {
+      // The user has already liked the post, so remove the like
+      likedPost.likes.splice(likedIndex, 1);
+    } else {
+      // The user has not liked the post, so add the like
+      likedPost.likes.push(userid);
     }
+
+    await likedPost.save();
 
     return res.status(200).json({
       success: true,
       likedPost,
-      msg: "Post liked",
+      // msg: "Post liked",
+      msg: likedIndex !== -1 ? "Post disliked" : "Post liked",
     });
   } catch (error) {
     next(error);
@@ -178,6 +190,11 @@ const addToBookmarks = async (req, res, next) => {
 
     if (!postid) {
       return next(new ErrorHandler(400, "No post found"));
+    }
+
+    // Check if the post is already in the user's bookmarks
+    if (user.bookmarks.includes(postid)) {
+      return next(new ErrorHandler(400, "Post already added to bookmarks"));
     }
 
     user.bookmarks.push(postid);
