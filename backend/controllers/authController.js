@@ -297,6 +297,53 @@ const OtpVerify = async (req, res, next) => {
   }
 };
 
+const resetPassword = async (req, res, next) => {
+  try {
+    const { email, password } = req.body;
+
+    if (!password) {
+      return next(new ErrorHandler(400, "Password is required"));
+    }
+
+    if (!validatepassword(password)) {
+      return next(new ErrorHandler(400, "Invalid Password format"));
+    }
+
+    const user = await User.findOne({ email: email.toLowerCase() });
+
+    if (!user) {
+      return next(new ErrorHandler(400, "User by this email doesn't exist"));
+    }
+    const checkpassword = await bcrypt.compare(password, user.password);
+
+    if (checkpassword) {
+      return next(new ErrorHandler(400, "Password is same as previous"));
+    }
+
+    const newpass = await bcrypt.hash(password, 12);
+
+    const userr = await User.updateOne(
+      { email: email.toLowerCase() },
+      {
+        $set: {
+          password: newpass,
+        },
+      }
+    );
+    const token = jwt.sign({ _id: userr._id }, process.env.JWT_ACCESS_KEY, {
+      expiresIn: "40d",
+    });
+    return res.status(200).json({
+      success: true,
+      msg: "Password reset successfully",
+      token,
+      userr,
+    });
+  } catch (error) {
+    next(error);
+    console.log(error);
+  }
+};
 module.exports = {
   home,
   login,
@@ -306,4 +353,5 @@ module.exports = {
   searchUser,
   forgotPassword,
   OtpVerify,
+  resetPassword,
 };

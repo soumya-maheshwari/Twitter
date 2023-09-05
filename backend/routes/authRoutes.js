@@ -9,5 +9,6 @@ router.post("/signup", authController.signup);
 router.get("/searchUser", authVerifyToken, authController.searchUser);
 router.post("/forgot", authVerifyToken, authController.forgotPassword);
 router.post("/forgot/verify", authVerifyToken, authController.OtpVerify);
+router.post("/resetPassword", authVerifyToken, authController.resetPassword);
 
 module.exports = router;
