@@ -196,7 +196,7 @@ export const profileSlice = createSlice({
       })
       .addCase(getAllBookmarkThunk.fulfilled, (state, action) => {
         state.isLoading = false;
-        // console.log(action.payload);
+        console.log(action.payload);
         if (action.payload.data.success) {
           state.isSuccess = true;
         } else {

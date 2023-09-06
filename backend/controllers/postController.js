@@ -20,7 +20,8 @@ const createPost = async (req, res, next) => {
     if (!user) {
       return next(new ErrorHandler(400, "Login or signup to continue"));
     }
-    const baseUrl = "http://localhost:5000";
+    // const baseUrl = "http://localhost:5000";
+    const baseUrl = "https://fullstackapp-klwm.onrender.com/";
 
     // const file = req.file ? req.file : null;
     // console.log(file);
