@@ -109,6 +109,7 @@ button[type="submit"]:hover {
 .forgot-pass {
   cursor: pointer;
 }
+
 @media (max-width: 970px) {
   .container-login {
     max-width: 880px;

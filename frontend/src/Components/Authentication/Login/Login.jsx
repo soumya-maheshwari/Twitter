@@ -31,9 +31,10 @@ const Login = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
+    setLoading(true);
     dispatch(loginUserThunk(userData))
       .then((res) => {
-        // console.log(res);
+        console.log(res);
         if (res.payload.data.success) {
           toast.success(`${res.payload.data.msg}`, {
             position: "top-right",
@@ -46,7 +47,7 @@ const Login = () => {
           });
 
           setTimeout(() => {
-            navigate("/homePage");
+            // navigate("/homePage");
           }, 3000);
 
           // localStorage.setItem("userInfo", JSON.stringify(sm.profile));
@@ -70,6 +71,8 @@ const Login = () => {
         return err.reponse;
       });
   };
+
+  console.log(loading);
 
   return (
     <>

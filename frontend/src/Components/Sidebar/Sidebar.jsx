@@ -47,6 +47,10 @@ const Sidebar = () => {
     navigate("/homePage");
   };
 
+  const handleCreate = () => {
+    navigate("/HomePage");
+  };
+
   return (
     <>
       <div className="sidebar">
@@ -122,6 +126,16 @@ const Sidebar = () => {
               <span className="message-name">Messages</span>
             </li>
           </Link>
+
+          <li className="list-item" onClick={handleMessage}>
+            <button
+              type="submit"
+              className="create-post-btn"
+              onClick={handleCreate}
+            >
+              Create Post
+            </button>
+          </li>
         </ul>
       </div>
     </>
