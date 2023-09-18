@@ -179,8 +179,8 @@ const EditProfile = () => {
                 <div className="emojipicker12">
                   <EmojiPicker
                     theme="dark"
-                    width="20vw"
-                    height="300px"
+                    width="43vw"
+                    height="400px"
                     onEmojiClick={onClickEmoji}
                   />
                 </div>

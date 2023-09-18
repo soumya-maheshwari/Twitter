@@ -1,0 +1,6 @@
+.notifi-page {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: rgb(28, 28, 28);
+}

@@ -36,18 +36,19 @@ const HomeFeeds = () => {
           {posts &&
             posts.map((post) => {
               return (
-                // <></>
-                <PostComponent
-                  content={post.content}
-                  name={post.user.name}
-                  username={post.user.username}
-                  postid={post._id}
-                  key={post._id}
-                  no_of_likes={post.likes.length}
-                  image={post.image}
-                  isLike={post.likes.includes(userid)}
-                  commentsCount={post.commentsCount}
-                />
+                <>
+                  <PostComponent
+                    content={post.content}
+                    name={post.user.name}
+                    username={post.user.username}
+                    postid={post._id}
+                    key={post._id}
+                    no_of_likes={post.likes.length}
+                    image={post.image}
+                    isLike={post.likes.includes(userid)}
+                    commentsCount={post.commentsCount}
+                  />
+                </>
               );
             })}
         </div>

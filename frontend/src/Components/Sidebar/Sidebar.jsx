@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./sidebar.css";
 import homeImg from "../../Assets/home.svg";
 import bellImg from "../../Assets/bell.svg";
@@ -13,35 +13,18 @@ import message2Img from "../../Assets/message2.svg";
 import searchImg from "../../Assets/search.svg";
 import menuImg from "../../Assets/menuIcon.svg";
 import cross from "../../Assets/cross.svg";
+import avtar from "../../Assets/avatar.svg";
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
+  const location = useLocation();
+
+  const isActive = (path) => location.pathname === path;
+  console.log(location);
+  console.log(isActive);
+  const [showOptions, setShowOptions] = useState(false);
   const navigate = useNavigate();
-  const handleHome = () => {
-    document.getElementById("home-icon").src = homeImg2;
-    // document.getElementById("list-name").style.color = "rgb(174, 113, 215)";
-  };
-  const handleBell = () => {
-    document.getElementById("bell-icon").src = bell2Img;
-    // document.getElementById("bell-name").style.color = "rgb(174, 113, 215)";
-  };
-
-  const handleBookmark = () => {
-    document.getElementById("bookmark-icon").src = bookmark2Img;
-    // document.getElementById("bookmarks-name").style.color =
-    //   "rgb(174, 113, 215)";
-  };
-
-  const handleProfile = () => {
-    document.getElementById("profile-icon").src = profile2Img;
-    // document.getElementById("profile-name").style.color = "rgb(174, 113, 215)";
-  };
-
-  const handleMessage = () => {
-    document.getElementById("message-icon").src = bookmark2Img;
-    // document.getElementById("message-name").style.color = "rgb(174, 113, 215)";
-  };
 
   const hideMenu = () => {
     navigate("/homePage");
@@ -51,6 +34,13 @@ const Sidebar = () => {
     navigate("/HomePage");
   };
 
+  const handleProfile = () => {
+    setShowOptions(true);
+  };
+
+  const handleLeave = () => {
+    setShowOptions(false);
+  };
   return (
     <>
       <div className="sidebar">
@@ -63,18 +53,22 @@ const Sidebar = () => {
           onClick={hideMenu}
         />
         <ul className="lists-item">
-          <Link to="/homePage">
+          <Link to="/homePage" style={{ textDecoration: "none" }}>
             {" "}
-            <li
-              className="list-item"
-              //  onClick={handleHome}
-            >
-              <img src={homeImg} alt="" className="home-icon" id="home-icon" />
-              <span id="home-name">Home</span>
+            <li className="list-item">
+              <img
+                src={isActive("/homePage") ? homeImg2 : homeImg}
+                alt="home"
+                className="home-icon"
+                id="home-icon"
+              />
+              <span id={isActive("/homePage") ? "home-name2" : "home-name"}>
+                Home
+              </span>
             </li>
           </Link>
-          <Link to="/search">
-            <li className="list-item" onClick={handleBell}>
+          <Link to="/search" style={{ textDecoration: "none" }}>
+            <li className="list-item">
               <img
                 src={searchImg}
                 alt=""
@@ -82,59 +76,111 @@ const Sidebar = () => {
                 id="search-icon"
               />
 
-              <span className="search-name">Search</span>
+              <span
+                className={isActive("/search") ? "search-name2" : "search-name"}
+              >
+                Search
+              </span>
             </li>{" "}
           </Link>
-          <Link to="/notifications">
-            <li className="list-item" onClick={handleBell}>
-              <img src={bellImg} alt="" className="bell-icon" id="bell-icon" />
-
-              <span className="bell-name">Notifications</span>
-            </li>{" "}
-          </Link>
-          <Link to="/bookmarks">
-            <li className="list-item" onClick={handleBookmark}>
+          <Link to="/notifications" style={{ textDecoration: "none" }}>
+            <li className="list-item">
               <img
-                src={bookmarkImg}
+                src={isActive("/notifications") ? bell2Img : bellImg}
+                alt=""
+                className="bell-icon"
+                id="bell-icon"
+              />
+
+              <span
+                className={
+                  isActive("/notifications") ? "bell-name2" : "bell-name"
+                }
+              >
+                Notifications
+              </span>
+            </li>{" "}
+          </Link>
+          <Link to="/bookmarks" style={{ textDecoration: "none" }}>
+            <li className="list-item">
+              <img
+                src={isActive("/bookmarks") ? bookmark2Img : bookmarkImg}
                 alt=""
                 className="bookmark-icon"
                 id="bookmark-icon"
               />
-              <span className="bookmarks-name">Bookmarks</span>
+              <span
+                className={
+                  isActive("/bookmarks") ? "bookmarks-name2" : "bookmarks-name"
+                }
+              >
+                Bookmarks
+              </span>
             </li>{" "}
           </Link>
-          <Link to="/profile">
-            <li className="list-item" onClick={handleProfile}>
+          <Link to="/profile" style={{ textDecoration: "none" }}>
+            <li className="list-item">
               <img
-                src={profileImg}
+                src={isActive("/profile") ? profile2Img : profileImg}
                 alt=""
                 className="profile-icon"
                 id="profile-icon"
               />
 
-              <span className="profile-name">Profile</span>
+              <span
+                className={
+                  isActive("/profile") ? "profile-name2" : "profile-name"
+                }
+              >
+                Profile
+              </span>
             </li>{" "}
           </Link>
-          <Link to="/messages">
-            <li className="list-item" onClick={handleMessage}>
+          <Link to="/messages" style={{ textDecoration: "none" }}>
+            <li className="list-item">
               <img
-                src={messageImg}
+                src={isActive("/messages") ? message2Img : messageImg}
                 alt=""
                 className="message-icon"
                 id="message-icon"
               />
-              <span className="message-name">Messages</span>
+              <span
+                className={
+                  isActive("/messages") ? "message-name2" : "message-name"
+                }
+              >
+                Messages
+              </span>
             </li>
           </Link>
 
-          <li className="list-item" onClick={handleMessage}>
+          <li className="list-item">
             <button
               type="submit"
               className="create-post-btn"
               onClick={handleCreate}
             >
-              Create Post
+              Create
             </button>
+          </li>
+
+          <li className="list-item">
+            <img
+              alt=""
+              src={avtar}
+              className="logout-pprofile"
+              width={"70px"}
+              height={"70px"}
+              onMouseEnter={handleProfile}
+              // onMouseLeave={handleLeave}
+              onClick={handleProfile}
+            />
+            {showOptions && (
+              <div className="options">
+                <span className="ediht-icon">Edit Profile</span>
+                <span className="logojut-icon">Logout</span>
+              </div>
+            )}
           </li>
         </ul>
       </div>
