@@ -1,22 +1,27 @@
 .container-logout {
   margin-left: 20vw;
   display: flex;
+  height: 100vh;
+  overflow-y: hidden;
+  background-color: aliceblue;
 }
-.left {
-  /* width: 50%; */
-  /* margin-left: 20vw; */
-  /* box-sizing: border-box; */
+.left-logout {
+  width: 40%;
+  margin-left: 10vw;
+  box-sizing: border-box;
   /* overflow-y: hidden; */
+  /* margin: 0 auto; */
 }
 .logout-img {
-  width: 33vw;
-  height: 56vh;
-  margin: 16vh 0vw 23vw 3vh;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10vh;
 }
 
-.right {
+.right-logout {
   color: white;
-  /* margin-left: 20vw; */
+  margin-top: 10vh;
+  margin-left: 5vw;
 }
 .logout-text {
   margin-top: 20vh;
@@ -25,6 +30,7 @@
   padding-right: 40px;
   align-items: center;
   z-index: -1;
+  color: black;
 }
 
 .yes {
@@ -38,14 +44,15 @@
   font-size: 17px;
   margin-top: 4vh;
   margin-left: 1vw;
-  color: rgba(255, 255, 255, 0.9);
-  background-color: rgb(174, 113, 215, 0.9);
+  color: black;
+  background-color: #ae71d7;
 }
 
 .no {
   border: none;
   width: 10vw;
   height: 36px;
+  color: black;
   /* margin-left: 1.7vw; */
   border-radius: 13px;
   cursor: pointer;
@@ -53,6 +60,12 @@
   font-size: 17px;
   margin-top: 4vh;
   margin-left: 1vw;
-  color: rgba(255, 255, 255, 0.9);
-  background-color: rgb(174, 113, 215, 0.9);
+  background-color: #ae71d7;
+}
+
+.yes:hover {
+  background-color: rgb(192, 55, 216);
+}
+.no:hover {
+  background-color: rgb(192, 55, 216);
 }

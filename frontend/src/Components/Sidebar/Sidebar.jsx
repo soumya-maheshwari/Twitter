@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./sidebar.css";
 import homeImg from "../../Assets/home.svg";
 import bellImg from "../../Assets/bell.svg";
@@ -11,9 +11,9 @@ import bookmark2Img from "../../Assets/bookmark2.svg";
 import profile2Img from "../../Assets/profile2.svg";
 import message2Img from "../../Assets/message2.svg";
 import searchImg from "../../Assets/search.svg";
-import menuImg from "../../Assets/menuIcon.svg";
+import searchImg2 from "../../Assets/search2.svg";
 import cross from "../../Assets/cross.svg";
-import avtar from "../../Assets/avatar.svg";
+import logoutImg from "../../Assets/logout.svg";
 
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
@@ -21,9 +21,8 @@ const Sidebar = () => {
   const location = useLocation();
 
   const isActive = (path) => location.pathname === path;
-  console.log(location);
-  console.log(isActive);
-  const [showOptions, setShowOptions] = useState(false);
+  // console.log(location);
+  // console.log(isActive);
   const navigate = useNavigate();
 
   const hideMenu = () => {
@@ -34,13 +33,6 @@ const Sidebar = () => {
     navigate("/HomePage");
   };
 
-  const handleProfile = () => {
-    setShowOptions(true);
-  };
-
-  const handleLeave = () => {
-    setShowOptions(false);
-  };
   return (
     <>
       <div className="sidebar">
@@ -70,7 +62,7 @@ const Sidebar = () => {
           <Link to="/search" style={{ textDecoration: "none" }}>
             <li className="list-item">
               <img
-                src={searchImg}
+                src={isActive("/search") ? searchImg2 : searchImg}
                 alt=""
                 className="search-icon-list"
                 id="search-icon"
@@ -153,7 +145,6 @@ const Sidebar = () => {
               </span>
             </li>
           </Link>
-
           <li className="list-item">
             <button
               type="submit"
@@ -163,25 +154,17 @@ const Sidebar = () => {
               Create
             </button>
           </li>
-
-          <li className="list-item">
-            <img
-              alt=""
-              src={avtar}
-              className="logout-pprofile"
-              width={"70px"}
-              height={"70px"}
-              onMouseEnter={handleProfile}
-              // onMouseLeave={handleLeave}
-              onClick={handleProfile}
-            />
-            {showOptions && (
-              <div className="options">
-                <span className="ediht-icon">Edit Profile</span>
-                <span className="logojut-icon">Logout</span>
-              </div>
-            )}
-          </li>
+          <Link to="/logout" style={{ textDecoration: "none" }}>
+            <li className="list-item-logout">
+              <img
+                src={logoutImg}
+                alt="Log Out"
+                className="logoutt-icon"
+                id="logoutt-icon"
+              />
+              <span className="logout-name">Log Out</span>
+            </li>
+          </Link>
         </ul>
       </div>
     </>

@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-import avatarImg from "../../Assets/avatar.svg";
-import "./othersProfile.css";
+import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import {
@@ -9,8 +7,9 @@ import {
   unFollowUserThunk,
 } from "../../Redux/profileSlice";
 import Sidebar from "../Sidebar/Sidebar";
-import { ToastContainer, toast } from "react-toastify";
-
+import avatarImg from "../../Assets/avatar.svg";
+import "./othersProfile.css";
+import { ToastClassName, toast } from "react-toastify";
 const OthersProfile = (props) => {
   const dispatch = useDispatch();
   const [selectedUser, setSelectedUser] = useState("");
@@ -24,8 +23,10 @@ const OthersProfile = (props) => {
   const [followed, setIsFollowed] = useState(false);
   const [bio, setBio] = useState("");
   const [selectedUserName, setSelectedUserName] = useState("");
-  // const dispatch = useDispatch();
 
+  const { username } = useParams();
+
+  console.log(username);
   const handleClickProfile = () => {
     setSelectedUser(props.name);
     setSelectedUserName(props.username);
@@ -90,10 +91,6 @@ const OthersProfile = (props) => {
       });
   };
 
-  const { username } = useParams();
-
-  console.log(username);
-
   useEffect(() => {
     dispatch(getProfileThunk(username))
       .then((res) => {
@@ -115,24 +112,25 @@ const OthersProfile = (props) => {
         return err.reponse;
       });
   }, [username]);
-
   return (
-    <>
+    <div className="other-profile-head">
       <Sidebar />
+
       <div className="other-profile-page">
-        <div className="other-profile-body" onClick={handleClickProfile}>
+        <div className="other-profile-body">
           <img src={avatarImg} alt="" className="other-user-img" />
+
           <div className="other-profile-div">
-            <div className="other-profile1">
-              <p className="other-posts">Posts</p>
-              <p className="other-posts">Followers</p>
-              <p className="other-posts">Following</p>
+            <div className="profile1">
+              <p className="posts">Posts</p>
+              <p className="posts">Followers</p>
+              <p className="posts">Following</p>
             </div>
 
-            <div className="other-profile2">
-              <p className="other-count">{posts}</p>
-              <p className="other-count">{followers}</p>
-              <p className="other-count">{following}</p>
+            <div className="profile2">
+              <p className="count">{posts}</p>
+              <p className="count">{followers}</p>
+              <p className="count">{following}</p>
             </div>
             <button
               className="follow-btn"
@@ -142,7 +140,6 @@ const OthersProfile = (props) => {
               {/* {followed ? "Unfollow" : "Follow"} */}
               Follow
             </button>
-
             {/* <button
               className="follow-btn"
               type="submit"
@@ -150,19 +147,16 @@ const OthersProfile = (props) => {
             >
               Unfollow
             </button> */}
-            {/* <hr className="linee" /> */}
           </div>
         </div>
-        <div className="other-profile3">
-          <p className="other-profile-info1">{name}</p>
-          <p className="other-profile-info3">@{username}</p>
-          <p className="other-profile-info2">{email}</p>
-
-          <p className="other-profile-info4">{bio}</p>
+        <div className="profile3">
+          <p className="profile-info1">{name}</p>
+          <p className="profile-info2">{email}</p>
+          <p className="profile-info3">@{username}</p>
+          <p className="profile-info4">{bio}</p>
         </div>
       </div>
-      <ToastContainer />
-    </>
+    </div>
   );
 };
 

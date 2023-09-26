@@ -37,9 +37,10 @@ const SearchUserComponent = (props) => {
       >
         <div className="boxs">
           <img src={avatarImg} alt="avatar" className="user-img-profile" />
-          <p className="search-user-name">{props.name}</p>
-          <p className="search-user-username">@{props.username}</p>
-          <hr className="linee" />
+          <div className="INFO">
+            <p className="search-user-name">{props.name}</p>
+            <p className="search-user-username">@{props.username}</p>
+          </div>
         </div>
         {/* {selectedUser && selectedUserName && (
           // && navigate("/otherProfile")

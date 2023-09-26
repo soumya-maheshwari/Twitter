@@ -29,7 +29,7 @@
   font-weight: 500;
   font-size: 19px;
   line-height: 20px;
-  color: #7534e6;
+  color: #ae71d7;
   margin-bottom: 0;
   cursor: pointer;
 }
@@ -64,9 +64,9 @@
 .book-icon {
   width: 26px;
   height: 26px;
-  margin-top: 1vh;
+  margin-top: 3vh;
   cursor: pointer;
-  margin-left: 33.5vw;
+  margin-left: 35.5vw;
   right: 0;
 }
 

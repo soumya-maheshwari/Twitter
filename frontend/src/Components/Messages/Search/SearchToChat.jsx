@@ -62,7 +62,7 @@ const SearchToChat = () => {
           className="search-user-body"
           style={{
             marginTop: "10px",
-            width: "36vw",
+            width: "35.5vw",
           }}
         >
           <img

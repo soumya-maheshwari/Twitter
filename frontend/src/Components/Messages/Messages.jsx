@@ -174,18 +174,18 @@ const Messages = () => {
                 <div className="chat-box">
                   {" "}
                   <div className="chat-head">
-                    <img
+                    {/* <img
                       src={arrow}
                       alt=""
                       className="arrow"
                       onClick={handleBack}
                       onMouseOver={handleMouse}
                       id="ARROW"
-                    />
+                    /> */}
                   </div>
-                  {/* <p className="sender-heading">
+                  <p className="sender-heading">
                     {getSenderName(user, selectedChat.users)}
-                  </p> */}
+                  </p>
                   <div className="messages">
                     <ScrollableChatFeeds allMessages={allMessages} />
                   </div>
@@ -270,12 +270,6 @@ const Messages = () => {
                   <div className="all-chats" key={chat._id}>
                     <div
                       className="all-chat"
-                      style={{
-                        backgroundColor: `${
-                          selectedChat === chat ? "#494fde" : "indianred"
-                        }`,
-                      }}
-                      bgcolor={selectedChat === chat ? "#494fde" : "#fafcfc"}
                       onClick={() => setSelectedChat(chat)}
                     >
                       <p className="sender">

@@ -21,11 +21,11 @@ const Logout = () => {
       <Sidebar />
 
       <div className="container-logout">
-        <div className="left">
+        <div className="left-logout">
           <img src={LogoutImg} className="logout-img" alt="logout password ?" />
         </div>
 
-        <div className="right">
+        <div className="right-logout">
           <p className="logout-text">Are you sure you want to logout?</p>
           <button className="yes" onClick={handleLogout}>
             YES

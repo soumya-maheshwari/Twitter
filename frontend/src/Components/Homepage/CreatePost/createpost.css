@@ -11,11 +11,12 @@
   padding-left: 1.5vw;
   overflow-x: hidden;
   padding-bottom: 50px;
-  margin-left: 3.9vw;
+  /* margin-left: 3.9vw; */
   /* align-items: center; */
   color: white;
-  height: 65vh;
+  /* height: 65vh; */
   /* margin-top: 50px; */
+  margin: 0 auto;
 }
 
 .create-post::-webkit-scrollbar {
@@ -92,8 +93,8 @@
   font-size: 17px;
   margin-top: 4vh;
   margin-left: 1vw;
-  color: rgba(255, 255, 255, 0.9);
-  background-color: rgb(174, 113, 215, 0.9);
+  color: black;
+  background-color: #ae71d7;
 }
 
 .create-post2 {

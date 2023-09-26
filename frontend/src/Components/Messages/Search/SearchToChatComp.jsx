@@ -55,27 +55,37 @@ const SearchUserComponent = (props) => {
   return (
     <>
       <div
-        className="search-result"
+        className="res"
+        style={{
+          marginLeft: "0vw",
+          width: "33vw",
+          padding: "20px",
+          marginTop: "1vw",
+          margin: "20px auto",
+        }}
         // onMouseOver={handleUserClick}
         // onMouseLeave={handleLeave}
         // onClick={handleUserClick}
       >
-        <div className="boxs">
-          <div className="ss">
-            <img src={avatarImg} alt="avatar" className="user-img-profile" />
-            <img
-              src={msgImg}
-              alt="msg"
-              className="msg-imgg"
-              onClick={handleMessage}
-              id="msgg"
-              onMouseOver={handleMouseOver}
-              onMouseLeave={handleMouseLeave}
-            />
+        <div className="booxs">
+          <img src={avatarImg} alt="avatar" className="user-img-profile" />
+          <img
+            src={msgImg}
+            alt="msg"
+            className="msg-imgg"
+            onClick={handleMessage}
+            id="msgg"
+            onMouseOver={handleMouseOver}
+            onMouseLeave={handleMouseLeave}
+          />
+          <div
+            style={{
+              paddingLeft: "2vw",
+            }}
+          >
+            <p className="search-user-name">{props.name}</p>
+            <p className="search-user-username">@{props.username}</p>
           </div>
-          <p className="search-user-name">{props.name}</p>
-          <p className="search-user-username">@{props.username}</p>
-          <hr className="linee" />
         </div>
         {/* {selectedUser && selectedUserName && (
           // && navigate("/otherProfile")

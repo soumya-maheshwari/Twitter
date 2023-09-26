@@ -115,14 +115,13 @@ const Profilepage = () => {
     <>
       <div className="profile-head">
         <Sidebar />
-        <img
+        {/* <img
           src={menuImg}
           alt="menu"
           className="menu-icon-home2"
           id="menu2"
           onClick={showMenu}
-        />
-        <h1 className="home-head HOME-HEAD">PROFILE</h1>
+        /> */}
 
         <div className="profile-page">
           <img

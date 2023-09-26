@@ -1,3 +1,5 @@
+/* color: rgb(174, 113, 215, 0.9); */
+/* #AE71D7 */
 .sidebar {
   box-sizing: border-box;
   position: fixed;
@@ -27,8 +29,9 @@
   list-style: none;
   font-size: 24px;
   font-weight: 200;
-  margin-left: -10px;
+  /* margin-left: -10px; */
   list-style-type: none;
+  margin-top: 10vh;
   align-items: center;
 }
 
@@ -53,7 +56,7 @@
 .search-icon-list {
   padding-right: 1.6vw;
   opacity: 0.8;
-  width: 33px;
+  width: 35px;
   align-items: center;
   text-align: center;
   margin-top: 30px;
@@ -68,7 +71,7 @@
   color: rgb(174, 113, 215, 0.9);
 }
 .bell-icon {
-  padding-right: 2.1vw;
+  padding-right: 2vw;
   opacity: 0.8;
   width: 27px;
   align-items: center;
@@ -87,7 +90,7 @@
 }
 
 .bookmark-icon {
-  padding-right: 2.54vw;
+  padding-right: 2.44vw;
   opacity: 0.8;
   width: 20px;
   align-items: center;
@@ -105,7 +108,7 @@
 }
 
 .profile-icon {
-  padding-right: 2.44vw;
+  padding-right: 2.34vw;
   opacity: 0.8;
   width: 23px;
   align-items: center;
@@ -132,7 +135,7 @@
 }
 
 .message-icon {
-  padding-right: 2.3vw;
+  padding-right: 2.1vw;
   opacity: 0.8;
   width: 26px;
   margin-top: 30px;
@@ -144,17 +147,37 @@
   height: 39px;
   border-radius: 13px;
   cursor: pointer;
-  font-weight: 300;
-  font-size: 17px;
+  font-weight: 500;
+  font-size: 19px;
   margin-top: 6vh;
   margin-left: 1vw;
-  color: rgba(255, 255, 255, 0.9);
-  background-color: rgb(174, 113, 215, 0.9);
+  color: black;
+  background-color: #ae71d7;
 }
-.logout-pprofile {
-  border-radius: 50%;
+.itm2 {
+  display: flex;
+}
+.list-item-logout {
+  list-style: none;
+  font-size: 24px;
+  font-weight: 100;
+  /* margin-left: -10px; */
+  list-style-type: none;
   margin-top: 5vh;
+  align-items: center;
 }
+.logoutt-icon {
+  padding-right: 2.1vw;
+  opacity: 0.8;
+  width: 29px;
+  margin-top: 30px;
+}
+
+.logout-name {
+  color: white;
+  font-weight: 100;
+}
+
 /* responsive */
 
 @media (max-width: 1045px) {
@@ -188,13 +211,16 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 610px) {
   .sidebar {
     width: 33.1vw;
   }
-  .lists-item {
-    font-size: 21px;
+  .list-item {
+    font-size: 18px;
     color: rgba(224, 216, 216, 0.9);
+  }
+  .lists-item {
+    margin-left: 0;
   }
 }
 

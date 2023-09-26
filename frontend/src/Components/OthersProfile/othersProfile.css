@@ -1,34 +1,35 @@
-.other-profile-page {
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  left: 30.5vw;
-  top: 10vh;
-  padding: 10px 4px 20px 8px;
-  background: rgb(16, 16, 16);
-  border-radius: 8px;
+.other-profile-head {
+  width: 100vw;
+  height: 100vh;
   position: fixed;
-  scroll-behavior: smooth;
+  background-color: rgb(28, 28, 28);
+}
+.other-profile-page {
+  width: 63vw;
+  left: 29vw;
+  position: absolute;
+  top: 20vh;
+  padding-bottom: 3vh;
+  background: #121212;
+  border-radius: 20px;
   color: white;
-  width: 50.9vw;
 }
 .other-profile-body {
   display: flex;
-  padding-top: 4vh;
+  padding-top: 6vh;
 }
 
 .other-profile-div {
   display: flex;
   flex-direction: column;
-  margin-left: 11.5vw;
+  margin-left: 10.1vw;
 }
 .other-user-img {
-  margin-left: 3vw;
-  width: 60px;
-  height: 100px;
-  width: 100px;
+  margin-left: 1vw;
+  width: 190px;
+  cursor: pointer;
+  height: 190px;
   border-radius: 50%;
-  margin-top: 6vh;
 }
 
 .other-profile1 {

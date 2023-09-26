@@ -4,7 +4,7 @@
   position: fixed;
   background-color: rgb(28, 28, 28);
   /* overflow-x: scroll; */
-  /* overflow-y: scroll; */
+  overflow-y: scroll;
   scrollbar-color: transparent transparent;
 }
 .head-b {
@@ -16,7 +16,7 @@
 }
 
 .all-bookmarks::-webkit-scrollbar-thumb {
-  background-color: transparen;
+  background-color: transparent;
 }
 
 .all-bookmarks::-webkit-scrollbar-track {
@@ -24,13 +24,9 @@
 }
 
 .all-bookmarks {
-  left: 20vw;
-  display: flex;
-  flex-direction: column;
-  position: fixed;
+  /* position: fixed; */
   color: white;
-  /* overflow-y: scroll; */
-
+  overflow-y: scroll;
   display: flex;
   flex-direction: column;
   left: 21vw;
@@ -39,7 +35,7 @@
   border-radius: 8px;
   position: fixed;
   color: white;
-  width: 77vw;
+  width: 79vw;
   height: 100vh;
 }
 .post-box-bookmark {
@@ -55,7 +51,12 @@
   border-radius: 19px;
   margin-top: 10vh;
   border: 2.5px solid white;
+  transition: transform 0.2s;
   cursor: pointer;
+}
+
+.post-box-bookmark:hover {
+  transform: translateY(-5px);
 }
 
 .box1-bookmark {
@@ -66,7 +67,7 @@
 
 .crosss-icon {
   width: 17px;
-  margin-left: 38vw;
+  margin-left: 38.1vw;
   cursor: pointer;
 }
 .post-box-name-bookmark {
@@ -81,7 +82,7 @@
   font-weight: 500;
   font-size: 19px;
   line-height: 20px;
-  color: #7534e6;
+  color: #ae71d7;
   margin-bottom: 0;
   cursor: pointer;
 }

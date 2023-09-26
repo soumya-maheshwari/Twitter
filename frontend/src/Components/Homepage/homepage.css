@@ -1,6 +1,7 @@
 .HOME {
   width: 100vw;
   height: 100vh;
+  /* padding: 20px; */
   background: rgb(16, 16, 16);
 }
 
@@ -44,7 +45,7 @@
   font-weight: 500;
   font-size: 39px;
   /* position: fixed; */
-  color: rgb(174, 113, 215);
+  color: #ae71d7;
 }
 
 .home-right {
@@ -78,7 +79,9 @@
 .home-feeds {
   /* left: 21vw; */
   margin-top: 3vh;
+  cursor: pointer;
 }
+
 .logout-icon {
   width: 30px;
   margin-left: 14vw;
