@@ -1,5 +1,6 @@
 body {
-  background-color: rgb(88, 27, 128);
+  /* background-color: rgb(88, 27, 128); */
+  background-color: #ae71d7;
 }
 .container-otp {
   max-width: 84vw;
@@ -17,9 +18,13 @@ body {
   overflow-y: hidden;
 }
 .otp-img {
-  width: 33vw;
-  height: 56vh;
+  width: 39vw;
+  height: 59vh;
   margin: 16vh 0vw 23vw 3vh;
+}
+
+.form-otp p {
+  font-size: 24px;
 }
 .otp-head {
   margin-top: 14vh;
@@ -61,7 +66,7 @@ body {
   padding: 10px;
   font-size: 19px;
   height: 60px;
-  background-color: rgb(181, 98, 236);
+  background-color: #ae71d7;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -71,7 +76,7 @@ body {
 }
 
 button[type="submit"]:hover {
-  background-color: rgb(165, 78, 222);
+  background-color: #9148c1;
 }
 
 @media (max-width: 970px) {

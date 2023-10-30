@@ -20,7 +20,7 @@ router.get(
 router.put(
   "/editProfile",
   authVerifyToken,
-  multerUpload.single("pic"),
+  multerUpload.single("profile_pic"),
   profileController.editProfile
 );
 

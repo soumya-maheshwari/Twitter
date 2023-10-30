@@ -21,6 +21,7 @@ const CreatePost = () => {
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [post, setPost] = useState(false);
   const [postid, setPostid] = useState("");
+  const [fContent, setFContent] = useState("");
 
   const user = JSON.parse(localStorage.getItem("userInfo"));
 
@@ -38,10 +39,12 @@ const CreatePost = () => {
 
     dispatch(createPostThunk(userData))
       .then((res) => {
-        // console.log(res);
+        console.log(res);
+        setFContent(res.payload.data.newPost.content);
         setPostid(res.payload.data.newPost._id);
         setPost(true);
         if (res.payload.data.success) {
+          setContent("");
           toast.success(`${res.payload.data.msg}`, {
             position: "top-right",
             theme: "dark",
@@ -195,7 +198,7 @@ const CreatePost = () => {
       </div>
       {post && (
         <PostComponent
-          content={content}
+          content={fContent}
           username={user.user.username}
           name={user.user.name}
           image={selectedImgURL}

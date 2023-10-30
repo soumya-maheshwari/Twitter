@@ -41,7 +41,7 @@ const Bookmarks = () => {
             onClick={showMenu}
           />
 
-          <h1 className="head-b home-head">BOOKMARKED POSTS</h1>
+          <h1 className="head-b home-head">Bookmarked Posts</h1>
           {bookmarks &&
             bookmarks.map((post) => {
               return (

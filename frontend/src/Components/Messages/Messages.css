@@ -36,6 +36,7 @@
   position: relative;
   width: 95%;
   height: 90%;
+  margin-top: 4vh;
 }
 
 .messages::-webkit-scrollbar {
@@ -79,8 +80,8 @@
 .emojipicker11 {
   position: absolute;
   top: 30vh;
-  left: 21vw;
-  width: 6vw;
+  left: 11vw;
+  width: 19vw;
 }
 .send-img {
   width: 30px;

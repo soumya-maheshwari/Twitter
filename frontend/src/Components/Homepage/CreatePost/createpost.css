@@ -150,9 +150,11 @@
   width: 30vw;
   margin-top: 2vh;
   height: 30vh;
+  margin-left: 1vw;
 }
 
 .selected-video {
+  margin-left: 1vw;
   width: 30vw;
   height: 30vh;
   margin-top: 2vh;

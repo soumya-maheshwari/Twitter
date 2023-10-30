@@ -47,7 +47,7 @@ const Login = () => {
           });
 
           setTimeout(() => {
-            // navigate("/homePage");
+            navigate("/homePage");
           }, 3000);
 
           // localStorage.setItem("userInfo", JSON.stringify(sm.profile));
@@ -127,7 +127,7 @@ const Login = () => {
             </div>
             <p className="text-forgot">
               <span className="link">
-                <Link to="/forgotPassword"> Forogt Password ?</Link>
+                <Link to="/forgotPassword"> Forgot Password ?</Link>
               </span>
             </p>
             <button type="submit" className="login-btn">

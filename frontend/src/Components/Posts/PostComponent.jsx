@@ -160,8 +160,10 @@ const PostComponent = (props) => {
           <p className="post-box-username">@{props.username}</p>
         </div>
         <p className="post-texts">{props.content}</p>
-        <img src={props.image} alt="image" className="post-img" />
-        <div className="imgss">
+        {props.image && (
+          <img src={props.image} alt="image" className="post-img" />
+        )}
+        {/* <div className="imgss">
           <div className="like-div">
             <img
               src={isLike ? like2 : likeImg}
@@ -205,7 +207,7 @@ const PostComponent = (props) => {
             />
             <p className="likes-count">0</p>
           </div>
-        </div>
+        </div> */}
       </div>
       <ToastContainer />
     </>

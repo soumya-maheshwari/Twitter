@@ -10,7 +10,8 @@ const SearchUserComponent = (props) => {
 
   const [selectedUserName, setSelectedUserName] = useState("");
 
-  // console.log(props.username);
+  console.log(props);
+
   // const userData = {
   //   username: props.username,
   // };
@@ -36,7 +37,15 @@ const SearchUserComponent = (props) => {
         onClick={handleUserClick}
       >
         <div className="boxs">
-          <img src={avatarImg} alt="avatar" className="user-img-profile" />
+          {props.pic ? (
+            <>
+              <img src={props.pic} alt="avatar" className="user-img-profile" />
+            </>
+          ) : (
+            <>
+              <img src={avatarImg} alt="avatar" className="user-img-profile" />
+            </>
+          )}
           <div className="INFO">
             <p className="search-user-name">{props.name}</p>
             <p className="search-user-username">@{props.username}</p>

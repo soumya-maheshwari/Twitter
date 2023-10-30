@@ -23,6 +23,7 @@ const EditProfile = () => {
   const [bio, setBio] = useState("");
   const [pic, setPic] = useState("");
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+  const [photo, setPhoto] = useState("");
 
   useEffect(() => {
     dispatch(getProfileThunk(username))
@@ -31,6 +32,7 @@ const EditProfile = () => {
         setName(res.payload.data.profile.name);
         setPic(res.payload.data.profile.profile_pic);
         setBio(res.payload.data.profile.bio || "");
+        setPhoto(res.payload.data.profile.profile_pic);
         console.log(sendImage);
 
         setSendImage(res.payload.data.profile.profile_pic);
@@ -41,6 +43,8 @@ const EditProfile = () => {
         return err.response;
       });
   }, [username]);
+
+  console.log(photo);
 
   const handleUpdateImg = (e) => {
     var profilePic = (document.getElementById("input-profile-img").src =
@@ -55,7 +59,7 @@ const EditProfile = () => {
     name: name,
     bio: bio,
   };
-
+  console.log(editProfileImage);
   console.log(userData);
   const handleCancel = (e) => {
     e.preventDefault();
@@ -128,16 +132,24 @@ const EditProfile = () => {
           id="menu2"
           onClick={showMenu}
         />
-        <h1 className="home-head HOME-HEAD">PROFILE</h1>
 
         <div className="edit-profile-page">
-          {editProfileImage ? (
-            <>
-              <img src={editProfileImage} alt="" className="user-img3" />
-            </>
-          ) : (
-            <img src={avatarImg} alt="" className="user-img3" />
-          )}
+          {
+            editProfileImage ? (
+              <>
+                <img src={editProfileImage} alt="" className="user-img3" />
+              </>
+            ) : photo ? (
+              <>
+                <img src={photo} alt="" className="user-img3" />
+              </>
+            ) : (
+              <>
+                <img src={avatarImg} alt="" className="user-img3" />
+              </>
+            )
+            // <img src={avatarImg} alt="" className="user-img3" />
+          }
           <p>
             <img id="editProfileImg" />
           </p>
@@ -149,6 +161,7 @@ const EditProfile = () => {
                 id="input-profile-img"
                 accept="image/png, image/jpg, image/jpeg"
                 hidden
+                name="profile_pic"
                 onChange={handleUpdateImg}
               />
             </label>

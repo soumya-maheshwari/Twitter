@@ -14,7 +14,7 @@ import searchImg from "../../Assets/search.svg";
 import searchImg2 from "../../Assets/search2.svg";
 import cross from "../../Assets/cross.svg";
 import logoutImg from "../../Assets/logout.svg";
-
+import logo from "../../Assets/logo.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
@@ -36,7 +36,9 @@ const Sidebar = () => {
   return (
     <>
       <div className="sidebar">
-        <p className="sidebar-head"></p>
+        <p className="sidebar-head">
+          <img src={logo} alt="Twitter" className="logo" />
+        </p>
         <img
           src={cross}
           alt="X"

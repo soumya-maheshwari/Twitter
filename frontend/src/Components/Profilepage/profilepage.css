@@ -9,7 +9,7 @@
   width: 63vw;
   left: 29vw;
   position: absolute;
-  top: 20vh;
+  top: 10vh;
   padding-bottom: 3vh;
   background: #121212;
   border-radius: 20px;
@@ -102,7 +102,7 @@
   height: auto;
   font-size: 1.2rem;
   margin-bottom: -0.1vh;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.3);
 }
 
 .profile-info4 {
@@ -128,13 +128,15 @@
   height: 100vh;
   position: fixed;
   background-color: rgb(28, 28, 28);
+  align-items: center;
+  justify-content: center;
 }
 .edit-profile-page {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 11vh;
+  top: 12%;
   left: 35.5vw;
   width: 50vw;
   padding-bottom: 35px;
@@ -143,6 +145,7 @@
   border: 3px solid rgba(255, 255, 255, 0.7);
   border-radius: 16px;
   z-index: 110;
+  justify-content: center;
   color: white;
 }
 .input-profile-img {
@@ -192,8 +195,9 @@
 
 .emoji-icon2 {
   width: 24px;
-  margin-left: 10vw;
+  margin-left: 13vw;
   cursor: pointer;
+  position: absolute;
 }
 
 .character-count {

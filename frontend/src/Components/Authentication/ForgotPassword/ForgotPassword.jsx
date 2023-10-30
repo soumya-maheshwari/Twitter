@@ -39,7 +39,7 @@ const ForgotPassword = () => {
 
         <div className="form-forgot">
           <h1 className="forgot-head">Forgot Password?</h1>
-          <p className="forgot-text">We will send a OTP to your Email .</p>
+          <p className="forgot-text">An OTP will be sent to your Email .</p>
           <form action="" className="form-class" onSubmit={handleSendOTP}>
             <div className="form-group">
               <label htmlFor="email" className="form-label">

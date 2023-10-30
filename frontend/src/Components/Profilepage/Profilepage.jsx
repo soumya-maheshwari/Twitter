@@ -67,8 +67,6 @@ const Profilepage = () => {
       });
   }, [username]);
 
-  const profileURL = `${api}${profile_pic}`;
-
   // console.log(profileURL);
 
   const showFollowers = () => {
@@ -135,7 +133,7 @@ const Profilepage = () => {
             {/*  */}
             {profile_pic ? (
               <>
-                <img src={profileURL} alt="" className="user-img" />
+                <img src={profile_pic} alt="" className="user-img" />
               </>
             ) : (
               <>

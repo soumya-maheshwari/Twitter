@@ -183,6 +183,7 @@ const editProfile = async (req, res, next) => {
     const { name, bio } = req.body;
 
     user.name = name || user.name;
+    user.bio = bio || user.bio;
     const file = req.file ? req.file : null;
 
     profile_pic = user.profile_pic;
@@ -190,22 +191,28 @@ const editProfile = async (req, res, next) => {
     // if (file) {
     //   pic = file.filename;
     // }
+    const baseUrl = "http://localhost:5000";
 
     if (req.file) {
-      profile_pic = req.file.filename;
+      // profile_pic = req.file.filename;
+      profile_pic = baseUrl + "/media/" + req.file.filename;
     }
     // console.log(req.file);
     // console.log(file, "file");
 
-    // console.log(profile_pic, "pic");
+    console.log(profile_pic, "pic");
 
-    const editUser = await User.findByIdAndUpdate(userid, {
-      name: name,
-      bio: bio,
-      profile_pic: profile_pic,
-    });
+    const editUser = await User.findByIdAndUpdate(
+      userid,
+      {
+        name: name,
+        bio: bio,
+        profile_pic: profile_pic,
+      },
+      { new: true }
+    );
 
-    // await user.save();
+    await user.save();
 
     // console.log(editUser);
 

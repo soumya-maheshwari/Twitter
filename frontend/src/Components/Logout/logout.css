@@ -2,8 +2,9 @@
   margin-left: 20vw;
   display: flex;
   height: 100vh;
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
   background-color: aliceblue;
+  align-items: center;
 }
 .left-logout {
   width: 40%;
@@ -15,16 +16,16 @@
 .logout-img {
   justify-content: center;
   align-items: center;
-  margin-top: 10vh;
+  /* margin-top: 10vh; */
 }
 
 .right-logout {
   color: white;
-  margin-top: 10vh;
+  /* margin-top: 10vh; */
   margin-left: 5vw;
 }
 .logout-text {
-  margin-top: 20vh;
+  /* margin-top: 20vh; */
   font-size: 30px;
   font-weight: bolder;
   padding-right: 40px;

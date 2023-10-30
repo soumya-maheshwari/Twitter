@@ -18,7 +18,7 @@ const Search = () => {
         <Sidebar />
 
         <div className="search-sidebar">
-          <h1 className="home-head search-head">SEARCH USERS</h1>
+          {/* <h1 className="home-head search-head">SEARCH USERS</h1> */}
           <img
             src={menuImg}
             alt="menu"

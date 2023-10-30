@@ -33,7 +33,8 @@ app.use(errorMiddleware);
 // app.use(express.static(path.join(__dirname, "./media")));
 
 // Serve static files from the 'media' directory
-app.use("/media", express.static(path.join(__dirname, "media")));
+// app.use("/media", express.static(path.join(__dirname, "media")));
+app.use("/media", express.static("media"));
 
 //Routes
 app.use("/auth", errorMiddleware, authRoutes);

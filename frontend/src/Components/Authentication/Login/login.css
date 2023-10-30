@@ -1,5 +1,6 @@
 body {
-  background-color: rgb(88, 27, 128);
+  /* background-color: rgb(88, 27, 128); */
+  background-color: #ae71d7;
 }
 .container-login {
   max-width: 84vw;
@@ -61,7 +62,7 @@ body {
   padding: 10px;
   font-size: 19px;
   height: 60px;
-  background-color: rgb(181, 98, 236);
+  background-color: #ae71d7;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -71,7 +72,7 @@ body {
 }
 
 button[type="submit"]:hover {
-  background-color: rgb(165, 78, 222);
+  background-color: #9148c1;
 }
 
 .eyeimg {

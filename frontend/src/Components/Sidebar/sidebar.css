@@ -11,13 +11,16 @@
 }
 
 .sidebar-head {
-  margin-left: 3.5vw;
+  margin-left: 2.5vw;
   margin-top: 35px;
   font-weight: 500;
   font-size: 39px;
   color: rgb(174, 113, 215);
 }
-
+.logo {
+  width: 200px;
+  height: 60px;
+}
 .cross-icon {
   width: 20px;
   margin-left: 10vw;
@@ -31,7 +34,7 @@
   font-weight: 200;
   /* margin-left: -10px; */
   list-style-type: none;
-  margin-top: 10vh;
+  margin-top: -1vh;
   align-items: center;
 }
 

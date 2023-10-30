@@ -23,7 +23,7 @@ const OthersProfile = (props) => {
   const [followed, setIsFollowed] = useState(false);
   const [bio, setBio] = useState("");
   const [selectedUserName, setSelectedUserName] = useState("");
-
+  const [pic, setPic] = useState("");
   const { username } = useParams();
 
   console.log(username);
@@ -104,6 +104,7 @@ const OthersProfile = (props) => {
           setPosts(res.payload.data.profile.no_of_posts.length);
           setUserid(res.payload.data.profile._id);
           setBio(res.payload.data.profile.bio);
+          setPic(res.payload.data.profile.profile_pic);
         }
         return res;
       })
@@ -118,7 +119,15 @@ const OthersProfile = (props) => {
 
       <div className="other-profile-page">
         <div className="other-profile-body">
-          <img src={avatarImg} alt="" className="other-user-img" />
+          {pic ? (
+            <>
+              <img src={pic} alt="" className="other-user-img" />
+            </>
+          ) : (
+            <>
+              <img src={avatarImg} alt="" className="other-user-img" />
+            </>
+          )}
 
           <div className="other-profile-div">
             <div className="profile1">
