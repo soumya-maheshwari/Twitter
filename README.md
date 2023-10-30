@@ -25,3 +25,11 @@
 # <p align = "center">Login </p>
 
 ![image](https://github.com/soumya-maheshwari/Twitter/assets/104725768/29571613-29ee-441a-ad13-7f02280d0081)
+
+# <p align = "center">Register </p>
+
+![image](https://github.com/soumya-maheshwari/Twitter/assets/104725768/6188f8c0-3b4b-4ae2-8738-f352e36b0e61)
+
+# <p align = "center">Login </p>
+
+![image](https://github.com/soumya-maheshwari/Twitter/assets/104725768/29571613-29ee-441a-ad13-7f02280d0081)
